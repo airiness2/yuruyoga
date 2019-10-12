@@ -58,13 +58,13 @@ Ruby 2.6.3p62 Rails 5.2.3
 https://docs.google.com/spreadsheets/d/e/2PACX-1vSUhdglDMwVH-9Ppo3w_YY2w59Xyx-ZhM-MtZnW9Rn2LLyGMXk35CoNfQ7WyMrBfxj5GVuYRzYu7gmg/pubhtml?gid=1177389026&single=true
 
 # テーブル定義
-https://docs.google.com/spreadsheets/d/e/2PACX-1vQd2gRbr5vvVzdcXNoBZhw4xcACQU2c9X0E4Cl7DO5-nmn9u-FZzOmE7iAemGOYuEW8bMVJC5Ee3Dhe/pubhtml
+https://docs.google.com/spreadsheets/d/1f-t6RccwFEQwvopYyBsXF6qiU87eyAfOvXBnt-eXU6o/edit?usp=sharing
 
 # 画面遷移図
-https://docs.google.com/spreadsheets/d/e/2PACX-1vSKr7MjMboK8Mcc30K9i8iFBGEHQ3UZrbXURTXFkXQsovNDbODqqjiKgu8xndhkVlQgthu0mDkuvHg-/pubhtml
+https://docs.google.com/spreadsheets/d/1X7lMTgVoY-N8ZGaf8mDnAfSu4ka4OORQWLX9h5Z5EXc/edit?usp=sharing
 
 # 画面ワイヤーフレーム
-https://docs.google.com/spreadsheets/d/e/2PACX-1vTG62YqDK9fyxdGKQPq18YxoL2SYKMCn4LjY2JSzvwiS2PbATtQDxJdEC_kkKijrat8HkxIm4Um-uHt/pubhtml
+https://docs.google.com/spreadsheets/d/1BvqCrjRN9P6qL5QE8jn0Q4I3MR_ObCaoB5cMTSliwN0/edit#gid=0
 
 # 使用予定Gem
 - carrierwave
