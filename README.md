@@ -9,7 +9,7 @@
 ポーズを毎日1つずつ登録していくシンプル日記
 
 ## バージョン
-Ruby 2.6.3p62 Rails 5.2.3
+Ruby 2.6.4 Rails 5.2.3
 
 ## 機能一覧
 - ログイン機能
@@ -74,3 +74,15 @@ https://docs.google.com/spreadsheets/d/1BvqCrjRN9P6qL5QE8jn0Q4I3MR_ObCaoB5cMTSli
 - kaminari
 - ransack
 - Friendly ID
+
+# 必要要件
+
+### 【就業Termから少なくとも2つ】
+
+- devise
+- コメント機能
+- メッセージ機能
+
+### 【カリキュラム外から１つ】
+
+- 楽天WEBサービスAPIを使い、ECサイトのヨガウェア情報を表示
