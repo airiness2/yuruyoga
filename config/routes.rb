@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'diaries#index'
+
+  devise_scope :user do
+    get '/users/sign_out' => 'devise/sessions#destroy'
+  end
+
   resources :diaries
 
   if Rails.env.development?
