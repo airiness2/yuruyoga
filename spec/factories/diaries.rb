@@ -1,9 +1,9 @@
 FactoryBot.define do
   factory :diary do
-    title { "MyString" }
-    worked_date { "2019-10-16 15:26:49" }
-    body { "MyText" }
+    title { "タイトル" }
+    worked_date { "2019-10-20" }
+    body { "本文" }
     rank { 1 }
-    image { "MyString" }
+    image { nil }
   end
 end
