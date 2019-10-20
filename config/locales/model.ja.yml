@@ -2,6 +2,7 @@ ja:
   activerecord:
     models:
       diary: "日記"
+      user: "ユーザ"
     attributes:
       diary:
         title: "タイトル"
@@ -9,4 +10,12 @@ ja:
         body: "本文"
         rank: "ランク"
         image: "投稿画像"
-
+      user:
+        name: "名前"
+        email: "メールアドレス"
+        admin: "管理者"
+        avatar: "プロフィール画像"
+        current_password: "現在のパスワード"
+        password: "パスワード"
+        password_confirmation: "確認用パスワード"
+        remember_me: "ログインを記憶"
