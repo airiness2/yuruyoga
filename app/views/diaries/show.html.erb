@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong><%= t('view.title') %>:</strong>
+  <%= @diary.title %>
+</p>
+
+<p>
+  <strong><%= t('view.worked_date') %>:</strong>
+  <%= @diary.worked_date %>
+</p>
+
+<p>
+  <strong><%= t('view.body') %>:</strong>
+  <%= @diary.body %>
+</p>
+
+<p>
+  <strong><%= t('view.rank') %>:</strong>
+  <%= @diary.rank %>
+</p>
+
+<p>
+  <strong><%= t('view.image') %>:</strong>
+  <%= @diary.image %>
+</p>
+
+<%= link_to '編集', edit_diary_path(@diary) %> |
+<%= link_to '戻る', diaries_path %>
