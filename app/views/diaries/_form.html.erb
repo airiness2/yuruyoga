@@ -12,23 +12,28 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :diary_title %>
-  </div>
-
-  <div class="field">
     <%= form.label :worked_date %>
     <%= form.date_field :worked_date, value: Time.now.strftime("%Y-%m-%d"), id: :diary_worked_date %>
   </div>
 
   <div class="field">
-    <%= form.label :body %>
-    <%= form.text_area :body, id: :diary_body %>
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :diary_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pose %>
+    <%= form.text_field :title, id: :diary_pose %>
   </div>
 
   <div class="field">
     <%= form.label :rank %>
     <%= form.select :rank, [[1,1],[2,2],[3,3],[4,4],[5,5],[6,6],[7,7],[8,8],[9,9],[10,10]], id: :diary_rank %>
+  </div>
+
+  <div class="field">
+    <%= form.label :body %>
+    <%= form.text_area :body, id: :diary_body %>
   </div>
 
   <div class="field">
