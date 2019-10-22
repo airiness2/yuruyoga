@@ -5,5 +5,7 @@ FactoryBot.define do
     body { "本文" }
     rank { 1 }
     image { nil }
+    pose_id { 1 }
+    pose
   end
 end
