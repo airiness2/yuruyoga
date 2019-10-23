@@ -3,4 +3,5 @@ class Diary < ApplicationRecord
   validates :rank, presence: true
 
   belongs_to :pose
+  has_many :taggings, dependent: :destroy
 end
