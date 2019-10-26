@@ -4,6 +4,7 @@ class Diary < ApplicationRecord
 
   belongs_to :pose
   has_many :taggings, dependent: :destroy
+  has_many :tags, through: :taggings, source: :tag
 
   mount_uploader :image, ImageUploader
 end

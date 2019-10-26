@@ -11,6 +11,7 @@ class DiariesController < ApplicationController
       @diary = Diary.new(diary_params)
     else
       @diary = Diary.new
+      @diary.taggings.build
     end
   end
 
@@ -42,6 +43,7 @@ class DiariesController < ApplicationController
 
   def confirm
     @diary = Diary.new(diary_params)
+    @diary.taggings.build
     render :new if @diary.invalid?
   end
 
@@ -59,7 +61,7 @@ class DiariesController < ApplicationController
   private
 
   def diary_params
-    params.require(:diary).permit(:title, :worked_date, :body, :rank, :image, :pose_id, :image_cache)
+    params.require(:diary).permit(:title, :worked_date, :body, :rank, :image, :pose_id, :image_cache, :user_id, tag_ids: [])
   end
 
   def set_diary
