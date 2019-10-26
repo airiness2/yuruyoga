@@ -50,3 +50,6 @@ gem 'mini_racer', platforms: :ruby
 gem 'dotenv-rails'
 
 gem 'devise'
+
+gem 'carrierwave'
+gem 'mini_magick'
