@@ -59,7 +59,7 @@ class DiariesController < ApplicationController
   private
 
   def diary_params
-    params.require(:diary).permit(:title, :worked_date, :body, :rank, :image, :pose_id)
+    params.require(:diary).permit(:title, :worked_date, :body, :rank, :image, :pose_id, :image_cache)
   end
 
   def set_diary

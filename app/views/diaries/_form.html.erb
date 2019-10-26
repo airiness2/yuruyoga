@@ -1,4 +1,4 @@
-<%= form_with(model: diary, local: true, html: { name: diary} ) do |form| %>
+<%= form_with(model: diary, local: true ) do |form| %>
   <% if diary.errors.any? %>
     <div id="error_explanation">
       <h4><%= pluralize(diary.errors.count, "error") %> が存在しているため、保存出来ません:</h4>
@@ -39,7 +39,9 @@
 
   <div class="field">
     <%= form.label :image %>
-    <%= form.file_field :image, id: :diary_image %>
+    <%= image_tag(@diary.image.url) if @diary.image && @diary.image.url %>
+    <%= form.file_field :image %>
+    <%= form.hidden_field :image_cache %>
   </div>
 
   <div class="actions">
