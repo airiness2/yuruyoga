@@ -1,0 +1,31 @@
+<%= form_with(model: @diary, url: diaries_path, local: true) do |form| %>
+  <%= t('view.worked_date') %><br>
+  <%= @diary.worked_date %>
+  <%= form.hidden_field :worked_date %>
+  <br>
+  <%= t('view.title') %><br>
+  <%= @diary.title %>
+  <%= form.hidden_field :title %>
+  <br>
+  <%= t('view.pose') %><br>
+  <%= @diary.pose.name %>
+  <%= form.hidden_field :pose_id %>
+  <br>
+  <%= t('view.rank') %>
+  <%= @diary.rank %>
+  <%= form.hidden_field :rank %>
+  <br>
+  <%= t('view.body') %><br>
+  <%= @diary.body %>
+  <%= form.hidden_field :body %>
+  <br>
+  <%= t('view.image') %><br>
+  <%= image_tag(@diary.image.url) if @diary.image && @diary.image.url %><br>
+  <%= form.hidden_field :image_cache %>
+  <%= form.submit "投稿する" %>
+<% end %>
+
+<%= form_with(model:@diary, url:new_diary_path, local:true, method:"get") do |form| %>
+  <%= form.hidden_field :image_cache %>
+  <%= form.submit "戻る", name: "back" %>
+<% end %>
