@@ -5,4 +5,5 @@ class Pose < ApplicationRecord
   has_many :effectings, dependent: :destroy
 
   scope :autocomplete, ->(term) { where("name LIKE ?", "#{term}%").order(:name) }
+  mount_uploader :image, PoseImageUploader
 end
