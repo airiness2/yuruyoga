@@ -45,10 +45,21 @@ class DiariesController < ApplicationController
     render :new if @diary.invalid?
   end
 
+
+  def autocomplete_pose
+    pose_suggestions = Pose.autocomplete(params[:term]).pluck(:name)
+    respond_to do |format|
+      format.html
+      format.json {
+        render json: pose_suggestions
+      }
+    end
+  end
+
   private
 
   def diary_params
-    params.require(:diary).permit(:title, :worked_date, :body, :rank, :image)
+    params.require(:diary).permit(:title, :worked_date, :body, :rank, :image, :pose_id)
   end
 
   def set_diary

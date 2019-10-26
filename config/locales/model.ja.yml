@@ -3,6 +3,7 @@ ja:
     models:
       diary: "日記"
       user: "ユーザ"
+      pose: "ポーズ"
     attributes:
       diary:
         title: "タイトル"
@@ -10,6 +11,7 @@ ja:
         body: "本文"
         rank: "ランク"
         image: "投稿画像"
+        pose: "ポーズ"
       user:
         name: "名前"
         email: "メールアドレス"
@@ -19,3 +21,8 @@ ja:
         password: "パスワード"
         password_confirmation: "確認用パスワード"
         remember_me: "ログインを記憶"
+      pose:
+        name: "ポーズ名(日本語)"
+        detail: "ポーズ詳細"
+        sans_name: "ポーズ名(サンスクリット語)"
+        image: "ポーズ画像"
