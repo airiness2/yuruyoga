@@ -8,5 +8,8 @@ ja:
     rank: "ランク"
     image: "画像"
     error: "エラー"
-
-
+    pose: "ポーズ"
+    pose_name: "ポーズ名"
+    pose_name_sans: "ポーズ名(サンスクリット語)"
+    pose_image: "ポーズ画像"
+    pose_detail: "ポーズ詳細"

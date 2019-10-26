@@ -8,10 +8,11 @@ Rails.application.routes.draw do
   end
 
   resources :users, :only => [:show]
-
   resources :diaries
 
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
+
+  resources :poses, :only => [:index]
 end

@@ -1,0 +1,21 @@
+<h3><%= t('view.pose')%><%= t('view.index') %></h3>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= t('view.pose_name') %></th>
+      <th><%= t('view.pose_detail') %></th>
+      <th><%= t('view.pose_name_sans') %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @poses.each do |pose| %>
+      <tr>
+        <td><%= pose.name %></td>
+        <td><%= pose.detail %></td>
+        <td><%= pose.sans_name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
