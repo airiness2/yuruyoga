@@ -3,7 +3,9 @@ class DiariesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
 
   def index
-    @diaries = Diary.all
+    @q = Diary.ransack(params[:q])
+    @diaries = @q.result.order(created_at: :desc)
+    @diaries = @diaries.page(params[:page]).per(10)
   end
 
   def new
@@ -44,8 +46,6 @@ class DiariesController < ApplicationController
 
   def confirm
     @diary = Diary.new(diary_params)
-    @diary.taggings.build
-    @diary.user_id = current_user.id
     render :new if @diary.invalid?
   end
 
