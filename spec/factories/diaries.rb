@@ -6,6 +6,8 @@ FactoryBot.define do
     rank { 1 }
     image { nil }
     pose_id { 1 }
+    user_id { 1 }
     pose
+    user
   end
 end
