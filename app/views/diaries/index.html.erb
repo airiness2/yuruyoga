@@ -14,7 +14,10 @@
   <%= f.collection_select :tags_id_eq, Tag.all, :id, :name, include_blank: true %>
 
   <br>
-  
+
+  <%= check_box_tag :all_user %>
+  <%= f.label :all_user, "自分以外の日記も含める" %>
+
   <%= f.submit "検索" %>
 <% end %>
 

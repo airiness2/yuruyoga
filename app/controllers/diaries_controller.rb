@@ -5,7 +5,11 @@ class DiariesController < ApplicationController
   def index
     @q = Diary.ransack(params[:q])
     @diaries = @q.result.order(created_at: :desc)
-    @diaries = @diaries.page(params[:page]).per(10)
+    if params[:all_user]
+      @diaries = @diaries.page(params[:page]).per(10)
+    else
+      @diaries = @diaries.page(params[:page]).per(10).where(user: current_user)
+    end
   end
 
   def new
