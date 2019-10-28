@@ -3,7 +3,13 @@ class DiariesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
 
   def index
-    @diaries = Diary.all
+    @q = Diary.ransack(params[:q])
+    @diaries = @q.result.order(created_at: :desc)
+    if params[:all_user]
+      @diaries = @diaries.page(params[:page]).per(10)
+    else
+      @diaries = @diaries.page(params[:page]).per(10).where(user: current_user)
+    end
   end
 
   def new
@@ -11,11 +17,13 @@ class DiariesController < ApplicationController
       @diary = Diary.new(diary_params)
     else
       @diary = Diary.new
+      @diary.taggings.build
     end
   end
 
   def create
     @diary = Diary.new(diary_params)
+    @diary.user_id = current_user.id
     if @diary.save
       redirect_to diaries_path, notice: "日記を作成しました!"
     else
@@ -59,7 +67,7 @@ class DiariesController < ApplicationController
   private
 
   def diary_params
-    params.require(:diary).permit(:title, :worked_date, :body, :rank, :image, :pose_id, :image_cache)
+    params.require(:diary).permit(:title, :worked_date, :body, :rank, :image, :pose_id, :image_cache, :user_id, tag_ids: [])
   end
 
   def set_diary

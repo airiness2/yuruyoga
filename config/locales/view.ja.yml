@@ -13,3 +13,5 @@ ja:
     pose_name_sans: "ポーズ名(サンスクリット語)"
     pose_image: "ポーズ画像"
     pose_detail: "ポーズ詳細"
+    tag: "タグ"
+    user: "ユーザ"

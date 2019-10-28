@@ -24,6 +24,13 @@
 </p>
 
 <p>
+  <strong><%= t('view.tag') %>:</strong>
+  <% @diary.tag_ids.each do |tag| %>
+  <label style="background-color:lightpink"><%= Tag.find(tag).name %></label>
+  <% end %>
+</p>
+
+<p>
   <strong><%= t('view.body') %>:</strong>
   <%= @diary.body %>
 </p>
