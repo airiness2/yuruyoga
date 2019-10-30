@@ -22,8 +22,8 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :users
-    resources :pose
-    resources :effect
-    resources :tag
+    resources :poses
+    resources :effects
+    resources :tags
   end
 end

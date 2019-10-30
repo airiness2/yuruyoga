@@ -1,9 +1,11 @@
 class Admin::EffectsController < ApplicationController
+  include ApplicationHelper
+
   before_action :set_effect, only: [:show, :edit, :update, :destroy]
   before_action :admin_flg
 
   def index
-    @effects = Effect.all.includes(:tasks).order(id: :asc)
+    @effects = Effect.all
   end
 
   def new

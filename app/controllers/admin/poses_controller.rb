@@ -1,4 +1,6 @@
 class Admin::PosesController < ApplicationController
+  include ApplicationHelper
+
   before_action :set_pose, only: [:show, :edit, :update, :destroy]
   before_action :admin_flg
 
