@@ -31,7 +31,7 @@ class Admin::TagsController < ApplicationController
 
   def update
     if @tag.update(tag_params)
-      redirect_to admin_tag_path, notice: "タグを編集しました！"
+      redirect_to admin_tags_path, notice: "タグを編集しました！"
     else
       render 'edit'
     end
@@ -45,7 +45,7 @@ class Admin::TagsController < ApplicationController
   private
 
   def tag_params
-    params.require(:tag).permit(:name, :diary_ids[])
+    params.require(:tag).permit(:name, diary_ids: [])
   end
 
   def set_tag

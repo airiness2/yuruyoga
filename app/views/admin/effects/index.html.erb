@@ -6,18 +6,15 @@
 <table>
   <thead>
     <tr>
-      <th>ID</th>
       <th><%= t('view.effect') %></th>
-      <th colspan="3"></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @effects.each do |effect| %>
       <tr>
-        <td><%= effect.id %></td>
         <td><%= effect.name %></td>
-        <td><%= link_to '詳細', admin_effect_path(effect) %></td>
         <td><%= link_to '編集', edit_admin_effect_path(effect) %></td>
         <td><%= link_to '削除', admin_effect_path(effect), method: :delete, data: { confirm: '本当に削除しますか?' } %></td>
       </tr>

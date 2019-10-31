@@ -31,7 +31,7 @@ class Admin::EffectsController < ApplicationController
 
   def update
     if @effect.update(effect_params)
-      redirect_to admin_effect_path, notice: "効果を編集しました！"
+      redirect_to admin_effects_path, notice: "効果を編集しました！"
     else
       render 'edit'
     end

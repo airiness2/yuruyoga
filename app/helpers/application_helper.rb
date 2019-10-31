@@ -1,10 +1,6 @@
 module ApplicationHelper
   def admin_flg
-    raise Forbidden unless logged_in? && current_user.admin?
-  end
-
-  def logged_in?
-    current_user.present?
+    raise Forbidden unless user_signed_in? && current_user.admin?
   end
 
   def sign_in(user)

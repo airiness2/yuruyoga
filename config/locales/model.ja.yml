@@ -26,3 +26,8 @@ ja:
         detail: "ポーズ詳細"
         sans_name: "ポーズ名(サンスクリット語)"
         image: "ポーズ画像"
+        effect: "効果"
+      effect:
+        name: "効果"
+      tag:
+        name: "タグ"
