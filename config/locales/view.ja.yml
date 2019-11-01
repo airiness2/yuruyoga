@@ -15,4 +15,8 @@ ja:
     pose_detail: "ポーズ詳細"
     tag: "タグ"
     user: "ユーザ"
+    user_name: "ユーザ名"
     effect: "効果"
+    email: "メールアドレス"
+    avatar: "プロフィール画像"
+    admin: "管理者"

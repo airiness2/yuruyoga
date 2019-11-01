@@ -6,7 +6,6 @@
 <table>
   <thead>
     <tr>
-      <th>ID</th>
       <th><%= t('view.pose_name') %></th>
       <th><%= t('view.pose_name_sans') %></th>
       <th colspan="3"></th>
@@ -16,7 +15,6 @@
   <tbody>
     <% @poses.each do |pose| %>
       <tr>
-        <td><%= pose.id %></td>
         <td><%= pose.name %></td>
         <td><%= pose.sans_name %></td>
         <td><%= link_to '詳細', admin_pose_path(pose) %></td>
