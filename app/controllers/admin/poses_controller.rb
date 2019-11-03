@@ -49,8 +49,4 @@ class Admin::PosesController < ApplicationController
   def set_pose
     @pose = Pose.find(params[:id])
   end
-
-#  def admin_flg
-#    raise Forbidden unless user_signed_in? && current_user.admin?
-#  end
 end
