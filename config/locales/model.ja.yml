@@ -31,3 +31,5 @@ ja:
         name: "効果"
       tag:
         name: "タグ"
+      comment:
+        content: "コメント"
