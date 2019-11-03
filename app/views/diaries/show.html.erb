@@ -35,12 +35,15 @@
   <%= @diary.body %>
 </p>
 
-  <p>コメント一覧</p>
+<p><%= t('view.comment') %>はこちらへ</p>
+  <%= render partial: 'comments/form', locals: { comment: @comment, diary: @diary } %>
+
+<p style="margin: 5px">&nbsp;</p>
+
+<p><%= t('view.comment') %><%= t('view.index') %></p>
   <div id="comments_area">
     <%= render partial: 'comments/index', locals: { comments: @comments, diary: @diary } %>
   </div>
-
-  <%= render partial: 'comments/form', locals: { comment: @comment, diary: @diary } %>
-
+  
 <%= link_to '編集', edit_diary_path(@diary) %> |
 <%= link_to '戻る', diaries_path %>
