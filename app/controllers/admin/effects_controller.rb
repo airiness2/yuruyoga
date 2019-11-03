@@ -1,6 +1,4 @@
 class Admin::EffectsController < ApplicationController
-  include ApplicationHelper
-
   before_action :set_effect, only: [:show, :edit, :update, :destroy]
   before_action :admin_flg
 

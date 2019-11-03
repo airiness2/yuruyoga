@@ -1,6 +1,4 @@
 class Admin::UsersController < ApplicationController
-  include ApplicationHelper
-
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :admin_flg
 

@@ -1,6 +1,4 @@
 class Admin::TagsController < ApplicationController
-  include ApplicationHelper
-
   before_action :set_tag, only: [:show, :edit, :update, :destroy]
   before_action :admin_flg
 
