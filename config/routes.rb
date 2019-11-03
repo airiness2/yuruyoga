@@ -20,6 +20,8 @@ Rails.application.routes.draw do
 
   resources :poses, :only => [:index]
 
+  resources :admin, :only => [:index]
+
   namespace :admin do
     resources :users
     resources :poses
