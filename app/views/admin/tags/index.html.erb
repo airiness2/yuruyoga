@@ -1,0 +1,25 @@
+<h4><%= t('view.tag') %><%= t('view.index') %></h4>
+<div>
+<%= link_to 'タグ新規作成', new_admin_tag_path %>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= t('view.tag') %></th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tags.each do |tag| %>
+      <tr>
+        <td><%= tag.name %></td>
+        <td><%= link_to '編集', edit_admin_tag_path(tag) %></td>
+        <td><%= link_to '削除', admin_tag_path(tag), method: :delete, data: { confirm: '本当に削除しますか?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to '戻る', admin_index_path %>

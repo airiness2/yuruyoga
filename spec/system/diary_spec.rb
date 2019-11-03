@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "日記作成機能", type: :feature do
+RSpec.feature "日記作成機能", type: :system do
   background do
     FactoryBot.create(:diary)
 

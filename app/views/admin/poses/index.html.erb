@@ -1,0 +1,28 @@
+<h4><%= t('view.pose') %><%= t('view.index') %></h4>
+<div>
+<%= link_to 'ポーズ新規作成', new_admin_pose_path %>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= t('view.pose_name') %></th>
+      <th><%= t('view.pose_name_sans') %></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @poses.each do |pose| %>
+      <tr>
+        <td><%= pose.name %></td>
+        <td><%= pose.sans_name %></td>
+        <td><%= link_to '詳細', admin_pose_path(pose) %></td>
+        <td><%= link_to '編集', edit_admin_pose_path(pose) %></td>
+        <td><%= link_to '削除', admin_pose_path(pose), method: :delete, data: { confirm: '本当に削除しますか?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to '戻る', admin_index_path %>

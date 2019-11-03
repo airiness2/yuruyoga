@@ -1,0 +1,30 @@
+<p>
+  <strong><%= t('view.pose_name') %>:</strong>
+  <%= @pose.name %>
+</p>
+
+<p>
+  <strong><%= t('view.pose_name_sans') %>:</strong>
+  <%= @pose.sans_name %>
+</p>
+
+<p>
+  <strong><%= t('view.effect') %>:</strong>
+  <% @pose.effect_ids.each do |tag| %>
+  <label><%= Effect.find(effect).name %></label>
+  <% end %>
+</p>
+
+<p>
+  <strong><%= t('view.pose_detail') %>:</strong>
+  <%= @pose.detail %>
+</p>
+
+<p>
+  <strong><%= t('view.pose_image') %>:</strong>
+  <%= image_tag(@pose.image.url) if @pose.image && @pose.image.url %>
+</p>
+
+<%= link_to '詳細', admin_pose_path(@pose) %> |
+<%= link_to '編集', edit_admin_pose_path(@pose) %> |
+<%= link_to '戻る', admin_poses_path %>
