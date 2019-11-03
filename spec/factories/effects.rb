@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :effect do
-    name { "MyString" }
+    name { "効果1" }
   end
 end

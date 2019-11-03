@@ -58,4 +58,8 @@ class Admin::UsersController < ApplicationController
       redirect_to admin_users_path, notice: '自身を削除することは出来ません'
     end
   end
+
+  def admin_flg
+    raise Forbidden unless user_signed_in? && current_user.admin?
+  end
 end

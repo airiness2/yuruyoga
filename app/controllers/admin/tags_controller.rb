@@ -51,4 +51,8 @@ class Admin::TagsController < ApplicationController
   def set_tag
     @tag = Tag.find(params[:id])
   end
+
+  def admin_flg
+    raise Forbidden unless user_signed_in? && current_user.admin?
+  end
 end
