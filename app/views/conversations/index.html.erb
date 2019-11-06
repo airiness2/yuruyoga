@@ -1,14 +1,16 @@
 <table class="table table-hover">
   <thead>
-    <h2>メッセージ一覧</h2>
+    <h4><%= t('view.message') %><%= t('view.index') %></h4>
   </thead>
   <tbody>
     <% @conversations.each do |conversation| %>
-      <td>
+    <tr>
         <% if conversation.target_user(current_user).present? %>
+        <td>
           <%= link_to conversation.target_user(current_user).name, conversation_messages_path(conversation)%>
+        </td>
         <% end %>
-      </td>
+    </tr>
     <% end %>
   </tbody>
 </table>

@@ -33,3 +33,6 @@ ja:
         name: "タグ"
       comment:
         content: "コメント"
+      message:
+        body: "メッセージ"
+        read: "既読フラグ"
