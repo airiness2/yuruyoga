@@ -29,4 +29,8 @@ Rails.application.routes.draw do
     resources :effects
     resources :tags
   end
+
+  resources :conversations do
+    resources :messages
+  end
 end
