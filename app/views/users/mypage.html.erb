@@ -1,3 +1,4 @@
+<h5>マイページ</h5>
 <table>
   <tr>
     <td rowspan="6">
@@ -16,23 +17,28 @@
   <tr>
     <td>
       フォロワー数
+      <%= @user.followers.count %>
     </td>
   </tr>
   <tr>
     <td>
       フォローしている数
+      <%= @user.following.count %>
     </td>
   </tr>
   <tr>
     <td>
-      フォローする　解除する
+      <h5>フォロワー一覧</h5>
+      <% @user.followers.each do |follow| %>
+      <%= link_to follow.name, user_path(follow.id) %>
+      <% end %>
     </td>
   </tr>
   <tr>
     <td>
     <% if @user.id == current_user.id %>
       <div class="item">
-        <%= link_to 'メッセージ一覧', conversations_path %>
+        <h5><%= link_to 'メッセージ一覧', conversations_path %></h5>
       </div>
     <% end %>
     </td>
