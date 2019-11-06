@@ -16,25 +16,25 @@
   <tr>
     <td>
       フォロワー数
+      <%= @user.followers.count %>
     </td>
   </tr>
   <tr>
     <td>
       フォローしている数
+      <%= @user.following.count %>
     </td>
   </tr>
   <tr>
     <td>
-      フォローする　解除する
+      <%= render 'follow_form', user: @user %>
     </td>
   </tr>
   <tr>
     <td>
-      メッセージを送る
     <% if @user.id != current_user.id %>
       <div class="item">
-        <%= link_to @user.name, @user %>
-        <%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: :post %>
+        <%= link_to 'メッセージを送る', conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: :post %>
       </div>
     <% end %>
     </td>
