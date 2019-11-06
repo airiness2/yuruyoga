@@ -13,4 +13,12 @@ class User < ApplicationRecord
   has_many :followers, through: :passive_relationships, source: :follower
 
   mount_uploader :avatar, AvatarUploader
+
+  def follow!(other_user)
+    active_relationships.create!(followed_id: other_user.id)
+  end
+
+  def following?(other_user)
+    active_relationships.find_by(followed_id: other_user.id)
+  end
 end

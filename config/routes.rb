@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'relationships/create'
+  get 'relationships/destroy'
   devise_for :users
 
   root 'diaries#index'
@@ -33,4 +35,6 @@ Rails.application.routes.draw do
   resources :conversations do
     resources :messages
   end
+
+  resources :relationships, only: [:create, :destroy]
 end
