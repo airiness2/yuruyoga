@@ -1,0 +1,6 @@
+<h3><%= t('view.event') %>を編集</h3>
+
+<%= render 'form', event: @event %>
+
+<%= link_to '詳細', @event %> |
+<%= link_to '戻る', events_path %>
