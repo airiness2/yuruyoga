@@ -1,10 +1,11 @@
 FactoryBot.define do
   factory :event do
-    name { "MyString" }
-    hold_date { "2019-11-07 15:25:21" }
-    place { "MyString" }
-    url { "MyString" }
-    detail { "MyText" }
-    user { nil }
+    name { "イベント1" }
+    hold_date { "2019-09-29 13:00:00" }
+    place { "渋谷" }
+    url { "http://localhost" }
+    detail { "イベント詳細1" }
+    user_id { 1 }
+    user
   end
 end
