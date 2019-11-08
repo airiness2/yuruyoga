@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_06_060030) do
+ActiveRecord::Schema.define(version: 2019_11_07_062521) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,18 @@ ActiveRecord::Schema.define(version: 2019_11_06_060030) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "hold_date", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.string "place"
+    t.string "url"
+    t.text "detail"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_events_on_user_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -137,6 +149,7 @@ ActiveRecord::Schema.define(version: 2019_11_06_060030) do
   add_foreign_key "diaries", "users"
   add_foreign_key "effectings", "effects"
   add_foreign_key "effectings", "poses"
+  add_foreign_key "events", "users"
   add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "users"
   add_foreign_key "taggings", "diaries"

@@ -1,0 +1,28 @@
+<p>
+  <strong><%= t('view.event_hold_date') %>:</strong>
+  <%= @event.hold_date %>
+</p>
+
+<p>
+  <strong><%= t('view.event_name') %>:</strong>
+  <%= @event.name %>
+</p>
+
+<p>
+  <strong><%= t('view.event_detail') %>:</strong>
+  <%= @event.detail %>
+</p>
+
+<p>
+  <strong><%= t('view.event_place') %>:</strong>
+  <%= @event.place %>
+</p>
+
+<p>
+  <strong><%= t('view.event_url') %>:</strong>
+  <%= @event.url %>
+</p>
+
+<%= link_to '詳細', event_path(@event) %> |
+<%= link_to '編集', edit_event_path(@event) %> |
+<%= link_to '戻る', events_path %>

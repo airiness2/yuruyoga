@@ -12,6 +12,8 @@ class User < ApplicationRecord
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
 
+  has_many :events, dependent: :destroy
+
   mount_uploader :avatar, AvatarUploader
 
   def follow!(other_user)
