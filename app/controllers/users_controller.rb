@@ -1,11 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show]
 
-  def show
-    if @user == current_user
-      render 'mypage'
-    end
-  end
+  def show;end
 
   private
 

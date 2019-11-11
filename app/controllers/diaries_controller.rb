@@ -3,6 +3,11 @@ class DiariesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
 
   def index
+    @diaries = Diary.all.where(user: current_user)
+    @user = current_user
+  end
+
+  def search
     @q = Diary.ransack(params[:q])
     @diaries = @q.result.order(created_at: :desc)
     if params[:all_user]

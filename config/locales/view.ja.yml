@@ -2,6 +2,7 @@ ja:
   view:
     diary: "日記"
     index: "一覧"
+    search: "検索"
     title: "タイトル"
     worked_date: "実施日"
     body: "本文"
