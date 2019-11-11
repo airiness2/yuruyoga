@@ -30,3 +30,7 @@ ja:
     event_url: "イベントURL"
     event_detail: "イベント詳細"
     event_user: "作成者"
+  simple_calendar:
+    previous: "先月"
+    next: "来月"
+    year: "年"
