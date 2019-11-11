@@ -56,3 +56,5 @@ gem 'mini_magick'
 
 gem 'kaminari'
 gem 'ransack'
+
+gem "simple_calendar", "~> 2.0"
