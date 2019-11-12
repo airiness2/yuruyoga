@@ -12,7 +12,7 @@ RSpec.feature "日記作成機能", type: :system do
   end
 
   scenario "日記一覧のテスト" do
-    visit diaries_path
+    visit search_diaries_path
 
     expect(page).to have_content 'タイトル'
   end

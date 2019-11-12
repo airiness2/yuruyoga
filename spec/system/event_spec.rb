@@ -12,9 +12,9 @@ RSpec.feature "イベント作成機能", type: :system do
   end
 
   scenario "イベント一覧のテスト" do
-    visit diaries_path
+    visit events_path
 
-    expect(page).to have_content 'タイトル'
+    expect(page).to have_content 'イベント1'
   end
 
   scenario "イベント作成のテスト" do

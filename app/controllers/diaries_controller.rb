@@ -30,7 +30,7 @@ class DiariesController < ApplicationController
     @diary = Diary.new(diary_params)
     @diary.user_id = current_user.id
     if @diary.save
-      redirect_to diaries_path, notice: "日記を作成しました!"
+      redirect_to search_diaries_path, notice: "日記を作成しました!"
     else
       render 'new'
     end
@@ -45,7 +45,7 @@ class DiariesController < ApplicationController
 
   def update
     if @diary.update(diary_params)
-      redirect_to diaries_path, notice: "日記を編集しました！"
+      redirect_to search_diaries_path, notice: "日記を編集しました！"
     else
       render 'edit'
     end
@@ -53,7 +53,7 @@ class DiariesController < ApplicationController
 
   def destroy
     @diary.destroy
-    redirect_to diaries_path, notice: "日記を削除しました！"
+    redirect_to search_diaries_path, notice: "日記を削除しました！"
   end
 
   def confirm
