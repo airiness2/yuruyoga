@@ -1,56 +1,41 @@
-<h3><%= t('view.diary')%><%= t('view.index') %></h3>
-
-<%= search_form_for @q do |f| %>
-
-  <%= f.label :worked_date, "実施日" %>
-  <%= f.date_field :worked_date_gteq %>
-  〜
-  <%= f.date_field :worked_date_lteq %>
-
-  <%= f.label :pose_name_cont, "ポーズ" %>
-  <%= f.search_field :pose_name_cont %>
-
-  <%= f.label :tags_id_eq, "タグ" %>
-  <%= f.collection_select :tags_id_eq, Tag.all, :id, :name, include_blank: true %>
-
-  <br>
-
-  <%= check_box_tag :all_user %>
-  <%= f.label :all_user, "自分以外の日記も含める" %>
-
-  <%= f.submit "検索" %>
-<% end %>
-
-<%= link_to '検索条件のクリア', request.path %>
-
-<table>
-  <thead>
-    <tr>
-      <th><%= t('view.worked_date') %></th>
-      <th><%= t('view.user') %></th>
-      <th><%= t('view.pose') %></th>
-      <th><%= t('view.title') %></th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @diaries.each do |diary| %>
-      <tr>
-        <td><%= diary.worked_date %></td>
-        <td><%= diary.user.name %></td>
-        <td><%= diary.pose.name %></td>
-        <td><%= diary.title %></td>
-        <td><%= link_to '詳細', diary %></td>
-        <td><%= link_to '編集', edit_diary_path(diary) %></td>
-        <td><%= link_to '削除', diary, method: :delete, data: { confirm: '削除してもよろしいですか?' } %></td>
-      </tr>
+<div class="container">
+  <div class="row">
+    <div class="w-75">
+ランキング
+    </div>
+    <div class="w-25">
+      フォロワー数
+      <%= @user.followers.count %><br>
+      フォローしている数<br>
+      <%= @user.following.count %><br>
+      <br>
+      フォロワー一覧<br>
+      <% @user.followers.each do |follow| %>
+      <%= link_to follow.name, user_path(follow.id) %><br>
+      <% end %>
+      <br>
+    <% if @user.id == current_user.id %>
+      <div class="item">
+        メッセージのやり取りを開始する<br>
+        <%= link_to 'メッセージ一覧', conversations_path %></h5>
+      </div>
     <% end %>
-  </tbody>
-</table>
+    </div>
+  </div>
 
-<%= paginate @diaries %>
+  <p style="margin: 20px">&nbsp;</p>
 
-<br>
-
-<%= link_to '日記新規作成', new_diary_path  %>
+  <div class="row">
+    <div class="w-50">
+      <%= month_calendar events: @diaries, attribute: :worked_date do |date, diaries| %>
+        <%= date.to_formatted_s(:only_day) %>
+        <br>
+        <% diaries.each do |diary| %>
+          <%= link_to '●', diary %>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="w-50">
+     通知
+    </div>
+</div>

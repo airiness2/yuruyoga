@@ -12,7 +12,7 @@ RSpec.feature "日記作成機能", type: :system do
   end
 
   scenario "日記一覧のテスト" do
-    visit diaries_path
+    visit search_diaries_path
 
     expect(page).to have_content 'タイトル'
   end
@@ -28,6 +28,12 @@ RSpec.feature "日記作成機能", type: :system do
 
     click_on '登録する'
     expect(page).to have_content '日記2'
+  end
+
+  scenario "カレンダー表示のテスト" do
+    visit diaries_path(start_date: "2019-10-07")
+
+    expect(page).to have_content "20\n●"
   end
 
 end

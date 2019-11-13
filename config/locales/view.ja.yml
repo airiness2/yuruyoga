@@ -2,6 +2,7 @@ ja:
   view:
     diary: "日記"
     index: "一覧"
+    search: "検索"
     title: "タイトル"
     worked_date: "実施日"
     body: "本文"
@@ -29,3 +30,7 @@ ja:
     event_url: "イベントURL"
     event_detail: "イベント詳細"
     event_user: "作成者"
+  simple_calendar:
+    previous: "先月"
+    next: "来月"
+    year: "年"
