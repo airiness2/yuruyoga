@@ -1,7 +1,27 @@
 <div class="container">
   <div class="row">
     <div class="w-75">
-ランキング
+      <h4>ランキング</h4>
+      <table>
+        <thead>
+          <tr>
+            <th><%= t('view.rank') %></th>
+            <th><%= t('view.pose_name') %></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% i = 1 %>
+          <% @rankings.each do |rank| %>
+            <tr>
+              <td><%= i %></td>
+              <td><%= rank[0] %></td>
+            </tr>
+            <% i += 1 %>
+          <% end %>
+        </tbody>
+      </table>
+      <%= link_to "ランキングをもっと見る", root_path %><br>
     </div>
     <div class="w-25">
       フォロワー数

@@ -5,6 +5,7 @@ class DiariesController < ApplicationController
   def index
     @diaries = Diary.all.where(user: current_user)
     @user = current_user
+    @rankings =  Diary.joins(:pose).group("poses.name").select("pose_id, rank").limit(10).sum(:rank)
   end
 
   def search
