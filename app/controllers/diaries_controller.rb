@@ -62,7 +62,6 @@ class DiariesController < ApplicationController
     render :new if @diary.invalid?
   end
 
-
   def autocomplete_pose
     pose_suggestions = Pose.autocomplete(params[:term]).pluck(:name)
     respond_to do |format|
@@ -71,6 +70,12 @@ class DiariesController < ApplicationController
         render json: pose_suggestions
       }
     end
+  end
+
+  def ranking
+    @graphs =  Diary.joins(:pose).group("poses.name").select("pose_id, rank").sum(:rank)
+    @like_poses =  Diary.joins(:pose).group("poses.name").select("sum(rank) as pose_rank, poses.name").order("pose_rank").limit(10)
+    @unlike_poses =  Diary.joins(:pose).group("poses.name").select("sum(rank) as pose_rank, poses.name").order("pose_rank DESC").limit(10)
   end
 
   private

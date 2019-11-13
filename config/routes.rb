@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     collection do
       post :confirm
       get :search
+      get :ranking
     end
   end
 
