@@ -1,3 +1,4 @@
+<div class="container">
 <h4><%= t('view.effect') %>を編集</h4>
 <%= form_with(model: @effect, url: admin_effect_path, local: true ) do |form| %>
   <% if @effect.errors.any? %>
@@ -26,3 +27,4 @@
 <br>
 
 <%= link_to '戻る', admin_effects_path, class: "btn btn-outline-secondary btn-sm" %>
+</div>

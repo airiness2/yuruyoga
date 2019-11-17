@@ -1,4 +1,5 @@
-<h3><%= t('view.pose') %>を追加</h3>
+<div class="container">
+<h4><%= t('view.pose') %>を追加</h4>
 
 <%= form_with(model: @pose, url: admin_poses_path, local: true ) do |form| %>
   <% if @pose.errors.any? %>
@@ -47,4 +48,6 @@
 <br>
 
 <%= link_to '戻る', admin_poses_path, class: "btn btn-outline-secondary btn-sm" %>
+
 <p style="margin: 5px">&nbsp;</p>
+</div>

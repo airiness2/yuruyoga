@@ -1,8 +1,10 @@
+<div class="container">
 <h4><%= t('view.diary') %>を編集</h4>
 
 <%= render 'form', diary: @diary %>
 
 <%= link_to '詳細', @diary, class: "btn btn-outline-secondary btn-sm" %> |
-<%= link_to '戻る', diaries_path, class: "btn btn-outline-secondary btn-sm" %>
+<%= link_to '戻る', search_diaries_path, class: "btn btn-outline-secondary btn-sm" %>
 
 <p style="margin: 5px">&nbsp;</p>
+</div>

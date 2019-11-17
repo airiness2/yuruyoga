@@ -1,3 +1,5 @@
+<div class="container">
+
 <h4><%= t('view.pose') %>を編集</h4>
 
 <%= form_with(model: @pose, url: admin_pose_path, local: true ) do |form| %>
@@ -49,3 +51,4 @@
 <br>
 
 <%= link_to '戻る', admin_poses_path, class: "btn btn-outline-secondary btn-sm"  %>
+</div>

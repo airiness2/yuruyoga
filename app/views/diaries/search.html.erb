@@ -1,12 +1,13 @@
+<div class="container">
 <h4><%= t('view.diary')%><%= t('view.search') %></h4>
-<%= search_form_for @q do |f| %>
+
 <div class="form-group">
+<%= search_form_for @q do |f| %>
   <%= f.label :worked_date, "実施日" %>
   <%= f.date_field :worked_date_gteq, class: "form-control" %>
   〜
 
   <%= f.date_field :worked_date_lteq, class: "form-control" %>
-</div>
 </div>
 <div class="form-group">
   <%= f.label :pose_name_cont, "ポーズ" %>
@@ -23,10 +24,11 @@
 <br>
   <%= f.submit "検索", class: "btn btn-outline-primary" %>
 <% end %>
-<br>
+<p style="margin: 5px">&nbsp;</p>
+
 <%= link_to '検索条件のクリア', request.path, class: "btn btn-outline-secondary btn-sm" %>
-<br>
-<br>
+<p style="margin: 5px">&nbsp;</p>
+
 <table class="table table-striped table-responsive">
   <thead>
     <tr>
@@ -58,5 +60,6 @@
 <br>
 
 <%= link_to '日記新規作成', new_diary_path, class: "btn btn-outline-primary"   %>
-
+</div>
+</div>
 <p style="margin: 5px">&nbsp;</p>

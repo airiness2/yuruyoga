@@ -1,5 +1,8 @@
-<h3><%= t('view.diary') %>を書く</h3>
+<div class="container">
+<h4><%= t('view.diary') %>を書く</h4>
 
 <%= render 'form', diary: @diary %>
-
-<%= link_to '戻る', diaries_path %>
+<br>
+<%= link_to '戻る', search_diaries_path, class: "btn btn-outline-secondary btn-sm" %>
+<p style="margin: 5px">&nbsp;</p>
+</div>
