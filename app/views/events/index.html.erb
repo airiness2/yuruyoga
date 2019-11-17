@@ -17,7 +17,7 @@
   <tbody>
     <% @events.each do |event| %>
       <tr>
-        <td><%= event.hold_date %></td>
+        <td><%= event.hold_date.to_s(:event_date) %></td>
         <td><%= event.name %></td>
         <td><%= event.place %></td>
         <td><%= event.user.name %></td>
