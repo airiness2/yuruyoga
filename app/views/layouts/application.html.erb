@@ -10,6 +10,42 @@
   </head>
 
   <body>
+    <nav class="navbar navbar-fixed-top navbar-expand-sm navbar-primary sticky-top">
+      <a class="navbar-brand" href="#">ゆるヨガ日記</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarmenu" aria-controls="navbarmenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarmenu">
+        <ul class="navbar-nav">
+        <% if ! user_signed_in? %>
+          <li class="nav-item active">
+            <a class="nav-link" href="#">新規登録</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">ログイン</a>
+          </li>
+        <% else %>
+          <% if current_user.admin? %>
+            <li class="nav-item">
+              <%= link_to "管理画面", admin_index_path, class: "nav-link" %>
+            </li>
+          <% end %>
+        <li class="nav-item">
+          <%= link_to "日記を書く", new_diary_path, class: "nav-link active" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "日記検索", search_diaries_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "イベント", events_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "ログアウト", users_sign_out_path, class: "nav-link" %>
+        </li>
+        <% end %>
+        </ul>
+      </div>
+    </nav>
     <% if notice %>
       <p class="alert alert-notice"><%= notice %></p>
     <% end %>
@@ -17,6 +53,16 @@
       <p class="alert alert-error"><%= alert %></p>
     <% end %>
 
+    <p style="margin: 5px">&nbsp;</p>
+
     <%= yield %>
+
+    <footer class="footer">
+      <div class="container">
+        <p class="text-footer">COPYRIGHT &#169; R.W. ALL RIGHTS RESERVED.</p>
+      </div>
+    </footer>
+
   </body>
+
 </html>
