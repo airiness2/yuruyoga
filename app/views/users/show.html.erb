@@ -1,4 +1,4 @@
-<table class="table table-striped table-responsive">
+<table class="table">
   <tr>
     <td rowspan="6">
       <% if @user.avatar.present? %>
@@ -36,7 +36,7 @@
     <td>
     <% if @user.id != current_user.id %>
       <div class="item">
-        <%= link_to 'メッセージを送る', conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: :post %>
+        <%= link_to 'メッセージを送る', conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: :post, class: "btn btn-outline-primary" %>
       </div>
     <% end %>
     </td>

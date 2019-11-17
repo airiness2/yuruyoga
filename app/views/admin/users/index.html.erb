@@ -1,7 +1,4 @@
 <h4><%= t('view.user') %><%= t('view.index') %></h4>
-<div>
-<%= link_to 'ユーザ新規作成', new_admin_user_path %>
-</div>
 
 <table class="table table-striped table-responsive">
   <thead>
@@ -26,5 +23,10 @@
     <% end %>
   </tbody>
 </table>
+<br>
 
-<%= link_to '戻る', admin_index_path %>
+<%= link_to 'ユーザ新規作成', new_admin_user_path, class: "btn btn-outline-primary" %>
+
+<p style="margin: 5px">&nbsp;</p>
+
+<%= link_to '戻る', admin_index_path, class: "btn btn-outline-secondary btn-sm" %>

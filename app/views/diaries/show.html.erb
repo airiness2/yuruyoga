@@ -44,6 +44,7 @@
   <div id="comments_area">
     <%= render partial: 'comments/index', locals: { comments: @comments, diary: @diary } %>
   </div>
-  
-<%= link_to '編集', edit_diary_path(@diary) %> |
-<%= link_to '戻る', diaries_path %>
+
+<%= link_to '編集', edit_diary_path(@diary), class: "btn btn-outline-secondary btn-sm" %>
+<%= link_to '戻る', diaries_path, class: "btn btn-outline-secondary btn-sm" %>
+<p style="margin: 5px">&nbsp;</p>

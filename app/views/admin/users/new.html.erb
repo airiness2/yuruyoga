@@ -1,4 +1,4 @@
-<h3><%= t('view.user') %>を追加</h3>
+<h4><%= t('view.user') %>を追加</h4>
 
 <%= form_with(model: @user, url: admin_users_path, local: true ) do |form| %>
   <% if @user.errors.any? %>
@@ -13,38 +13,38 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :name %>
-    <%= form.text_field :name, id: :user_name %>
+    <%= form.text_field :name, id: :user_name, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :email %>
-    <%= form.text_field :email, id: :user_email %>
+    <%= form.text_field :email, id: :user_email, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :password %>
-    <%= form.password_field :password, id: :user_password %>
+    <%= form.password_field :password, id: :user_password, class: "form-control" %>
   </div>
 
   <div class="field">
     <%= form.label :avatar %>
     <%= image_tag(@user.avatar.url) if @user.avatar && @user.avatar.url %>
-    <%= form.file_field :avatar %>
+    <%= form.file_field :avatar, class: "form-control-file" %>
     <%= form.hidden_field :avatar_cache %>
   </div>
-
-  <div class="field">
-    <%= form.label :admin %>
-    <%= form.check_box :admin, id: :user_admin %>
+  <br>
+  <div class="form-check">
+    <%= form.check_box :admin, id: :user_admin, class: "form-check-input" %>
+    <%= form.label :admin, class: "form-check-label" %>
   </div>
 
   <%= form.hidden_field :confirmed_at, :value => Time.now %>
-
+<br>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-outline-primary" %>
   </div>
 <% end %>
-
-<%= link_to '戻る', admin_users_path %>
+<br>
+<%= link_to '戻る', admin_index_path, class: "btn btn-outline-secondary btn-sm" %>

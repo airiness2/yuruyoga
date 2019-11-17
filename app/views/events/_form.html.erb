@@ -11,32 +11,32 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :hold_date %>
     <%= form.datetime_select :hold_date, id: :event_hold_date %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :name %>
-    <%= form.text_field :name, id: :event_name %>
+    <%= form.text_field :name, id: :event_name, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :detail %>
-    <%= form.text_area :detail, id: :event_detail %>
+    <%= form.text_area :detail, id: :event_detail, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :place %>
-    <%= form.text_field :place, id: :event_place %>
+    <%= form.text_field :place, id: :event_place, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :url %>
-    <%= form.url_field :url, id: :event_url %>
+    <%= form.url_field :url, id: :event_url, class: "form-control" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-outline-primary" %>
   </div>
 <% end %>

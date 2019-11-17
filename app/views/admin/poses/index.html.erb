@@ -1,7 +1,4 @@
 <h4><%= t('view.pose') %><%= t('view.index') %></h4>
-<div>
-<%= link_to 'ポーズ新規作成', new_admin_pose_path %>
-</div>
 
 <table class="table table-striped table-responsive">
   <thead>
@@ -25,4 +22,9 @@
   </tbody>
 </table>
 
-<%= link_to '戻る', admin_index_path %>
+
+<%= link_to 'ポーズ新規作成', new_admin_pose_path, class: "btn btn-outline-primary" %>
+
+<p style="margin: 5px">&nbsp;</p>
+
+<%= link_to '戻る', admin_index_path, class: "btn btn-outline-secondary btn-sm"  %>

@@ -10,11 +10,11 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.text_area :content %>
+  <div class="form-group">
+    <%= form.text_area :content, class: "form-control"  %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-outline-primary btn-sm" %>
   </div>
 <% end %>

@@ -1,6 +1,7 @@
 <% if @over_ten %>
-  <%= link_to '以前のメッセージ', '?m=all' %>
+  <%= link_to '以前のメッセージ', '?m=all', class: "btn btn-outline-secondary btn-sm" %>
 <% end %>
+<p style="margin: 5px">&nbsp;</p>
 
 <div class="ui segment">
   <% @messages.each do |message| %>
@@ -14,7 +15,7 @@
               <%= message.body %> /
               <% if message.user == current_user %>
                 <%= message.read ? '既読' : '未読' %>
-              <% end %>  
+              <% end %>
             </div>
           </div>
         </div>
@@ -24,11 +25,15 @@
 </div>
 
 <%= form_with(model: [@conversation, @message]) do |f| %>
-  <div class="field">
+<div class="form-group">
     <%= f.text_area :body, class: "form-control" %>
   </div>
     <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
-  <div>
-    <%= f.submit "メッセージを送る" %>
+  <div class="action">
+    <%= f.submit "メッセージを送る", class: "btn btn-outline-primary" %>
   </div>
 <% end %>
+<br>
+<%= link_to '戻る', root_path, class: "btn btn-outline-secondary btn-sm" %>
+
+<p style="margin: 5px">&nbsp;</p>

@@ -13,37 +13,38 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :name %>
-    <%= form.text_field :name, id: :pose_name %>
+    <%= form.text_field :name, id: :pose_name, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :sans_name %>
-    <%= form.text_field :sans_name, id: :pose_sans_name %>
+    <%= form.text_field :sans_name, id: :pose_sans_name, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :effect %>
-    <%= form.select :effect_id, Effect.all.map { |effect| [effect.name, effect.id] } %>
+    <%= form.select( :effect_id, Effect.all.map { |effect| [effect.name, effect.id] }, {}, {class: "form-control"}) %>
   </div>
 
-
-  <div class="field">
+  <div class="form-group">
     <%= form.label :detail %>
-    <%= form.text_area :detail, id: :pose_detail %>
+    <%= form.text_area :detail, id: :pose_detail, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :image %>
     <%= image_tag(@pose.image.url) if @pose.image && @pose.image.url %>
-    <%= form.file_field :image %>
+    <%= form.file_field :image, class: "form-control-file" %>
     <%= form.hidden_field :image_cache %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-outline-primary" %>
   </div>
 <% end %>
+<br>
 
-<%= link_to '戻る', admin_poses_path %>
+<%= link_to '戻る', admin_poses_path, class: "btn btn-outline-secondary btn-sm" %>
+<p style="margin: 5px">&nbsp;</p>
