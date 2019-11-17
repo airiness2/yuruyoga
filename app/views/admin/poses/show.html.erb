@@ -1,32 +1,37 @@
 <div class="container">
-<p>
-  <strong><%= t('view.pose_name') %>:</strong>
-  <%= @pose.name %>
-</p>
-
-<p>
-  <strong><%= t('view.pose_name_sans') %>:</strong>
-  <%= @pose.sans_name %>
-</p>
-
-<p>
-  <strong><%= t('view.effect') %>:</strong>
-  <% @pose.effect_ids.each do |tag| %>
-  <label><%= Effect.find(effect).name %></label>
-  <% end %>
-</p>
-
-<p>
-  <strong><%= t('view.pose_detail') %>:</strong>
-  <%= @pose.detail %>
-</p>
-
-<p>
-  <strong><%= t('view.pose_image') %>:</strong>
-  <%= image_tag(@pose.image.url) if @pose.image && @pose.image.url %>
-</p>
-
-<%= link_to '詳細', admin_pose_path(@pose) %> |
-<%= link_to '編集', edit_admin_pose_path(@pose) %> |
-<%= link_to '戻る', admin_poses_path %>
+  <div class="col-12">
+    <table class="table" width="100%">
+      <tr>
+        <th><%= t('view.pose_name') %></th>
+        <td><%= @pose.name %></td>
+      </tr>
+      <tr>
+        <th><%= t('view.pose_name_sans') %></th>
+        <td><%= @pose.sans_name %></td>
+      </tr>
+      <tr>
+        <th><%= t('view.effect') %></th>
+        <td>
+          <% @pose.effect_ids.each do |tag| %>
+            <label><%= Effect.find(effect).name %></label>
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <th><%= t('view.pose_detail') %></th>
+        <td><%= @pose.detail %></td>
+      </tr>
+      <tr>
+        <th><%= t('view.pose_image') %></th>
+        <td><%= image_tag(@pose.image.url) if @pose.image && @pose.image.url %></td>
+      </tr>
+      <tr>
+        <td colspan="2" align="center">
+          <%= link_to '詳細', admin_pose_path(@pose), class: "btn btn-outline-primary btn-sm" %>
+          <%= link_to '編集', edit_admin_pose_path(@pose), class: "btn btn-outline-info btn-sm" %>
+          <%= link_to '戻る', admin_poses_path, class: "btn btn-outline-secondary btn-sm" %>
+        </td>
+      </tr>
+    </table>
+  </div>
 </div>
