@@ -1,32 +1,47 @@
 <div class="container">
 <h4><%= t('view.diary')%><%= t('view.search') %></h4>
 
-<div class="form-group">
-<%= search_form_for @q do |f| %>
-  <%= f.label :worked_date, "実施日" %>
-  <%= f.date_field :worked_date_gteq, class: "form-control" %>
-  〜
+<%= search_form_for @q, url: search_diaries_path do |f| %>
+<div class="form-inline">
+  <div class="form-group">
+    <%= f.label :worked_date, "実施日" %>
+    &nbsp;
+    &nbsp;
+    <%= f.date_field :worked_date_gteq, class: "form-control" %>
+      &nbsp;&nbsp;〜&nbsp;&nbsp;
+    <%= f.date_field :worked_date_lteq, class: "form-control" %>
+  </div>
+  &nbsp;
+  &nbsp;
 
-  <%= f.date_field :worked_date_lteq, class: "form-control" %>
-</div>
-<div class="form-group">
-  <%= f.label :pose_name_cont, "ポーズ" %>
-  <%= f.search_field :pose_name_cont, class: "form-control" %>
-</div>
+  <div class="form-group">
+    <%= f.label :pose_name_cont, "ポーズ" %>
+    &nbsp;
+    &nbsp;
+    <%= f.search_field :pose_name_cont, class: "form-control" %>
+  </div>
+  &nbsp;
+  &nbsp;
 
-<div class="form-group">
-  <%= f.label :tags_id_eq, "タグ" %>
-  <%= f.collection_select :tags_id_eq, Tag.all, :id, :name, {include_blank: true}, {class: "form-control"} %>
+  <div class="form-group">
+    <%= f.label :tags_id_eq, "タグ" %>
+    &nbsp;
+    &nbsp;
+    <%= f.collection_select :tags_id_eq, Tag.all, :id, :name, {include_blank: true}, {class: "form-control"} %>
+  </div>
 </div>
-  <%= check_box_tag :all_user, class: "form-check-input" %>
-  <%= f.label :all_user, "自分以外の日記も含める", class: "form-check-label" %>
+<p style="margin: 2px">&nbsp;</p>
+
+    <%= check_box_tag :all_user, class: "form-check-input" %>
+    <%= f.label :all_user, "自分以外の日記も含める", class: "form-check-label" %>
 <br>
 <br>
   <%= f.submit "検索", class: "btn btn-outline-primary" %>
+  &nbsp;
+  &nbsp;
+  <%= link_to '検索条件のクリア', request.path, class: "btn btn-outline-secondary btn-sm" %>
 <% end %>
-<p style="margin: 5px">&nbsp;</p>
 
-<%= link_to '検索条件のクリア', request.path, class: "btn btn-outline-secondary btn-sm" %>
 <p style="margin: 5px">&nbsp;</p>
 
 <table class="table table-striped">
