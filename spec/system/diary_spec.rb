@@ -8,7 +8,7 @@ RSpec.feature "日記作成機能", type: :system do
 
     fill_in 'user_email', with: 'test@example.com'
     fill_in 'user_password', with: 'password'
-    click_on 'ログイン'
+    click_on 'app_login'
   end
 
   scenario "日記一覧のテスト" do
@@ -36,4 +36,12 @@ RSpec.feature "日記作成機能", type: :system do
     expect(page).to have_content "20\n●"
   end
 
+  scenario "日記検索のテスト" do
+    visit search_diaries_path
+
+    fill_in 'q_worked_date_gteq', with: '2019/10/01'
+    click_on '検索'
+
+    expect(page).to have_content 'タイトル'
+  end
 end

@@ -60,3 +60,7 @@ gem 'ransack'
 gem "simple_calendar", "~> 2.0"
 
 gem "chartkick"
+
+gem 'font-awesome-rails'
+gem 'momentjs-rails'
+gem 'bootstrap4-datetime-picker-rails'

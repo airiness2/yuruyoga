@@ -1,9 +1,8 @@
-<h4><%= t('view.event') %><%= t('view.index') %></h4>
-<div>
-<%= link_to 'イベント新規作成', new_event_path %>
-</div>
+<div class="container">
 
-<table>
+<h4><%= t('view.event') %><%= t('view.index') %></h4>
+
+<table class="table table-striped">
   <thead>
     <tr>
       <th><%= t('view.event_hold_date') %></th>
@@ -17,7 +16,7 @@
   <tbody>
     <% @events.each do |event| %>
       <tr>
-        <td><%= event.hold_date %></td>
+        <td><%= event.hold_date.to_s(:event_date) %></td>
         <td><%= event.name %></td>
         <td><%= event.place %></td>
         <td><%= event.user.name %></td>
@@ -28,5 +27,11 @@
     <% end %>
   </tbody>
 </table>
+<br>
+<%= link_to 'イベント新規作成', new_event_path, class: "btn btn-outline-primary" %>
+<p style="margin: 5px">&nbsp;</p>
 
-<%= link_to '戻る', root_path %>
+<%= link_to '戻る', root_path, class: "btn btn-outline-secondary btn-sm" %>
+</div>
+
+<p style="margin: 5px">&nbsp;</p>

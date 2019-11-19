@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row">
-    <div class="w-75">
+    <div class="w-50">
       <h4>ランキング</h4>
-      <table>
+      <table class="table table-striped">
         <thead>
           <tr>
             <th><%= t('view.rank') %></th>
@@ -21,29 +21,57 @@
           <% end %>
         </tbody>
       </table>
-      <%= link_to "ランキングをもっと見る", ranking_diaries_path %><br>
+      <%= link_to "ランキングをもっと見る", ranking_diaries_path, class: "btn btn-outline-primary btn-sm" %><br>
     </div>
-    <div class="w-25">
+
+
+    <div class="w-50">
+      <table class="table table-borderless">
+        <tr>
+          <td>
       フォロワー数
+      </td>
+      <td>
       <%= @user.followers.count %><br>
-      フォローしている数<br>
-      <%= @user.following.count %><br>
-      <br>
-      フォロワー一覧<br>
+      </td>
+      </tr>
+      <tr>
+        <td>
+      フォローしている数
+    </td>
+      <td>
+      <%= @user.following.count %>
+      </td>
+      </tr>
+
+      <tr>
+        <td>
+      フォロワー一覧
+      </td>
+      <td>
       <% @user.followers.each do |follow| %>
       <%= link_to follow.name, user_path(follow.id) %><br>
+      </td>
       <% end %>
-      <br>
+      </tr>
+
     <% if @user.id == current_user.id %>
+    <tr>
+      <td colspan="2">
       <div class="item">
         メッセージのやり取りを開始する<br>
-        <%= link_to 'メッセージ一覧', conversations_path %></h5>
+        </td>
+        <tr>
+          <td colspan="2">
+        <%= link_to 'メッセージ一覧', conversations_path, class: "btn btn-outline-primary btn-sm" %>
       </div>
+      </td>
+      </tr>
     <% end %>
+    </table>
     </div>
   </div>
 
-  <p style="margin: 20px">&nbsp;</p>
 
   <div class="row">
     <div class="w-50">

@@ -10,7 +10,7 @@ RSpec.feature "管理画面機能", type: :system do
     visit user_session_path
     fill_in 'user_email', with: 'test@example.com'
     fill_in 'user_password', with: 'password'
-    click_on 'ログイン'
+    click_on 'app_login'
   end
 
   scenario "管理画面のアクセスのテスト" do
@@ -19,7 +19,7 @@ RSpec.feature "管理画面機能", type: :system do
     visit user_session_path
     fill_in 'user_email', with: 'unknown@example.com'
     fill_in 'user_password', with: 'password'
-    click_on 'ログイン'
+    click_on 'app_login'
 
     visit admin_index_path
     expect(page).to have_content '権限がありません'

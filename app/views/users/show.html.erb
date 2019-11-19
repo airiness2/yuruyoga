@@ -1,44 +1,44 @@
-<table>
-  <tr>
-    <td rowspan="6">
-      <% if @user.avatar.present? %>
-        <%= image_tag @user.avatar.url %>
-      <% else %>
-         &nbsp;
-      <% end %>
-    <td>
-  </tr>
-  <tr>
-    <td>
-      <%= @user.name %>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      フォロワー数
-      <%= @user.followers.count %>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      フォローしている数
-      <%= @user.following.count %>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <% if @user.id != current_user.id %>
-        <%= render 'follow_form', user: @user %>
-      <% end %>
-    </td>
-  </tr>
-  <tr>
-    <td>
-    <% if @user.id != current_user.id %>
-      <div class="item">
-        <%= link_to 'メッセージを送る', conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: :post %>
-      </div>
-    <% end %>
-    </td>
-  </tr>
-</table>
+<div class="container">
+  <div class="col-12">
+    <table class="table" width="100%">
+      <tr>
+        <td rowspan="6" width="50%">
+          <% if @user.avatar.present? %>
+            <%= image_tag @user.avatar.url %>
+          <% else %>
+             noimage
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <td><%= @user.name %></td>
+      </tr>
+      <tr>
+        <td>フォロワー数
+          <%= @user.followers.count %>
+        </td>
+      </tr>
+      <tr>
+        <td>フォローしている数
+          <%= @user.following.count %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <% if @user.id != current_user.id %>
+            <%= render 'follow_form', user: @user %>
+          <% end %>
+        </td>
+      </tr>
+        <% if @user.id != current_user.id %>
+        <tr>
+          <td>
+          <div class="item">
+            <%= link_to 'メッセージを送る', conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: :post, class: "btn btn-outline-primary" %>
+          </div>
+        </td>
+      </tr>
+        <% end %>
+    </table>
+  </div>
+</div>

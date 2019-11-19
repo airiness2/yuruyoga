@@ -1,5 +1,5 @@
-<h3><%= t('view.effect') %>を編集</h3>
-
+<div class="container">
+<h4><%= t('view.effect') %>を編集</h4>
 <%= form_with(model: @effect, url: admin_effect_path, local: true ) do |form| %>
   <% if @effect.errors.any? %>
     <div id="error_explanation">
@@ -13,13 +13,17 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.text_field :name, id: :effect_name %>
+  <div class="form-group">
+    <%= form.text_field :name, id: :effect_name, class: "form-control" %>
   </div>
+
+  <br>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-outline-primary" %>
   </div>
-<% end %>
+  <% end %>
+<br>
 
-<%= link_to '戻る', admin_effects_path %>
+<%= link_to '戻る', admin_effects_path, class: "btn btn-outline-secondary btn-sm" %>
+</div>

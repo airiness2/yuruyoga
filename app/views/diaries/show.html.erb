@@ -1,49 +1,71 @@
-<p>
-  <strong><%= t('view.worked_date') %>:</strong>
-  <%= @diary.worked_date %>
-</p>
+<div class="container">
+  <div class="col-12">
+    <table class="table" width="100%">
+      <tr>
+        <td colspan="2"><%= @diary.worked_date %></td>
+      </tr>
+      <tr>
+        <td colspan="2"><%= @diary.title %></td>
+      </tr>
+      <tr>
+        <td colspan="2"><%= image_tag(@diary.image.url) if @diary.image && @diary.image.url %></td>
+      </tr>
+      <tr>
+        <th><%= t('view.pose') %></th>
+        <td><%= @diary.pose.name %></td>
+      </tr>
+      <tr>
+        <th><%= t('view.rank') %></th>
+        <td><%= @diary.rank %></td>
+      </tr>
+      <tr>
+        <th><%= t('view.tag') %></th>
+        <td>
+          <% @diary.tag_ids.each do |tag| %>
+            <label style="background-color:#B2E2EC"><%= Tag.find(tag).name %></label>
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <th colspan="2"><%= t('view.body') %></th>
+      </tr>
+      <tr>
+        <td colspan="2"><%= @diary.body %></td>
+      </tr>
+    <tr>
+      <td colspan="2">
+        <%= link_to '編集', edit_diary_path(@diary), class: "btn btn-outline-secondary btn-sm" %>
+        <% if @diary.user == current_user %>
+          <%= link_to '削除', diary_path(@diary), method: :delete, data: { confirm: '本当に削除しますか?' }, class: "btn btn-danger btn-sm" %>
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <th colspan="2"><%= t('view.comment') %>はこちらへ</th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <%= render partial: 'comments/form', locals: { comment: @comment, diary: @diary } %>
+      </td>
+    </tr>
+    <tr>
+      <th colspan="2"><%= t('view.comment') %><%= t('view.index') %></th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <div id="comments_area">
+          <%= render partial: 'comments/index', locals: { comments: @comments, diary: @diary } %>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td col span="2">
+        <%= link_to '戻る', search_diaries_path, class: "btn btn-outline-secondary btn-sm" %>
+      </td>
+    </tr>
+  </table>
 
-<p>
-  <strong><%= t('view.title') %>:</strong>
-  <%= @diary.title %>
-</p>
+  <p style="margin: 5px">&nbsp;</p>
 
-<p>
-  <strong><%= t('view.pose') %>:</strong>
-  <%= @diary.pose.name %>
-</p>
-
-<p>
-  <strong><%= t('view.image') %>:</strong>
-  <%= image_tag(@diary.image.url) if @diary.image && @diary.image.url %>
-</p>
-
-<p>
-  <strong><%= t('view.rank') %>:</strong>
-  <%= @diary.rank %>
-</p>
-
-<p>
-  <strong><%= t('view.tag') %>:</strong>
-  <% @diary.tag_ids.each do |tag| %>
-  <label style="background-color:lightpink"><%= Tag.find(tag).name %></label>
-  <% end %>
-</p>
-
-<p>
-  <strong><%= t('view.body') %>:</strong>
-  <%= @diary.body %>
-</p>
-
-<p><%= t('view.comment') %>はこちらへ</p>
-  <%= render partial: 'comments/form', locals: { comment: @comment, diary: @diary } %>
-
-<p style="margin: 5px">&nbsp;</p>
-
-<p><%= t('view.comment') %><%= t('view.index') %></p>
-  <div id="comments_area">
-    <%= render partial: 'comments/index', locals: { comments: @comments, diary: @diary } %>
   </div>
-  
-<%= link_to '編集', edit_diary_path(@diary) %> |
-<%= link_to '戻る', diaries_path %>
+</div>

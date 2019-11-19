@@ -11,32 +11,41 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :hold_date %>
-    <%= form.datetime_select :hold_date, id: :event_hold_date %>
-  </div>
+  <div class="form-group">
+    <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+      <%= form.text_field :hold_date, id: :event_hold_date, class: "form-control datepicker", data: { target: '#event_hold_date'} %>
+      <div class="input-group-append" data-target="#event_hold_date" data-toggle="datetimepicker">
+        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+      </div>
+     </div>
+   </div>
+   <script type="text/javascript">
+     $(function () {
+          $('#event_hold_date').datetimepicker();
+     });
+   </script>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :name %>
-    <%= form.text_field :name, id: :event_name %>
+    <%= form.text_field :name, id: :event_name, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :detail %>
-    <%= form.text_area :detail, id: :event_detail %>
+    <%= form.text_area :detail, id: :event_detail, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :place %>
-    <%= form.text_field :place, id: :event_place %>
+    <%= form.text_field :place, id: :event_place, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :url %>
-    <%= form.url_field :url, id: :event_url %>
+    <%= form.url_field :url, id: :event_url, class: "form-control" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-outline-primary" %>
   </div>
 <% end %>
