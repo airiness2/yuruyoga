@@ -8,7 +8,7 @@ RSpec.feature "イベント作成機能", type: :system do
 
     fill_in 'user_email', with: 'test@example.com'
     fill_in 'user_password', with: 'password'
-    click_on 'ログイン'
+    click_on 'app_login'
   end
 
   scenario "イベント一覧のテスト" do
@@ -20,11 +20,7 @@ RSpec.feature "イベント作成機能", type: :system do
   scenario "イベント作成のテスト" do
     visit new_event_path
 
-    select '2019', :from => 'event_hold_date_1i'
-    select '12月', :from => 'event_hold_date_2i'
-    select '22', :from => 'event_hold_date_3i'
-    select '13', :from => 'event_hold_date_4i'
-    select '00', :from => 'event_hold_date_5i'
+    fill_in 'event_hold_date', with: '2019/12/22 13:00'
     fill_in 'event_name', with: 'イベント2'
     fill_in 'event_detail', with: 'イベント詳細2'
     fill_in 'event_place', with: '会津若松'

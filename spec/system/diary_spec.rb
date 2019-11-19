@@ -8,7 +8,7 @@ RSpec.feature "日記作成機能", type: :system do
 
     fill_in 'user_email', with: 'test@example.com'
     fill_in 'user_password', with: 'password'
-    click_on 'ログイン'
+    click_on 'app_login'
   end
 
   scenario "日記一覧のテスト" do
