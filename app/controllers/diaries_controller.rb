@@ -1,6 +1,7 @@
 class DiariesController < ApplicationController
   before_action :set_diary, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  before_action :prohibit_editing, only: [:edit, :destroy]
 
   def index
     @diaries = Diary.all.where(user: current_user)
@@ -88,4 +89,9 @@ class DiariesController < ApplicationController
     @diary = Diary.find(params[:id])
   end
 
+  def prohibit_editing
+    if @diary.user != current_user
+      redirect_to diary_path(@diary), notice: '自分以外の日記を編集することは出来ません'
+    end
+  end
 end

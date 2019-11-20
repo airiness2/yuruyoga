@@ -32,14 +32,15 @@
       <tr>
         <td colspan="2"><%= @diary.body %></td>
       </tr>
+    <% if @diary.user == current_user %>
     <tr>
       <td colspan="2">
         <%= link_to '編集', edit_diary_path(@diary), class: "btn btn-outline-secondary btn-sm" %>
-        <% if @diary.user == current_user %>
-          <%= link_to '削除', diary_path(@diary), method: :delete, data: { confirm: '本当に削除しますか?' }, class: "btn btn-danger btn-sm" %>
-        <% end %>
+        <%= link_to '削除', diary_path(@diary), method: :delete, data: { confirm: '本当に削除しますか?' }, class: "btn btn-danger btn-sm" %>
       </td>
     </tr>
+    <% end %>
+    <% if @diary.user != current_user %>
     <tr>
       <th colspan="2"><%= t('view.comment') %>はこちらへ</th>
     </tr>
@@ -48,6 +49,7 @@
         <%= render partial: 'comments/form', locals: { comment: @comment, diary: @diary } %>
       </td>
     </tr>
+    <% end %>
     <tr>
       <th colspan="2"><%= t('view.comment') %><%= t('view.index') %></th>
     </tr>

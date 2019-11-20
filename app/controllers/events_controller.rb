@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  before_action :prohibit_editing, only: [:edit, :destroy]
 
   def index
     @events = Event.all
@@ -54,5 +55,11 @@ class EventsController < ApplicationController
 
   def set_event
     @event = Event.find(params[:id])
+  end
+
+  def prohibit_editing
+    if @event.user != current_user
+      redirect_to event_path(@event), notice: '自分以外が投稿したイベントを編集することは出来ません'
+    end
   end
 end
