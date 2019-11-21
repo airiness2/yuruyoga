@@ -14,7 +14,7 @@ RSpec.feature "日記作成機能", type: :system do
   scenario "日記一覧のテスト" do
     visit search_diaries_path
 
-    expect(page).to have_content 'タイトル'
+    expect(page).to have_content '日記1'
   end
 
   scenario "日記作成のテスト" do
@@ -42,6 +42,33 @@ RSpec.feature "日記作成機能", type: :system do
     fill_in 'q_worked_date_gteq', with: '2019/10/01'
     click_on '検索'
 
-    expect(page).to have_content 'タイトル'
+    expect(page).to have_content '日記1'
+  end
+
+  scenario "日記削除のテスト" do
+    visit search_diaries_path
+
+    click_on '削除'
+    page.accept_alert
+
+    expect(page).not_to have_content '日記1'
+  end
+
+  scenario "他の人の日記を削除出来ないのテスト" do
+    FactoryBot.create(:user, email: "other@example.com")
+
+    visit destroy_user_session_path
+    visit user_session_path
+
+    fill_in 'user_email', with: 'other@example.com'
+    fill_in 'user_password', with: 'password'
+    click_on 'app_login'
+
+    visit search_diaries_path
+
+    check 'all_user'
+    click_on '検索'
+
+    expect(page).not_to have_content '削除'
   end
 end

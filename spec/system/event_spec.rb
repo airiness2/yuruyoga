@@ -40,4 +40,27 @@ RSpec.feature "イベント作成機能", type: :system do
     expect(page).to have_content 'イベント12'
   end
 
+  scenario "イベント削除のテスト" do
+    visit events_path
+
+    click_on '削除'
+    page.accept_alert
+
+    expect(page).not_to have_content 'イベント1'
+  end
+
+  scenario "他の人の投稿したイベントを削除出来ないのテスト" do
+    FactoryBot.create(:user, email: "other@example.com")
+
+    visit destroy_user_session_path
+    visit user_session_path
+
+    fill_in 'user_email', with: 'other@example.com'
+    fill_in 'user_password', with: 'password'
+    click_on 'app_login'
+
+    visit events_path
+
+    expect(page).not_to have_content '削除'
+  end
 end
