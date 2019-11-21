@@ -3,7 +3,7 @@ class Admin::EffectsController < ApplicationController
   before_action :admin_flg
 
   def index
-    @effects = Effect.all
+    @effects = Effect.all.page(params[:page]).per(10)
   end
 
   def new

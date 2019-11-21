@@ -1,6 +1,6 @@
 class PosesController < ApplicationController
   def index
-    @poses = Pose.all
+    @poses = Pose.all.page(params[:page]).per(10)
   end
 
   private

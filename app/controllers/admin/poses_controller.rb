@@ -3,7 +3,7 @@ class Admin::PosesController < ApplicationController
   before_action :admin_flg
 
   def index
-    @poses = Pose.all
+    @poses = Pose.all.page(params[:page]).per(10)
   end
 
   def new

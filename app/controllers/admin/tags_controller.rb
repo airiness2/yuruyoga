@@ -3,7 +3,7 @@ class Admin::TagsController < ApplicationController
   before_action :admin_flg
 
   def index
-    @tags = Tag.all
+    @tags = Tag.all.page(params[:page]).per(10)
   end
 
   def new
