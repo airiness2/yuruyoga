@@ -152,3 +152,14 @@ body > .container {
 .w-25 {
   padding: 20px;
 }
+
+.pagination a {
+  color: #6495ed;
+}
+
+.page-item.active .page-link {
+  background-color: #6495ed;
+  border-color: #6495ed;
+}
+
+.pagination a:hover:not(.active) {background-color: #67C7D4;}

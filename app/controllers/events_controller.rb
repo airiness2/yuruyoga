@@ -4,7 +4,7 @@ class EventsController < ApplicationController
   before_action :prohibit_editing, only: [:edit, :destroy]
 
   def index
-    @events = Event.all
+    @events = Event.all.page(params[:page]).per(10)
   end
 
   def new
