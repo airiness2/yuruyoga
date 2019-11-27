@@ -64,3 +64,5 @@ gem "chartkick"
 gem 'font-awesome-rails'
 gem 'momentjs-rails'
 gem 'bootstrap4-datetime-picker-rails'
+
+gem 'rakuten_web_service'

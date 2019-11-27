@@ -24,7 +24,6 @@
       <%= link_to "ランキングをもっと見る", ranking_diaries_path, class: "btn btn-outline-primary btn-sm" %><br>
     </div>
 
-
     <div class="w-50">
       <table class="table table-borderless">
         <tr>
@@ -87,4 +86,23 @@
      通知
     </div>
   </div>
+
+  <div class="row">
+    <div align="center">
+      <div class="card-deck">
+        <% @items.first(5).each do |item| %>
+          <div class="card" style="width:15rem;">
+          <% if item["imageFlag"] == 1 %>
+            <%= link_to (image_tag(item["mediumImageUrls"][0])), item["affiliateUrl"], class: "card-img-top" %>
+          <% end %>
+            <div class="card-body">
+              <p class="card-text"><font size="-1"><%= link_to item.name, "#{item.url}" %></font></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
+
+<p style="margin: 5px">&nbsp;</p>
