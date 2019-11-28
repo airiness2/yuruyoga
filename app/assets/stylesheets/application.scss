@@ -17,11 +17,18 @@ a {
   color: #67C7D4;
 }
 
+.simple-calendar td {
+  height: 5px;
+}
+
+.simple-calendar .day {
+  height: 50px;
+}
 .simple-calendar {
   margin: 10px;
   color: #38383E;
+  font-size: small;
 }
-
 
 $bgDefault      : #6495ed;
 $bgHighlight    : #346aec;

@@ -7,6 +7,7 @@ class DiariesController < ApplicationController
     @diaries = Diary.all.where(user: current_user)
     @user = current_user
     @rankings =  Diary.joins(:pose).group("poses.name").select("pose_id, rank").limit(10).sum(:rank)
+    @items = RakutenWebService::Ichiba::Genre[501880].ranking
   end
 
   def search
