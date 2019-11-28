@@ -1,6 +1,8 @@
 class PosesController < ApplicationController
   def index
-    @poses = Pose.all.page(params[:page]).per(10)
+    @q = Pose.ransack(params[:q])
+    @poses = @q.result.order(created_at: :desc)
+    @poses = @poses.page(params[:page]).per(10)
   end
 
   private
