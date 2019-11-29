@@ -29,33 +29,29 @@
     <div class="form-group pb-2">
       <%= form.label :effect %>
       <% if action_name == "new" || action_name == "create" %>
-      <%= form.fields_for :effect_ids do |effect| %>
-        <%= effect.collection_select(nil, Effect.all, :id, :name,
-          {include_blank: "選択してください", selected: 0},
-          {id: :user_effect_id_1, class: "form-control m-1"}) %>
-          &nbsp;&nbsp;
-        <%= effect.collection_select(nil, Effect.all, :id, :name,
-          {include_blank: "選択してください", selected: 0},
-          {id: :user_effect_id_2, class: "form-control m-1"}) %>
-          &nbsp;&nbsp;
-        <%= effect.collection_select(nil, Effect.all, :id, :name,
-          {include_blank: "選択してください", selected: 0},
-          {id: :user_effect_id_3, class: "form-control m-1"}) %>
-      <% end %>
+        <%= form.fields_for :effect_ids do |effect| %>
+          <%= effect.collection_select(nil, Effect.all, :id, :name,
+            {include_blank: "選択してください", selected: 0},
+            {id: :user_effect_id_1, class: "form-control m-1"}) %>
+          <%= effect.collection_select(nil, Effect.all, :id, :name,
+            {include_blank: "選択してください", selected: 0},
+            {id: :user_effect_id_2, class: "form-control m-1"}) %>
+          <%= effect.collection_select(nil, Effect.all, :id, :name,
+            {include_blank: "選択してください", selected: 0},
+            {id: :user_effect_id_3, class: "form-control m-1"}) %>
+        <% end %>
       <% elsif action_name == "edit" || action_name == "update" %>
-      <%= form.fields_for :effect_ids do |effect| %>
-        <%= effect.collection_select(nil, Effect.all, :id, :name,
-          {include_blank: "選択してください", selected: @pose.effect_ids[0] },
-          {id: :user_effect_id_1, class: "form-control m-1"}) %>
-          &nbsp;&nbsp;
-        <%= effect.collection_select(nil, Effect.all, :id, :name,
-          {include_blank: "選択してください", selected: @pose.effect_ids[1] },
-          {id: :user_effect_id_2, class: "form-control m-1"}) %>
-          &nbsp;&nbsp;
-        <%= effect.collection_select(nil, Effect.all, :id, :name,
-          {include_blank: "選択してください", selected: @pose.effect_ids[2] },
-          {id: :user_effect_id_3, class: "form-control m-1"}) %>
-      <% end %>
+        <%= form.fields_for :effect_ids do |effect| %>
+          <%= effect.collection_select(nil, Effect.all, :id, :name,
+            {include_blank: "選択してください", selected: @pose.effect_ids[0] },
+            {id: :user_effect_id_1, class: "form-control m-1"}) %>
+          <%= effect.collection_select(nil, Effect.all, :id, :name,
+            {include_blank: "選択してください", selected: @pose.effect_ids[1] },
+            {id: :user_effect_id_2, class: "form-control m-1"}) %>
+          <%= effect.collection_select(nil, Effect.all, :id, :name,
+            {include_blank: "選択してください", selected: @pose.effect_ids[2] },
+            {id: :user_effect_id_3, class: "form-control m-1"}) %>
+        <% end %>
       <% end %>
     </div>
   </div>

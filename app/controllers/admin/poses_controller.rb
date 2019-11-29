@@ -3,7 +3,9 @@ class Admin::PosesController < ApplicationController
   before_action :admin_flg
 
   def index
-    @poses = Pose.all.page(params[:page]).per(10)
+    @q = Pose.ransack(params[:q])
+    @poses = @q.result.order(created_at: :desc)
+    @poses = @poses.page(params[:page]).per(10)
   end
 
   def new

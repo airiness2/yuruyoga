@@ -3,39 +3,26 @@
 
 <%= search_form_for @q do |f| %>
 <div class="form-inline">
-  <div class="form-group">
+  <div class="form-group mr-5">
     <%= f.label :name_cont, "ポーズ名" %>
-    &nbsp;
-    &nbsp;
-    <%= f.search_field :name_cont, class: "form-control" %>
+    <%= f.search_field :name_cont, class: "form-control ml-2" %>
   </div>
-  &nbsp;
-  &nbsp;
 
-  <div class="form-group">
+  <div class="form-group mr-5">
     <%= f.label :sans_name_cont, "ポーズ名(サンスクリット語)" %>
-    &nbsp;
-    &nbsp;
-    <%= f.search_field :sans_name_cont, class: "form-control" %>
+    <%= f.search_field :sans_name_cont, class: "form-control ml-2" %>
   </div>
-  &nbsp;
-  &nbsp;
 
-  <div class="form-group">
+  <div class="form-group pr-5">
     <%= f.label :effects_id_eq, "効果" %>
-    &nbsp;
-    &nbsp;
-    <%= f.collection_select :effects_id_eq, Effect.all,:id, :name, {include_blank: true}, {class: "form-control"} %>  </div>
+    <%= f.collection_select :effects_id_eq, Effect.all,:id, :name, {include_blank: true}, {class: "form-control ml-2"} %>  </div>
 </div>
-<p style="margin: 2px">&nbsp;</p>
 <br>
-  <%= f.submit "検索", class: "btn btn-outline-primary" %>
-  &nbsp;
-  &nbsp;
+  <%= f.submit "検索", class: "btn btn-outline-primary mr-2" %>
   <%= link_to '検索条件のクリア', request.path, class: "btn btn-outline-secondary btn-sm" %>
 <% end %>
 
-<hr>
+<p class="p-1"></p>
 
 <table class="table table-striped">
   <thead>
