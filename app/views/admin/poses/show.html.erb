@@ -12,7 +12,7 @@
       <tr>
         <th><%= t('view.effect') %></th>
         <td>
-          <% @pose.effect_ids.each do |tag| %>
+          <% @pose.effect_ids.each do |effect| %>
             <label><%= Effect.find(effect).name %></label>
           <% end %>
         </td>

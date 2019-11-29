@@ -26,7 +26,7 @@
           <td><%= link_to '削除', event_path(event), method: :delete, data: { confirm: '本当に削除しますか?' } %></td>
         <% else %>
           <td colspan="2"></td>
-        <% end %>    
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -37,5 +37,3 @@
 
 <%= link_to '戻る', root_path, class: "btn btn-outline-secondary btn-sm" %>
 </div>
-
-<p style="margin: 5px">&nbsp;</p>
