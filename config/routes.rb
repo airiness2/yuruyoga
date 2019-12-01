@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
 
-  resources :poses, :only => [:index]
+  resources :poses, :only => [:index, :show]
 
   resources :admin, :only => [:index]
 

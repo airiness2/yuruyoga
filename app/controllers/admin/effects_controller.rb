@@ -11,6 +11,7 @@ class Admin::EffectsController < ApplicationController
       @effect = Effect.new(effect_params)
     else
       @effect = Effect.new
+      @effect.effectings.build
     end
   end
 
@@ -43,7 +44,7 @@ class Admin::EffectsController < ApplicationController
   private
 
   def effect_params
-    params.require(:effect).permit(:name)
+    params.require(:effect).permit(:name, pose_ids: [])
   end
 
   def set_effect

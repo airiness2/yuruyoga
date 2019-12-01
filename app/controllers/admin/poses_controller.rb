@@ -3,7 +3,9 @@ class Admin::PosesController < ApplicationController
   before_action :admin_flg
 
   def index
-    @poses = Pose.all.page(params[:page]).per(10)
+    @q = Pose.ransack(params[:q])
+    @poses = @q.result.order(created_at: :desc)
+    @poses = @poses.page(params[:page]).per(10)
   end
 
   def new
@@ -11,6 +13,7 @@ class Admin::PosesController < ApplicationController
       @pose = Pose.new(pose_params)
     else
       @pose = Pose.new
+      @pose.effectings.build
     end
   end
 
@@ -28,6 +31,9 @@ class Admin::PosesController < ApplicationController
   def edit; end
 
   def update
+    if params[:pose][:effect_ids].blank?
+      params[:pose].delete(:effect_ids)
+    end
     if @pose.update(pose_params)
       redirect_to admin_pose_path, notice: "ポーズを編集しました！"
     else

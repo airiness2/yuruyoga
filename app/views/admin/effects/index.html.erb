@@ -22,11 +22,8 @@
 </table>
 <%= paginate @effects %>
 
-<%= link_to '効果新規作成', new_admin_effect_path, class: "btn btn-outline-primary" %>
-
-<p style="margin: 5px">&nbsp;</p>
-
-<%= link_to '戻る', admin_index_path, class: "btn btn-outline-secondary btn-sm"  %>
+  <span class="d-inline-block">
+    <%= link_to '効果新規作成', new_admin_effect_path, class: "btn btn-outline-primary mr-3" %>
+    <%= link_to '戻る', admin_index_path, class: "btn btn-outline-secondary btn-sm"  %>
+  </span>
 </div>
-
-<p style="margin: 5px">&nbsp;</p>

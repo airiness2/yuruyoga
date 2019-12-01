@@ -67,7 +67,7 @@
           <td><%= link_to '編集', edit_diary_path(diary) %></td>
           <td><%= link_to '削除', diary, method: :delete, data: { confirm: '削除してもよろしいですか?' } %></td>
         <% else %>
-          <td colspan="2"></td>    
+          <td colspan="2"></td>
         <% end %>
       </tr>
     <% end %>
@@ -79,4 +79,3 @@
 <%= link_to '日記新規作成', new_diary_path, class: "btn btn-outline-primary"   %>
 </div>
 </div>
-<p style="margin: 5px">&nbsp;</p>

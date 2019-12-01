@@ -2,6 +2,32 @@
 
 <h4><%= t('view.pose') %><%= t('view.index') %></h4>
 
+
+<%= search_form_for @q do |f| %>
+<div class="form-inline">
+  <div class="form-group mr-5">
+    <%= f.label :name_cont, "ポーズ名" %>
+    <%= f.search_field :name_cont, class: "form-control ml-2" %>
+  </div>
+
+  <div class="form-group mr-5">
+    <%= f.label :sans_name_cont, "ポーズ名(サンスクリット語)" %>
+    <%= f.search_field :sans_name_cont, class: "form-control ml-2" %>
+  </div>
+
+  <div class="form-group pr-5">
+    <%= f.label :effects_id_eq, "効果" %>
+    <%= f.collection_select :effects_id_eq, Effect.all,:id, :name, {include_blank: true}, {class: "form-control ml-2"} %>  </div>
+</div>
+<br>
+  <%= f.submit "検索", class: "btn btn-outline-primary mr-2" %>
+  <%= link_to '検索条件のクリア', request.path, class: "btn btn-outline-secondary btn-sm" %>
+<% end %>
+
+<p class="p-1"></p>
+
+
+
 <table class="table table-striped">
   <thead>
     <tr>
@@ -26,12 +52,12 @@
 
 <%= paginate @poses %>
 
-
-<%= link_to 'ポーズ新規作成', new_admin_pose_path, class: "btn btn-outline-primary" %>
-
 <p style="margin: 5px">&nbsp;</p>
 
-<%= link_to '戻る', admin_index_path, class: "btn btn-outline-secondary btn-sm"  %>
+<span class="d-inline-block">
+  <%= link_to 'ポーズ新規作成', new_admin_pose_path, class: "btn btn-outline-primary mr-3" %>
+  <%= link_to '戻る', admin_index_path, class: "btn btn-outline-secondary btn-sm"  %>
+</span>
+
+
 </div>
-
-<p style="margin: 5px">&nbsp;</p>
