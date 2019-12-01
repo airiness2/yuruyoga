@@ -28,8 +28,8 @@
   <thead>
     <tr>
       <th><%= t('view.pose_name') %></th>
-      <th><%= t('view.pose_detail') %></th>
       <th><%= t('view.pose_name_sans') %></th>
+      <th><%= t('view.pose_detail') %></th>
     </tr>
   </thead>
 
@@ -37,8 +37,8 @@
     <% @poses.each do |pose| %>
       <tr>
         <td><%= pose.name %></td>
-        <td><%= pose.detail %></td>
         <td><%= pose.sans_name %></td>
+        <td><%= pose.detail %></td>
       </tr>
     <% end %>
   </tbody>

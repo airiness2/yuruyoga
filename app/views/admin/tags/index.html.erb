@@ -23,9 +23,9 @@
 
 <%= paginate @tags %>
 
-<%= link_to 'タグ新規作成', new_admin_tag_path, class: "btn btn-outline-primary"  %>
+<span class="d-inline-block">
+  <%= link_to 'タグ新規作成', new_admin_tag_path, class: "btn btn-outline-primary mr-3"  %>
+  <%= link_to '戻る', admin_index_path, class: "btn btn-outline-secondary btn-sm"  %>
+</span>
 
-<p style="margin: 5px">&nbsp;</p>
-
-<%= link_to '戻る', admin_index_path, class: "btn btn-outline-secondary btn-sm"  %>
 </div>
