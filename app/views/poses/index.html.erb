@@ -30,6 +30,7 @@
       <th><%= t('view.pose_name') %></th>
       <th><%= t('view.pose_name_sans') %></th>
       <th><%= t('view.pose_detail') %></th>
+      <th></th>
     </tr>
   </thead>
 
@@ -39,6 +40,7 @@
         <td><%= pose.name %></td>
         <td><%= pose.sans_name %></td>
         <td><%= pose.detail %></td>
+        <td><%= link_to '詳細', pose_path(pose) %></td>
       </tr>
     <% end %>
   </tbody>
