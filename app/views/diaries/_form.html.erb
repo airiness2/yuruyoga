@@ -1,3 +1,23 @@
+<script type="text/javascript">
+    $(function() {
+    $('#pose_auto_complete').autocomplete({
+      source: "/poses/auto_complete.json",
+      delay: 500,
+      minLength: 2,
+      focus: function(event, ui) {
+        $("#pose_auto_complete").val(ui.item.name);
+        return false;
+      },
+      select: function(event, ui) {
+        $('#pose_auto_complete').val(ui.item.name);
+        return false;
+      }
+    }).data("ui-autocomplete")._renderItem = function(ul, item) {
+      return $("<li>").attr("data-value", item.name).data("ui-autocomplete-item", item).append("<a>" + item.name + "</a>").appendTo(ul);
+    };
+  });
+</script>
+
 <%= form_with(model: diary, local: true ) do |form| %>
   <% if diary.errors.any? %>
     <div id="error_explanation">
@@ -23,10 +43,13 @@
 
   <div class="form-group">
     <%= form.label :pose %>
-    <%= form.select :pose_id, Pose.all.map { |pose| [pose.name, pose.id] }, {}, class: "form-control" %>
-    <br>
-    <%= link_to 'ポーズ一覧', poses_path, class: "btn btn-outline-primary btn-sm" %>
+    <div class="form-inline">
+    <%= form.text_field :pose_id, id: :pose_auto_complete, class: "form-control w-50" %>
+    <span class="pr-5"></span>
+    <%= link_to 'ポーズ検索はこちら', poses_path, class: "btn btn-outline-primary btn-sm" %>
   </div>
+  </div>
+
 
   <div class="form-group">
     <%= form.label :rank %>
