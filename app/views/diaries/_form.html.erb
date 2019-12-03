@@ -9,13 +9,14 @@
         return false;
       },
       select: function(event, ui) {
-        $('#pose_auto_complete').val(ui.item.name);
+        $("#pose_auto_complete").val(ui.item.name);
+        $("#pose_id").val(ui.item.id);
         return false;
       }
-    }).data("ui-autocomplete")._renderItem = function(ul, item) {
-      return $("<li>").attr("data-value", item.name).data("ui-autocomplete-item", item).append("<a>" + item.name + "</a>").appendTo(ul);
-    };
-  });
+      }).data("ui-autocomplete")._renderItem = function(ul, item) {
+          return $("<li>").attr("data-value", item.name).data("ui-autocomplete-item", item).append("<a>" + item.name + "</a>").appendTo(ul);
+          }
+        });
 </script>
 
 <%= form_with(model: diary, local: true ) do |form| %>
@@ -44,12 +45,12 @@
   <div class="form-group">
     <%= form.label :pose %>
     <div class="form-inline">
-    <%= form.text_field :pose_id, id: :pose_auto_complete, class: "form-control w-50" %>
+      <%= form.text_field :pose_name, id: :pose_auto_complete, class: "form-control w-50" %>
+      <%= form.hidden_field :pose_id, id: :pose_id %>
     <span class="pr-5"></span>
-    <%= link_to 'ポーズ検索はこちら', poses_path, class: "btn btn-outline-primary btn-sm" %>
+      <%= link_to 'ポーズ検索はこちら', poses_path, class: "btn btn-outline-primary btn-sm" %>
+    </div>
   </div>
-  </div>
-
 
   <div class="form-group">
     <%= form.label :rank %>
