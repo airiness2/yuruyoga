@@ -2,6 +2,7 @@
 @import "simple_calendar";
 @import "font-awesome";
 @import "tempusdominus-bootstrap-4.css";
+@import "jquery-ui";
 
 html {
   position: relative;
@@ -170,3 +171,14 @@ body > .container {
 }
 
 .pagination a:hover:not(.active) {background-color: #67C7D4;}
+
+.ui-widget-content {
+  border: 1px solid #666!important;
+  width: 100px;
+  background: #ffffff;
+  color: #67C7D4;
+  list-style-type: none;
+  padding-left: 10px;
+}
+
+.ui-helper-hidden-accessible { display:none; }

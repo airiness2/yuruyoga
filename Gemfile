@@ -66,3 +66,5 @@ gem 'momentjs-rails'
 gem 'bootstrap4-datetime-picker-rails'
 
 gem 'rakuten_web_service'
+
+gem 'jquery-ui-rails'
