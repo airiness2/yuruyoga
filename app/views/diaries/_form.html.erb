@@ -45,10 +45,14 @@
   <div class="form-group">
     <%= form.label :pose %>
     <div class="form-inline">
-      <% if action_name == "edit" || action_name == "update" %>
-        <%= form.text_field :pose_name, id: :pose_auto_complete, class: "form-control w-75", value: diary.pose.name %>
+      <% if params[:pose_id] %>
+        <%= form.text_field :pose_name, id: :pose_auto_complete, class: "form-control w-75", value: @diary.pose.name %>
       <% else %>
-        <%= form.text_field :pose_name, id: :pose_auto_complete, class: "form-control w-75" %>
+        <% if action_name == "edit" || action_name == "update" %>
+          <%= form.text_field :pose_name, id: :pose_auto_complete, class: "form-control w-75", value: diary.pose.name %>
+        <% else %>
+          <%= form.text_field :pose_name, id: :pose_auto_complete, class: "form-control w-75" %>
+        <% end %>
       <% end %>
       <%= form.hidden_field :pose_id, id: :pose_id %>
     <span class="pr-5"></span>
@@ -90,4 +94,3 @@
     <%= form.submit class: "btn btn-outline-primary" %>
   </div>
 <% end %>
-<p style="margin: 5px">&nbsp;</p>

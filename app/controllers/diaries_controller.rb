@@ -27,6 +27,9 @@ class DiariesController < ApplicationController
       @diary = Diary.new
       @diary.taggings.build
     end
+    if params[:pose_id]
+      @diary.pose_id = params[:pose_id]
+    end
   end
 
   def create
