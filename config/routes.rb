@@ -26,7 +26,6 @@ Rails.application.routes.draw do
   resources :poses, :only => [:index, :show] do
     collection do
       get :auto_complete
-      get :new_diary_with_pose
     end
   end
 
