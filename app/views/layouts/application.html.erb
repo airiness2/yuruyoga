@@ -43,6 +43,9 @@
           <%= link_to "イベント", events_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
+          <%= link_to "プロフィール", user_path(current_user), class: "nav-link" %>
+        </li>
+        <li class="nav-item">
           <%= link_to "ログアウト", users_sign_out_path, class: "nav-link" %>
         </li>
         <% end %>
