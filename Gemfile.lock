@@ -293,6 +293,10 @@ GEM
     thor (0.20.3)
     thread_safe (0.3.6)
     tilt (2.0.10)
+    timeliness (0.4.3)
+    timeliness-i18n (0.8.0)
+      rails
+      timeliness
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
@@ -300,6 +304,8 @@ GEM
       thread_safe (~> 0.1)
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
+    validates_timeliness (5.0.0.alpha5)
+      timeliness (>= 0.3.10, < 1)
     warden (1.2.8)
       rack (>= 2.0.6)
     web-console (3.7.0)
@@ -359,9 +365,11 @@ DEPENDENCIES
   spring
   spring-commands-rspec
   spring-watcher-listen (~> 2.0.0)
+  timeliness-i18n
   turbolinks (~> 5)
   tzinfo-data
   uglifier (>= 1.3.0)
+  validates_timeliness (~> 5.0.0.alpha3)
   web-console (>= 3.3.0)
   webdrivers
 
