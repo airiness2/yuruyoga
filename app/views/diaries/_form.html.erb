@@ -70,12 +70,22 @@
     <%= form.text_area :body, id: :diary_body, class: "form-control" %>
   </div>
 
-  <div class="form-group">
-    <%= form.label :image %>
-    <%= image_tag(@diary.image.url) if @diary.image && @diary.image.url %>
-    <%= form.file_field :image, class: "form-control-file" %>
-    <%= form.hidden_field :image_cache %>
+  <div class="form-inline">
+    <div class="form-group">
+      <%= form.label :image %>
+      <%= image_tag(@diary.image.url) if @diary.image && @diary.image.url %>
+      <%= form.file_field :image, class: "form-control-file" %>
+      <%= form.hidden_field :image_cache %>
+    </div>
+    <% if @diary.image && @diary.image.url %>
+    <div class="form-group">
+      <%= form.check_box :remove_image, id: :diary_remove_image, class: "form-check-input" %>
+      <%= form.label :remove_image, class: "form-check-label" %>
+    </div>
+    <% end %>
   </div>
+
+  <p style="margin: 5px">&nbsp;</p>
 
   <%= t('view.tag') %>
   <br>
@@ -94,3 +104,4 @@
     <%= form.submit class: "btn btn-outline-primary" %>
   </div>
 <% end %>
+<p style="margin: 5px">&nbsp;</p>

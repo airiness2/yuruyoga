@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
 
-  resources :users, :only => [:show]
+  resources :users, :only => [:show, :edit, :update]
   resources :diaries do
     resources :comments
     collection do

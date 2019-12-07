@@ -12,6 +12,7 @@ ja:
         rank: "ランク"
         image: "投稿画像"
         pose: "ポーズ"
+        remove_image: "ポーズ画像削除"
       user:
         name: "名前"
         email: "メールアドレス"
@@ -21,12 +22,14 @@ ja:
         password: "パスワード"
         password_confirmation: "確認用パスワード"
         remember_me: "ログインを記憶"
+        remove_avatar: "プロフィール画像削除"
       pose:
         name: "ポーズ名(日本語)"
         detail: "ポーズ詳細"
         sans_name: "ポーズ名(サンスクリット語)"
         image: "ポーズ画像"
         effect: "効果"
+        remove_image: "画像削除"
       effect:
         name: "効果"
       tag:

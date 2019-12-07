@@ -49,7 +49,7 @@ class Admin::PosesController < ApplicationController
   private
 
   def pose_params
-    params.require(:pose).permit(:name, :detail, :sans_name, :image, :image_cache, effect_ids: [])
+    params.require(:pose).permit(:name, :detail, :sans_name, :image, :image_cache, :remove_image, ffect_ids: [])
   end
 
   def set_pose

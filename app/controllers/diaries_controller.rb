@@ -51,7 +51,7 @@ class DiariesController < ApplicationController
 
   def update
     if @diary.update(diary_params)
-      redirect_to search_diaries_path, notice: "日記を編集しました！"
+      redirect_to diary_path(@diary), notice: "日記を編集しました！"
     else
       render 'edit'
     end
@@ -76,7 +76,8 @@ class DiariesController < ApplicationController
   private
 
   def diary_params
-    params.require(:diary).permit(:title, :worked_date, :body, :rank, :image, :pose_id, :image_cache, :user_id, tag_ids: [])
+    params.require(:diary).permit(:title, :worked_date, :body, :rank, :image, :pose_id,
+                                   :image_cache, :user_id, :remove_image, tag_ids: [])
   end
 
   def set_diary
