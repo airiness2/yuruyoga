@@ -1,6 +1,7 @@
 class Diary < ApplicationRecord
   validates :worked_date, presence: true
   validates :rank, presence: true
+  validates_date :worked_date
 
   belongs_to :pose
   belongs_to :user

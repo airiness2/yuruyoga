@@ -68,3 +68,6 @@ gem 'bootstrap4-datetime-picker-rails'
 gem 'rakuten_web_service'
 
 gem 'jquery-ui-rails'
+
+gem 'validates_timeliness', '~> 5.0.0.alpha3'
+gem 'timeliness-i18n'
