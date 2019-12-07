@@ -61,13 +61,21 @@
     <%= form.text_area :detail, id: :pose_detail, class: "form-control" %>
   </div>
 
-  <div class="form-group">
-    <%= form.label :image %>
-    <%= image_tag(@pose.image.url) if @pose.image && @pose.image.url %>
-    <%= form.file_field :image , class: "form-control-file" %>
-    <%= form.hidden_field :image_cache %>
+  <div class="form-inline">
+    <div class="form-group">
+      <%= form.label :image %>
+      <%= image_tag(@pose.image.url) if @pose.image && @pose.image.url %>
+      <%= form.file_field :image , class: "form-control-file" %>
+      <%= form.hidden_field :image_cache %>
+    </div>
+    <% if @pose.image && @pose.image.url %>
+    <div class="form-group">
+      <%= form.check_box :remove_image, id: :pose_remove_image, class: "form-check-input" %>
+      <%= form.label :remove_image, class: "form-check-label" %>
+    </div>
+    <% end %>
   </div>
-
+  <p style="margin: 5px">&nbsp;</p>
   <div class="actions">
     <%= form.submit class: "btn btn-outline-primary" %>
   </div>

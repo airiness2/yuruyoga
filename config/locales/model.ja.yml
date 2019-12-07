@@ -28,6 +28,7 @@ ja:
         sans_name: "ポーズ名(サンスクリット語)"
         image: "ポーズ画像"
         effect: "効果"
+        remove_image: "画像削除"
       effect:
         name: "効果"
       tag:

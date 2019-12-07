@@ -51,7 +51,7 @@ class DiariesController < ApplicationController
 
   def update
     if @diary.update(diary_params)
-      redirect_to search_diaries_path, notice: "日記を編集しました！"
+      redirect_to diary_path(@diary), notice: "日記を編集しました！"
     else
       render 'edit'
     end
