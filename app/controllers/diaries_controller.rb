@@ -76,7 +76,7 @@ class DiariesController < ApplicationController
   private
 
   def diary_params
-    params.require(:diary).permit(:title, :worked_date, :body, :rank, :image, :pose_id, :image_cache, :user_id, tag_ids: [])
+    params.require(:diary).permit(:title, :worked_date, :body, :rank, :image, :pose_id, :image_cache, :user_id, :remove_image, tag_ids: [])
   end
 
   def set_diary

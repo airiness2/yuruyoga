@@ -12,6 +12,7 @@ ja:
         rank: "ランク"
         image: "投稿画像"
         pose: "ポーズ"
+        remove_image: "画像削除"
       user:
         name: "名前"
         email: "メールアドレス"
