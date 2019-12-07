@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Event, type: :model do
   it "is valid with a name, hold_date, user_id" do
-    user = FactoryBot.create(:user)
+    user = FactoryBot.create(:user, email: "test11@example.com")
     event = Event.create(
       name: 'イベント1',
       detail: 'イベント詳細1',
