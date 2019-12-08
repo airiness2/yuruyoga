@@ -8,6 +8,8 @@ namespace :announce_of_continuation do
 
       if @continued_diary == 30
         ContinuedAnnounceMailer.continued_mail(user, @continued_diary).deliver
+      elsif @continued_diary == 0
+        ContinuedAnnounceMailer.uncontinued_mail(user, @continued_diary).deliver
       end
     end
   end
