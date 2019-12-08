@@ -19,10 +19,10 @@
         <ul class="navbar-nav">
         <% if ! user_signed_in? %>
           <li class="nav-item active">
-            <a class="nav-link" href="#">新規登録</a>
+            <%= link_to "新規登録", new_user_registration_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">ログイン</a>
+            <%= link_to "ログイン", new_user_session_path, class: "nav-link" %>
           </li>
         <% else %>
           <% if current_user.admin? %>
