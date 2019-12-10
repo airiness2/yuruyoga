@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   get 'relationships/create'
   get 'relationships/destroy'
-  
+  get 'top', to: 'diaries#top'
   devise_for :users
 
   root 'diaries#index'

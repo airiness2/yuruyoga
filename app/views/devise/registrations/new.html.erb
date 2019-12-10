@@ -1,8 +1,4 @@
-<div class="top_page_image">
-<div class="row">
-  <div class="col-6"></div>
-  <div class="col-4" style="padding-top: 200px">
-
+<div class="container">
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
@@ -40,6 +36,4 @@
     </div>
   </div>
 <% end %>
-</div>
-<div class="col-2"></div>
 </div>
