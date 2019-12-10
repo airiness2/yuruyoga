@@ -12,6 +12,8 @@ module Yuruyoga
 
     config.load_defaults 5.2
 
+    config.autoload_paths << Rails.root.join('lib')
+
     config.generators do |g|
       g.assets false
       g.helper false
