@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_07_045611) do
+ActiveRecord::Schema.define(version: 2019_12_11_063610) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -106,6 +106,15 @@ ActiveRecord::Schema.define(version: 2019_12_07_045611) do
     t.index ["follower_id"], name: "index_relationships_on_follower_id"
   end
 
+  create_table "requests", force: :cascade do |t|
+    t.integer "status", default: 0, null: false
+    t.text "body", default: "", null: false
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_requests_on_user_id"
+  end
+
   create_table "taggings", force: :cascade do |t|
     t.bigint "tag_id", null: false
     t.bigint "diary_id", null: false
@@ -155,6 +164,7 @@ ActiveRecord::Schema.define(version: 2019_12_07_045611) do
   add_foreign_key "events", "users"
   add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "users"
+  add_foreign_key "requests", "users"
   add_foreign_key "taggings", "diaries"
   add_foreign_key "taggings", "tags"
 end
