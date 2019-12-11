@@ -1,15 +1,21 @@
 class RequestsController < ApplicationController
-  before_action :set_request, only: [:show, :edit, :update]
+  before_action :authenticate_user!
 
-  def show;end
-
-  def edit; end
-
-  def update
-    if @request.update(request_params)
-      redirect_to request_path(@request), notice: "要望を送信しました。"
+  def new
+    if params[:back]
+      @request = Request.new(request_params)
     else
-      render 'edit'
+      @request = Request.new
+    end
+  end
+
+  def create
+    @request = Request.new(request_params)
+    @request.user_id = current_user.id
+    if @request.save
+      redirect_to root_path, notice: "要望を送信しました!"
+    else
+      render 'new'
     end
   end
 
@@ -17,9 +23,5 @@ class RequestsController < ApplicationController
 
   def request_params
     params.require(:request).permit(:body, :status, :user_id)
-  end
-
-  def set_request
-    @request = request.find(params[:id])
   end
 end

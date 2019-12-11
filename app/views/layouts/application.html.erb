@@ -52,7 +52,7 @@
         </ul>
       </div>
     </nav>
-    <% if ! request.path == "top" %>
+    <% if  user_signed_in? %>
     <% if notice %>
       <p class="alert alert-notice"><%= notice %></p>
     <% end %>
