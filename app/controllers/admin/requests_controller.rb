@@ -3,7 +3,7 @@ class Admin::RequestsController < ApplicationController
   before_action :admin_flg
 
   def index
-    @requests = Request.all.page(params[:page]).per(10)
+    @requests = Request.all.page(params[:page]).per(5)
   end
 
   def show; end

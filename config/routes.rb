@@ -38,6 +38,7 @@ Rails.application.routes.draw do
     resources :poses
     resources :effects
     resources :tags
+    resources :requests
   end
 
   resources :conversations do

@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="col-12">
+    <table class="table" width="100%">
+      <tr>
+        <th><%= t('view.request_body') %></th>
+        <td><%= @request.body %></td>
+      </tr>
+      <tr>
+        <th><%= t('view.request_status') %></th>
+        <td><%= @request.status %></td>
+      </tr>
+      <tr>
+        <td colspan="2" align="center">
+          <%= link_to '編集', edit_admin_request_path(@request), class: "btn btn-outline-info btn-sm" %>
+          <%= link_to '戻る', admin_index_path, class: "btn btn-outline-secondary btn-sm" %>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

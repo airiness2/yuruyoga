@@ -1,0 +1,30 @@
+<div class="container">
+
+<h4><%= t('view.request_body') %><%= t('view.index') %></h4>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th><%= t('view.request_body') %></th>
+      <th><%= t('view.request_status') %></th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @requests.each do |request| %>
+      <tr>
+        <td><%= request.body %></td>
+        <td><%= request.status %></td>
+        <td><%= link_to '詳細', admin_request_path(request) %></td>
+        <td><%= link_to '編集', edit_admin_request_path(request) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= paginate @requests %>
+
+  <span class="d-inline-block">
+    <%= link_to '戻る', admin_index_path, class: "btn btn-outline-secondary btn-sm"  %>
+  </span>
+</div>

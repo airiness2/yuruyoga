@@ -30,6 +30,8 @@ ja:
     event_url: "イベントURL"
     event_detail: "イベント詳細"
     event_user: "作成者"
+    request_body: "要望"
+    request_status: "ステータス"
   simple_calendar:
     previous: "先月"
     next: "来月"
