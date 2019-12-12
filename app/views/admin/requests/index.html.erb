@@ -2,6 +2,17 @@
 
 <h4><%= t('view.request_body') %><%= t('view.index') %></h4>
 
+<%= search_form_for @q, url: admin_requests_path do |f| %>
+
+  <div class="form-inline">
+    <%= check_box_tag :all_status, class: "form-check-input" %>&nbsp;
+    <%= f.label :all_status, "完了済の要望も表示する", class: "form-check-label" %>
+    <span class="pr-5"></span><%= f.submit "表示", class: "btn btn-outline-primary" %>
+  </div>
+<% end %>
+
+<p class="p-1"></p>
+
 <table class="table">
   <thead>
     <tr>
@@ -25,6 +36,6 @@
 <%= paginate @requests %>
 
   <span class="d-inline-block">
-    <%= link_to '戻る', admin_index_path, class: "btn btn-outline-secondary btn-sm"  %>
+    <%= link_to '戻る', admin_index_path, class: "btn btn-outline-secondary"  %>
   </span>
 </div>
