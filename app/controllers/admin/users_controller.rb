@@ -44,7 +44,7 @@ class Admin::UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :email, :avatar, :admin, :avatar_cache,
-                                  :confirmed_at, :remove_avatar)
+                                  :confirmed_at, :remove_avatar, :password)
   end
 
   def set_user

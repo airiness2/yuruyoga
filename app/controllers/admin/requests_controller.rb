@@ -4,7 +4,7 @@ class Admin::RequestsController < ApplicationController
 
   def index
     @q = Request.ransack(params[:q])
-    @requests = @q.result
+    @requests = @q.result.order(created_at: :desc)
     if params[:all_status]
       @requests = @requests.page(params[:page]).per(10)
     else

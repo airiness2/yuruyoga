@@ -6,6 +6,7 @@ RSpec.feature "管理画面機能", type: :system do
     FactoryBot.create(:pose)
     FactoryBot.create(:effect)
     FactoryBot.create(:tag)
+    FactoryBot.create(:request)
 
     visit user_session_path
     fill_in 'user_email', with: 'test@example.com'
@@ -60,8 +61,14 @@ RSpec.feature "管理画面機能", type: :system do
     visit new_admin_user_path
     fill_in '名前', with: 'テストユーザ'
     fill_in 'メールアドレス', with: 'test5@example.com'
-    fill_in 'パスワード', with: 'password'
+    fill_in "user_password", with: 'password'
     click_on '登録する'
     expect(page).to have_content 'テストユーザ'
   end
+
+  scenario "要望ページのテスト" do
+    visit admin_requests_path
+    expect(page).to have_content '要望のテストです'
+  end
+
 end
