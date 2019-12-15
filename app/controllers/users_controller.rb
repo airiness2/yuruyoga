@@ -7,6 +7,9 @@ class UsersController < ApplicationController
   def edit; end
 
   def update
+    if params[:user][:password].blank?
+      params[:user].delete("password")
+    end
     if @user.update(user_params)
       redirect_to user_path(@user), notice: "プロフィールを更新しました！"
     else
