@@ -1,0 +1,34 @@
+<div class="container">
+<h4><%= t('view.request') %>を編集</h4>
+<%= form_with(model: @request, url: admin_request_path, local: true ) do |form| %>
+  <% if @request.errors.any? %>
+    <div id="error_explanation">
+      <h4><%= pluralize(@request.errors.count, "error") %> が存在しているため、保存出来ません:</h4>
+
+      <ul>
+      <% @request.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.text_area :body, id: :request_name, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :status %>
+    <%= form.select :status, Request.statuses.keys.to_a, {}, {class: "form-control"} %>
+  </div>
+
+  <br>
+
+  <div class="actions">
+    <%= form.submit class: "btn btn-outline-primary" %>
+  </div>
+  <% end %>
+<br>
+
+<%= link_to '戻る', admin_index_path, class: "btn btn-outline-secondary btn-sm" %>
+</div>

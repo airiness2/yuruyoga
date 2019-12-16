@@ -45,3 +45,5 @@ ja:
         place: "開催場所"
         url: "URL"
         detail: "イベント詳細"
+      request:
+        body: "感想や要望はこちらからお願いします！！"

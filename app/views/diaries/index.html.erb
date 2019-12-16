@@ -87,6 +87,7 @@
     </div>
   </div>
 
+<% if Rails.env.production? %>
   <div class="row">
     <div align="center">
       <div class="card-deck">
@@ -103,4 +104,6 @@
       </div>
     </div>
   </div>
+<% end %>
+
 </div>

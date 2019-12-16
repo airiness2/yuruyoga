@@ -15,6 +15,8 @@ class User < ApplicationRecord
   has_many :events, dependent: :destroy
   has_many :comments, dependent: :destroy
 
+  has_many :requests, dependent: :destroy
+
   mount_uploader :avatar, AvatarUploader
 
   def follow!(other_user)

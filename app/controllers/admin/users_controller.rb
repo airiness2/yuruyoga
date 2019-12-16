@@ -28,6 +28,9 @@ class Admin::UsersController < ApplicationController
   def edit; end
 
   def update
+    if params[:user][:password].blank?
+      params[:user].delete("password")
+    end
     if @user.update(user_params)
       redirect_to admin_user_path, notice: "ユーザを編集しました！"
     else
@@ -44,7 +47,7 @@ class Admin::UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :email, :avatar, :admin, :avatar_cache,
-                                  :confirmed_at, :remove_avatar)
+                                  :confirmed_at, :remove_avatar, :password)
   end
 
   def set_user

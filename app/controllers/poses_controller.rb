@@ -1,5 +1,6 @@
 class PosesController < ApplicationController
   before_action :set_pose, only: [:show]
+  before_action :authenticate_user!
 
   def index
     @q = Pose.ransack(params[:q])
