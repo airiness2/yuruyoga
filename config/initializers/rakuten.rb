@@ -1,9 +1,9 @@
 RakutenWebService.configure do |c|
   # (Required) Appliction ID for your application.
-  c.application_id = '1003973407734555642'
+  c.application_id = ENV["RAKUTEN_APPLICATION_ID"]
 
   # (Optional) Affiliate ID for your Rakuten account.
-  c.affiliate_id = '19b2cdb2.b08ce745.19b2cdb3.c08fa850'
+  c.affiliate_id = ENV["RAKUTEN_AFFILIATE_ID"]
 
   # (Optional) # of retries to send requests when the client receives
   # When the number of requests in some period overcomes the limit, the endpoints will return
