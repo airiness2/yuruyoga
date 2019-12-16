@@ -22,7 +22,7 @@ RSpec.feature "日記作成機能", type: :system do
 
     fill_in 'diary_worked_date', with: '2019/10/19'
     fill_in 'diary_title', with: '日記2'
-    select '1', :from => 'diary_pose_id'
+    fill_autocomplete "pose_auto_complete", with: "ポーズ", select: "ポーズ1"
     fill_in 'diary_body', with: '本文2'
     select 3, :from => 'diary_rank'
 
@@ -31,7 +31,7 @@ RSpec.feature "日記作成機能", type: :system do
   end
 
   scenario "カレンダー表示のテスト" do
-    visit diaries_path(start_date: "2019-10-07")
+    visit diaries_path(start_date: "2019/10/07")
 
     expect(page).to have_content "20\n●"
   end
