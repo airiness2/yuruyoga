@@ -10,8 +10,10 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-fixed-top navbar-expand-sm navbar-primary sticky-top">
-      <%= link_to "ゆるヨガ日記", root_path, class:"navbar-brand" %>
+    <nav class="navbar navbar-fixed-top navbar-expand-sm navbar-primary sticky-top pink darken-3 white-text">
+      <%= link_to root_path, class:"navbar-brand" do %>
+        <%= image_tag "logo_transparent.png" %>
+      <% end %>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarmenu" aria-controls="navbarmenu" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -22,36 +24,54 @@
             <%= link_to "新規アカウント作成", new_user_registration_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "ログイン", new_user_session_path, class: "nav-link" %>
+            <%= link_to new_user_session_path, class: "nav-link" do %>
+            <span class="fa fa-sign-in">ログイン</span>
+            <% end %>
           </li>
         <% else %>
           <% if current_user.admin? %>
             <li class="nav-item">
-              <%= link_to "管理画面", admin_index_path, class: "nav-link" %>
+              <%= link_to admin_index_path, class: "nav-link" do %>
+              <span class="fa fa-gear">管理画面</span>
+              <% end %>
             </li>
           <% end %>
         <li class="nav-item">
-          <%= link_to "日記を書く", new_diary_path, class: "nav-link active" %>
+          <%= link_to new_diary_path, class: "nav-link active" do %>
+          <span class="fa fa-pencil">日記を書く</span>
+          <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to "日記検索", search_diaries_path, class: "nav-link" %>
+          <%= link_to search_diaries_path, class: "nav-link" do %>
+          <span class="fa fa-search">日記検索</span>
+          <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to "ポーズ検索", poses_path, class: "nav-link" %>
+          <%= link_to poses_path, class: "nav-link" do %>
+          <span class="fa fa-search">ポーズ検索</span>
+          <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to "イベント", events_path, class: "nav-link" %>
+          <%= link_to events_path, class: "nav-link" do %>
+          <span class="fa fa-calendar-o">イベント</span>
+          <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to "プロフィール", user_path(current_user), class: "nav-link" %>
+          <%= link_to user_path(current_user), class: "nav-link" do %>
+          <span class="fa fa-user">プロフィール</span>
+          <% end %>
         </li>
         <% if ! current_user.admin? %>
           <li class="nav-item">
-            <%= link_to "要望を送る", new_request_path, class: "nav-link" %>
+            <%= link_to new_request_path, class: "nav-link" do %>
+            <span class="fa fa-envelope-o">要望を送る</span>
+            <% end %>
           </li>
         <% end %>
         <li class="nav-item">
-          <%= link_to "ログアウト", users_sign_out_path, class: "nav-link" %>
+          <%= link_to users_sign_out_path, class: "nav-link" do %>
+          <span class="fa fa-sign-out">ログアウト</span>
+          <% end %>
         </li>
         <% end %>
         </ul>
@@ -70,9 +90,9 @@
 
     <p style="margin: 5px">&nbsp;</p>
 
-    <footer class="footer">
+    <footer class="footer pink darken-3">
       <div class="container">
-        <p class="text-footer">COPYRIGHT &#169; R.W. ALL RIGHTS RESERVED.</p>
+        <p class="text-footer white-text" align="center">COPYRIGHT &#169; R.W. ALL RIGHTS RESERVED.</p>
       </div>
     </footer>
 

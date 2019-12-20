@@ -1,6 +1,6 @@
 <div class="container">
 
-<h4><%= t('view.pose') %><%= t('view.index') %></h4>
+<h5 class="h5-responsive"><%= t('view.pose') %><%= t('view.index') %></h5>
 
 
 <%= search_form_for @q do |f| %>
@@ -20,11 +20,14 @@
     <%= f.collection_select :effects_id_eq, Effect.all,:id, :name, {include_blank: true}, {class: "form-control ml-2"} %>  </div>
 </div>
 <br>
-  <%= f.submit "検索", class: "btn btn-outline-primary mr-2" %>
-  <%= link_to '検索条件のクリア', request.path, class: "btn btn-outline-secondary btn-sm" %>
+  <div align="center">
+    <br>
+  <%= f.submit "検索", class: "btn indigo accent-1 mr-2 btn-sm" %>
+  <%= link_to '検索条件のクリア', request.path, class: "btn purple lighten-4 btn-sm" %>
+  </div>
 <% end %>
 
-<p class="p-1"></p>
+<p class="p-2"></p>
 
 
 
@@ -54,10 +57,11 @@
 
 <p style="margin: 5px">&nbsp;</p>
 
+<div align="center">
 <span class="d-inline-block">
-  <%= link_to 'ポーズ新規作成', new_admin_pose_path, class: "btn btn-outline-primary mr-3" %>
-  <%= link_to '戻る', admin_index_path, class: "btn btn-outline-secondary btn-sm"  %>
+  <%= link_to 'ポーズ新規作成', new_admin_pose_path, class: "btn indigo accent-1 mr-3" %>
+  <%= link_to '戻る', admin_index_path, class: "btn purple lighten-4  %>
 </span>
-
+</div>
 
 </div>

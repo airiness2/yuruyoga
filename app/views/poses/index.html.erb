@@ -1,5 +1,5 @@
 <div class="container">
-<h4><%= t('view.pose')%><%= t('view.index') %></h4>
+<h5 class="h5-responsive"><%= t('view.pose')%><%= t('view.index') %></h5>
 
 <%= search_form_for @q do |f| %>
 <div class="form-inline">
@@ -17,12 +17,14 @@
     <%= f.label :effects_id_eq, "効果" %>
     <%= f.collection_select :effects_id_eq, Effect.all,:id, :name, {include_blank: true}, {class: "form-control ml-2"} %>  </div>
 </div>
-<br>
-  <%= f.submit "検索", class: "btn btn-outline-primary mr-2" %>
-  <%= link_to '検索条件のクリア', request.path, class: "btn btn-outline-secondary btn-sm" %>
+<br><br>
+  <div align="center">
+  <%= f.submit "検索", class: "btn indigo accent-1 mr-2" %>
+  <%= link_to '検索条件のクリア', request.path, class: "btn purple lighten-4" %>
+  </div>
 <% end %>
 
-<p class="p-1"></p>
+<p class="p-2"></p>
 
 <table class="table table-striped">
   <thead>

@@ -1,13 +1,13 @@
 <div class="container">
 
-<h4><%= t('view.request_body') %><%= t('view.index') %></h4>
+<h5 class="h5-responsive"><%= t('view.request_body') %><%= t('view.index') %></h5>
 
 <%= search_form_for @q, url: admin_requests_path do |f| %>
 
   <div class="form-inline">
     <%= check_box_tag :all_status, class: "form-check-input" %>&nbsp;
     <%= f.label :all_status, "完了済の要望も表示する", class: "form-check-label" %>
-    <span class="pr-5"></span><%= f.submit "表示", class: "btn btn-outline-primary" %>
+    <span class="pr-5"></span><%= f.submit "表示", class: "btn purple lighten-4 btn-sm" %>
   </div>
 <% end %>
 
@@ -35,7 +35,7 @@
 </table>
 <%= paginate @requests %>
 
-  <span class="d-inline-block">
-    <%= link_to '戻る', admin_index_path, class: "btn btn-outline-secondary"  %>
-  </span>
+  <div align="center">
+    <%= link_to '戻る', admin_index_path, class: "btn indigo accent-1"  %>
+  </div>
 </div>

@@ -32,6 +32,7 @@ ja:
     event_user: "作成者"
     request_body: "要望"
     request_status: "ステータス"
+    request: "要望"
   simple_calendar:
     previous: "先月"
     next: "来月"

@@ -24,10 +24,9 @@
       <tr>
         <td colspan="2" align="center">
           <% if @event.user == current_user %>
-            <%= link_to '編集', edit_event_path(@event), class: "btn btn-outline-info btn-sm" %>
-            <%= link_to '削除', event_path(@event), method: :delete, data: { confirm: '本当に削除しますか?' }, class: "btn btn-danger btn-sm" %>
+            <%= link_to '削除', event_path(@event), method: :delete, data: { confirm: '本当に削除しますか?' }, class: "btn btn-outline-danger" %>
           <% end %>
-          <%= link_to '戻る', events_path, class: "btn btn-outline-secondary btn-sm" %>
+          <%= link_to '戻る', events_path, class: "btn purple lighten-4" %>
         </td>
       </tr>
     </table>
