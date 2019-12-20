@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="w-50">
-      <h4>ランキング</h4>
+      <h5 class="h5-responsive">ランキング</h5>
       <table class="table table-striped">
         <thead>
           <tr>
@@ -21,7 +21,9 @@
           <% end %>
         </tbody>
       </table>
-      <%= link_to "ランキングをもっと見る", ranking_diaries_path, class: "btn btn-outline-primary btn-sm" %><br>
+      <div align="right">
+        <%= link_to "ランキングをもっと見る", ranking_diaries_path, class: "btn indigo accent-1 btn-sm" %><br>
+      </div>
     </div>
 
     <div class="w-50">
@@ -62,7 +64,11 @@
         </td>
         <tr>
           <td colspan="2">
-        <%= link_to 'メッセージ一覧', conversations_path, class: "btn btn-outline-primary btn-sm" %>
+            <div align="right">
+              <p style="margin: 40px">&nbsp;</p>
+              <%= link_to 'メッセージ一覧', conversations_path, class: "btn indigo accent-1 btn-sm" %>
+            </div>
+
       </div>
       </td>
       </tr>

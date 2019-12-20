@@ -1,7 +1,7 @@
 <%= form_with(model: [diary, comment]) do |form| %>
   <% if comment.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+      <h5 class="h5-responsive"><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h5>
       <ul>
       <% comment.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -15,6 +15,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit class: "btn btn-outline-primary btn-sm" %>
+    <%= form.submit class: "btn indigo accent-1 btn-sm" %>
   </div>
 <% end %>

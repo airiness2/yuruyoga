@@ -1,5 +1,5 @@
 <div class="container">
-<h4><%= t('view.diary')%><%= t('view.search') %></h4>
+<h5 class="h5-responsive"><%= t('view.diary')%><%= t('view.search') %></h5>
 
 <%= search_form_for @q, url: search_diaries_path do |f| %>
 <div class="form-inline">
@@ -36,10 +36,12 @@
     <%= f.label :all_user, "自分以外の日記も含める", class: "form-check-label" %>
 <br>
 <br>
-  <%= f.submit "検索", class: "btn btn-outline-primary" %>
+  <div align="center">
+  <%= f.submit "検索", class: "btn indigo accent-1" %>
   &nbsp;
   &nbsp;
-  <%= link_to '検索条件のクリア', request.path, class: "btn btn-outline-secondary btn-sm" %>
+  <%= link_to '検索条件のクリア', request.path, class: "btn purple lighten-4" %>
+  </div>
 <% end %>
 
 <p style="margin: 5px">&nbsp;</p>
@@ -76,6 +78,7 @@
 
 <%= paginate @diaries %>
 <br>
-<%= link_to '日記新規作成', new_diary_path, class: "btn btn-outline-primary"   %>
+<div align="center">
+  <%= link_to '日記新規作成', new_diary_path, class: "btn indigo accent-1"   %>
 </div>
 </div>

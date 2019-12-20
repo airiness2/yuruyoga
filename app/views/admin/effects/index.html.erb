@@ -1,6 +1,6 @@
 <div class="container">
 
-<h4><%= t('view.effect') %><%= t('view.index') %></h4>
+<h5 class="h5-responsive"><%= t('view.effect') %><%= t('view.index') %></h5>
 
 <table class="table table-striped">
   <thead>
@@ -22,8 +22,10 @@
 </table>
 <%= paginate @effects %>
 
+<div align="center">
   <span class="d-inline-block">
-    <%= link_to '効果新規作成', new_admin_effect_path, class: "btn btn-outline-primary mr-3" %>
-    <%= link_to '戻る', admin_index_path, class: "btn btn-outline-secondary btn-sm"  %>
+    <%= link_to '効果新規作成', new_admin_effect_path, class: "btn indigo accent-1 mr-3" %>
+    <%= link_to '戻る', admin_index_path, class: "btn purple lighten-4" %>
   </span>
+  </div>
 </div>

@@ -1,6 +1,6 @@
 <div class="container">
 
-<h4><%= t('view.user') %><%= t('view.index') %></h4>
+<h5 class="h5-responsive"><%= t('view.user') %><%= t('view.index') %></h5>
 
 <table class="table table-striped">
   <thead>
@@ -28,10 +28,8 @@
 
 <%= paginate @users %>
 <br>
-
-<%= link_to 'ユーザ新規作成', new_admin_user_path, class: "btn btn-outline-primary" %>
-
-<p style="margin: 5px">&nbsp;</p>
-
-<%= link_to '戻る', admin_index_path, class: "btn btn-outline-secondary btn-sm" %>
+<div align="center">
+<%= link_to 'ユーザ新規作成', new_admin_user_path, class: "btn indigo accent-1" %>
+<%= link_to '戻る', admin_index_path, class: "btn purple lighten-4" %>
+</div>
 </div>
