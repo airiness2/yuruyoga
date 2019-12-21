@@ -35,10 +35,14 @@ class DiariesController < ApplicationController
   def create
     @diary = Diary.new(diary_params)
     @diary.user_id = current_user.id
-    if @diary.save
-      redirect_to search_diaries_path, notice: "日記を作成しました!"
+    if params[:back]
+      render :new
     else
-      render 'new'
+      if @diary.save
+        redirect_to search_diaries_path, notice: "日記を作成しました!"
+      else
+        render 'new'
+      end
     end
   end
 
@@ -64,6 +68,7 @@ class DiariesController < ApplicationController
 
   def confirm
     @diary = Diary.new(diary_params)
+    @diary.user_id = current_user.id
     render :new if @diary.invalid?
   end
 

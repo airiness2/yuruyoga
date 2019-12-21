@@ -1,39 +1,59 @@
-<%= form_with(model: @diary, url: diaries_path, local: true) do |form| %>
-  <%= t('view.worked_date') %><br>
-  <%= @diary.worked_date %>
+<div class="container">
+
+<%= form_with(model: @diary, local: true) do |form| %>
+  <%= form.hidden_field :user_id %>
   <%= form.hidden_field :worked_date %>
-  <br>
-  <%= t('view.title') %><br>
-  <%= @diary.title %>
   <%= form.hidden_field :title %>
-  <br>
-  <%= t('view.pose') %><br>
-  <%= @diary.pose.name %>
   <%= form.hidden_field :pose_id %>
-  <br>
-  <%= t('view.rank') %>
-  <%= @diary.rank %>
   <%= form.hidden_field :rank %>
-  <br>
-  <%= t('view.body') %><br>
-  <%= @diary.body %>
   <%= form.hidden_field :body %>
-  <br>
-  <%= t('view.image') %><br>
-  <%= image_tag(@diary.image.url) if @diary.image && @diary.image.url %><br>
   <%= form.hidden_field :image_cache %>
-  <br>
-
-  <%= t('view.tag') %><br>
-  <% @diary.tag_ids.each do |tag| %>
-  <label style="background-color:lightpink"><%= Tag.find(tag).name %></label>
-  <% end %>
   <%= form.hidden_field :tag_ids %>
-  <br>
-  <%= form.submit "投稿する" %>
-<% end %>
 
-<%= form_with(model:@diary, url:new_diary_path, local:true, method:"get") do |form| %>
-  <%= form.hidden_field :image_cache %>
-  <%= form.submit "戻る", name: "back" %>
-<% end %>
+  <div class="col-12">
+    <table class="table" width="100%">
+      <tr>
+        <td><%= t('view.worked_date') %></td>
+        <td><%= @diary.worked_date %></td>
+      </tr>
+      <tr>
+        <td><%= t('view.title') %></td>
+        <td><%= @diary.title %></td>
+      </tr>
+      <tr>
+        <td><%= t('view.pose') %></td>
+        <td><%= @diary.pose.name %></td>
+      </tr>
+      <tr>
+        <td><%= t('view.rank') %></td>
+        <td><%= @diary.rank %></td>
+      </tr>
+      <tr>
+        <td><%= t('view.body') %></td>
+        <td><%= @diary.body %></td>
+      </tr>
+      <tr>
+        <td><%= t('view.image') %></td>
+        <td><%= image_tag(@diary.image.url) if @diary.image && @diary.image.url %></td>
+      </tr>
+      <tr>
+        <td><%= t('view.tag') %></td>
+        <td>
+          <% @diary.tag_ids.each do |tag| %>
+            <label style="background-color: #B2E2EC"><%= Tag.find(tag).name %></label>
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+          <td colspan="2" align="center"><%= form.submit "投稿する", class: "btn indigo accent-1" %>
+          <%= form.submit "戻る", name: "back", class: "btn purple lighten-4" %>
+        <% end %>
+      </td>
+      </tr>
+      </table>
+
+
+
+</div>
+
+</div>

@@ -19,7 +19,7 @@
         });
 </script>
 
-<%= form_with(model: diary, local: true ) do |form| %>
+<%= form_with(model: diary, local: true, url: choose_new_or_edit ) do |form| %>
   <% if diary.errors.any? %>
     <div id="error_explanation">
       <h5 class="h5-responsive"><%= pluralize(diary.errors.count, "つのエラー") %> が存在しているため、保存出来ません:</h5>
@@ -48,7 +48,7 @@
       <% if params[:pose_id] %>
         <%= form.text_field :pose_name, id: :pose_auto_complete, class: "form-control w-75", value: @diary.pose.name %>
       <% else %>
-        <% if action_name == "edit" || action_name == "update" %>
+        <% if action_name == "edit" || action_name == "update" || params[:back] %>
           <%= form.text_field :pose_name, id: :pose_auto_complete, class: "form-control w-75", value: diary.pose.name %>
         <% else %>
           <%= form.text_field :pose_name, id: :pose_auto_complete, class: "form-control w-75" %>
