@@ -71,9 +71,10 @@ body > .container {
   color: #6495ed;
 }
 
-.page-item.active .page-link {
-  background-color: #6495ed;
+.pagination .page-item.active .page-link {
+  background-color: #8c9eff;
   border-color: #6495ed;
+  color: #212529;
 }
 
 .pagination a:hover:not(.active) {background-color: #67C7D4;}
