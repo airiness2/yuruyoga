@@ -1,0 +1,41 @@
+<div class="container">
+
+<%= form_with(model: @event, local: true) do |form| %>
+  <%= form.hidden_field :user_id %>
+  <%= form.hidden_field :hold_date %>
+  <%= form.hidden_field :name %>
+  <%= form.hidden_field :detail %>
+  <%= form.hidden_field :place %>
+  <%= form.hidden_field :url %>
+
+  <div class="col-12">
+    <table class="table" width="100%">
+      <tr>
+        <td><%= t('view.event_hold_date') %></td>
+        <td><%= @event.hold_date %></td>
+      </tr>
+      <tr>
+        <td><%= t('view.event_name') %></td>
+        <td><%= @event.name %></td>
+      </tr>
+      <tr>
+        <td><%= t('view.event_detail') %></td>
+        <td><%= @event.detail %></td>
+      </tr>
+      <tr>
+        <td><%= t('view.event_place') %></td>
+        <td><%= @event.place %></td>
+      </tr>
+      <tr>
+        <td><%= t('view.event_url') %></td>
+        <td><%= @event.url %></td>
+      </tr>
+      <tr>
+        <td colspan="2" align="center"><%= form.submit "投稿する", class: "btn indigo accent-1" %>
+          <%= form.submit "戻る", name: "back", class: "btn purple lighten-4" %>
+        <% end %>
+      </td>
+      </tr>
+    </table>
+  </div>
+</div>

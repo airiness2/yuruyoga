@@ -46,6 +46,10 @@ Rails.application.routes.draw do
   end
 
   resources :relationships, only: [:create, :destroy]
-  resources :events
+  resources :events do
+    collection do
+      post :confirm
+    end
+  end
   resources :requests, only: [:new, :create]
 end
