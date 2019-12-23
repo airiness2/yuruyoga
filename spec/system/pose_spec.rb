@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "ポーズ機能", type: :system do
   background do
+    FactoryBot.create(:user)
     FactoryBot.create(:pose)
 
     visit user_session_path
