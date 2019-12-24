@@ -2,6 +2,10 @@
   <div class="col-12">
     <table class="table" width="100%">
       <tr>
+        <th><%= t('view.user_name') %></th>
+        <td><%= link_to @request.user.name, user_path(@request.user) %></td>
+      </tr>
+      <tr>
         <th><%= t('view.request_body') %></th>
         <td><%= @request.body %></td>
       </tr>
@@ -12,8 +16,8 @@
       <tr>
         <td colspan="2" align="center">
           <br>
-          <%= link_to '編集', edit_admin_request_path(@request), class: "btn indigo accent-1" %>
-          <%= link_to '戻る', admin_index_path, class: "btn purple lighten-4" %>
+          <%= link_to '編集', edit_admin_request_path(@request), class: "btn indigo accent-1 mr-3" %>
+          <%= link_to '戻る', admin_requests_path, class: "btn purple lighten-4" %>
         </td>
       </tr>
     </table>

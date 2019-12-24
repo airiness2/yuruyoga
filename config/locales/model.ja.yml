@@ -48,4 +48,4 @@ ja:
       request:
         body: "感想や要望はこちらからお願いします！！"
         status: "ステータス"
-        
+        user_id: "ユーザ"
