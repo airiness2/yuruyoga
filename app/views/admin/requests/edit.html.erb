@@ -14,7 +14,13 @@
   <% end %>
 
   <div class="form-group">
-    <%= form.text_area :body, id: :request_name, class: "form-control" %>
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id, id: :request_user_name, class: "form-control", disabled: "disabled",value: @request.user.name  %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label "要望" %>
+    <%= form.text_area :body, id: :request_body, class: "form-control" %>
   </div>
 
   <div class="form-group">
