@@ -28,6 +28,10 @@ RSpec.feature "イベント作成機能", type: :system do
 
     click_on '登録する'
     expect(page).to have_content 'イベント2'
+
+    click_on '投稿する'
+    expect(page).to have_content 'イベント2'
+
   end
 
   scenario "イベント編集のテスト" do
