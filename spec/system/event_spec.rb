@@ -20,7 +20,7 @@ RSpec.feature "イベント作成機能", type: :system do
   scenario "イベント作成のテスト" do
     visit new_event_path
 
-    fill_in 'event_hold_date', with: '2019/12/22 13:00'
+    fill_in 'event_hold_date', with: Time.now.tomorrow.to_date
     fill_in 'event_name', with: 'イベント2'
     fill_in 'event_detail', with: 'イベント詳細2'
     fill_in 'event_place', with: '会津若松'
