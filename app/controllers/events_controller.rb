@@ -5,6 +5,14 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all.page(params[:page]).per(10)
+    @q = Event.ransack(params[:q])
+    @events = @q.result.order(hold_date: :asc)
+    if params[:all_events]
+      @events = @events.page(params[:page]).per(10)
+    else
+      @events = @events.page(params[:page]).per(10).where('hold_date >= ?', Time.now)
+    end
+
   end
 
   def new

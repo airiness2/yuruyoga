@@ -2,6 +2,17 @@
 
 <h5 class="h5-responsive"><%= t('view.event') %><%= t('view.index') %></h5>
 
+<%= search_form_for @q, url: events_path do |f| %>
+
+  <div class="form-inline">
+    <%= check_box_tag :all_events, class: "form-check-input" %>&nbsp;
+    <%= f.label :all_events, "完了済のイベントも表示する", class: "form-check-label" %>
+    <span class="pr-5"></span><%= f.submit "表示", class: "btn purple lighten-4 btn-sm" %>
+  </div>
+<% end %>
+
+
+
 <table class="table table-striped">
   <thead>
     <tr>
