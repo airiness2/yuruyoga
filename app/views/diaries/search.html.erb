@@ -7,9 +7,9 @@
     <%= f.label :worked_date, "実施日" %>
     &nbsp;
     &nbsp;
-    <%= f.date_field :worked_date_gteq, class: "form-control" %>
+    <%= f.date_field :worked_date_gteq, class: "form-control", max: "9999-12-31" %>
       &nbsp;&nbsp;〜&nbsp;&nbsp;
-    <%= f.date_field :worked_date_lteq, class: "form-control" %>
+    <%= f.date_field :worked_date_lteq, class: "form-control", max: "9999-12-31" %>
   </div>
   &nbsp;
   &nbsp;

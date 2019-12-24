@@ -44,6 +44,7 @@ class EventsController < ApplicationController
 
   def confirm
     @event = Event.new(event_params)
+    @event.user_id = current_user.id
     render :new if @event.invalid?
   end
 
