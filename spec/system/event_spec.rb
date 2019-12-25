@@ -53,7 +53,7 @@ RSpec.feature "イベント作成機能", type: :system do
     expect(page).not_to have_content 'イベント1'
   end
 
-  scenario "他の人の投稿したイベントを削除出来ないのテスト" do
+  scenario "他の人の投稿したイベントを削除と編集出来ないのテスト" do
     FactoryBot.create(:user, email: "other@example.com")
 
     visit destroy_user_session_path
@@ -66,5 +66,24 @@ RSpec.feature "イベント作成機能", type: :system do
     visit events_path
 
     expect(page).not_to have_content '削除'
+    expect(page).not_to have_content '編集'
+  end
+
+  scenario "過去のイベントが表示されないのテスト" do
+    visit new_event_path
+
+    fill_in 'event_hold_date', with: "2019/01/01 15:00"
+    fill_in 'event_name', with: '過去イベント'
+    fill_in 'event_detail', with: '過去イベント詳細'
+    fill_in 'event_place', with: '渋谷'
+    fill_in 'event_url', with: 'http://localhost/'
+
+    click_on '登録する'
+    click_on '投稿する'
+    expect(page).not_to have_content '過去イベント'
+
+    check 'all_events'
+    click_on '表示'
+    expect(page).to have_content '過去イベント'
   end
 end
