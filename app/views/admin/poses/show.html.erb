@@ -27,10 +27,13 @@
       </tr>
       <tr>
         <td colspan="2" align="center">
-          <%= link_to '編集', edit_admin_pose_path(@pose), class: "btn indigo accent-1" %>
-          <%= link_to '戻る', admin_poses_path, class: "btn purple lighten-4" %>
+          <%= link_to '編集', edit_admin_pose_path(@pose), class: "btn indigo accent-1 mr-3" %>
+          <%= link_to '削除', admin_pose_path(@pose), method: :delete, data: { confirm: '本当に削除しますか?' }, class: "btn btn-outline-danger mr-3" %>
         </td>
       </tr>
     </table>
+    <div align="center">
+      <%= link_to '戻る', admin_poses_path, class: "btn purple lighten-4" %>
+    </div>
   </div>
 </div>

@@ -1,54 +1,51 @@
 <div class="container">
+  <h5 class="h5-responsive"><%= t('view.user') %>を編集</h5>
 
-<h5 class="h5-responsive"><%= t('view.user') %>を編集</h5>
+  <%= form_with(model: @user, local: true ) do |form| %>
+    <% if @user.errors.any? %>
+      <div id="error_explanation">
+        <h5 class="h5-responsive"><%= pluralize(@user.errors.count, "error") %> が存在しているため、保存出来ません:</h5>
+        <ul>
+          <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
 
-<%= form_with(model: @user, local: true ) do |form| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h5 class="h5-responsive"><%= pluralize(@user.errors.count, "error") %> が存在しているため、保存出来ません:</h5>
+    <div class="form-group">
+      <%= form.label :name %>
+      <%= form.text_field :name, id: :user_name, class: "form-control" %>
+    </div>
 
-      <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+    <div class="form-group">
+      <%= form.label :email %>
+      <%= form.text_field :email, id: :user_email, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :password %>
+      <%= form.password_field :password, id: :user_password, class: "form-control" %>
+    </div>
+
+    <div class="form-inline">
+      <div class="form-group">
+        <%= form.label :avatar %>
+        <%= image_tag(@user.avatar.url) if @user.avatar && @user.avatar.url %>
+        <%= form.file_field :avatar, class: "form-control-file" %>
+        <%= form.hidden_field :avatar_cache %>
+      </div>
+      <% if @user.avatar && @user.avatar.url %>
+      <div class="form-group">
+        <%= form.check_box :remove_avatar, id: :user_remove_avatar, class: "form-check-input" %>
+        <%= form.label :remove_avatar, class: "form-check-label" %>
+      </div>
       <% end %>
-      </ul>
+    </div>
+  <br><br>
+    <div class="actions" align="center">
+      <%= form.submit class: "btn indigo accent-1" %>
+      <%= link_to '戻る', user_path(@user), class: "btn purple lighten-4" %>
     </div>
   <% end %>
-
-  <div class="form-group">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :user_name, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :email %>
-    <%= form.text_field :email, id: :user_email, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :password %>
-    <%= form.password_field :password, id: :user_password, class: "form-control" %>
-  </div>
-
-  <div class="form-inline">
-    <div class="form-group">
-      <%= form.label :avatar %>
-      <%= image_tag(@user.avatar.url) if @user.avatar && @user.avatar.url %>
-      <%= form.file_field :avatar, class: "form-control-file" %>
-      <%= form.hidden_field :avatar_cache %>
-    </div>
-    <% if @user.avatar && @user.avatar.url %>
-    <div class="form-group">
-      <%= form.check_box :remove_avatar, id: :user_remove_avatar, class: "form-check-input" %>
-      <%= form.label :remove_avatar, class: "form-check-label" %>
-    </div>
-    <% end %>
-  </div>
-  <br>
-<br>
-  <div class="actions" align="center">
-    <%= form.submit class: "btn indigo accent-1" %>
-    <%= link_to '戻る', user_path(@user), class: "btn purple lighten-4" %>
-  </div>
-<% end %>
 </div>

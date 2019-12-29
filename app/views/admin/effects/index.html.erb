@@ -1,31 +1,32 @@
 <div class="container">
 
-<h5 class="h5-responsive"><%= t('view.effect') %><%= t('view.index') %></h5>
+  <h5 class="h5-responsive"><%= t('view.effect') %><%= t('view.index') %></h5>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= t('view.effect') %></th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @effects.each do |effect| %>
+  <table class="table table-striped">
+    <thead>
       <tr>
-        <td><%= effect.name %></td>
-        <td><%= link_to '編集', edit_admin_effect_path(effect) %></td>
-        <td><%= link_to '削除', admin_effect_path(effect), method: :delete, data: { confirm: '本当に削除しますか?' } %></td>
+        <th><%= t('view.effect') %></th>
+        <th colspan="2"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-<%= paginate @effects %>
+    </thead>
 
-<div align="center">
-  <span class="d-inline-block">
+    <tbody>
+      <% @effects.each do |effect| %>
+        <tr>
+          <td><%= effect.name %></td>
+          <td><%= link_to '編集', edit_admin_effect_path(effect) %></td>
+          <td><%= link_to '削除', admin_effect_path(effect), method: :delete, data: { confirm: '本当に削除しますか?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= paginate @effects %>
+
+  <p class="m-5"></p>
+
+  <div align="center">
     <%= link_to '効果新規作成', new_admin_effect_path, class: "btn indigo accent-1 mr-3" %>
     <%= link_to '戻る', admin_index_path, class: "btn purple lighten-4" %>
-  </span>
   </div>
 </div>

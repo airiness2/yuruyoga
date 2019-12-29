@@ -36,7 +36,7 @@ RSpec.feature "日記作成機能", type: :system do
   scenario "カレンダー表示のテスト" do
     visit diaries_path(start_date: "2019/10/07")
 
-    expect(page).to have_content "20\n●"
+    expect(page).to have_link(href: /diaries/ )
   end
 
   scenario "日記検索のテスト" do

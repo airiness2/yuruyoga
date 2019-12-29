@@ -1,12 +1,12 @@
 <div class="container">
 
-<%= pie_chart @graphs %>
+  <%= pie_chart @graphs %>
 
-<p style="margin: 20px">&nbsp;</p>
+  <p style="margin: 20px">&nbsp;</p>
 
-<div class="row">
-  <div class="w-50">
-    <h5>好きなポーズランキング</h5>
+  <div class="row">
+    <div class="w-50">
+      <h5 class="h5-responsive">好きなポーズランキング</h5>
       <table class="table">
         <thead>
           <tr>
@@ -29,26 +29,26 @@
     </div>
 
     <div class="w-50">
-      <h5>苦手なポーズランキング</h5>
-        <table class="table">
-          <thead>
-            <tr>
-              <th><%= t('view.rank') %></th>
-              <th><%= t('view.pose_name') %></th>
-            </tr>
-          </thead>
+      <h5 class="h5-responsive">苦手なポーズランキング</h5>
+      <table class="table">
+        <thead>
+          <tr>
+            <th><%= t('view.rank') %></th>
+            <th><%= t('view.pose_name') %></th>
+          </tr>
+        </thead>
 
-          <tbody>
-            <% i = 1 %>
-            <% @unlike_poses.each do |unlike_pose| %>
-              <tr>
-                <td><%= i %></td>
-                <td><%= unlike_pose.name %></td>
-              </tr>
-              <% i += 1 %>
-            <% end %>
-          </tbody>
-        </table>
-      </div>
+        <tbody>
+          <% i = 1 %>
+          <% @unlike_poses.each do |unlike_pose| %>
+            <tr>
+              <td><%= i %></td>
+              <td><%= unlike_pose.name %></td>
+            </tr>
+            <% i += 1 %>
+          <% end %>
+        </tbody>
+      </table>
     </div>
   </div>
+</div>

@@ -1,32 +1,31 @@
 <div class="container">
+  <h5 class="h5-responsive"><%= t('view.tag') %><%= t('view.index') %></h5>
 
-<h5 class="h5-responsive"><%= t('view.tag') %><%= t('view.index') %></h5>
-
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= t('view.tag') %></th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @tags.each do |tag| %>
+  <table class="table table-striped">
+    <thead>
       <tr>
-        <td><%= tag.name %></td>
-        <td><%= link_to '編集', edit_admin_tag_path(tag) %></td>
-        <td><%= link_to '削除', admin_tag_path(tag), method: :delete, data: { confirm: '本当に削除しますか?' } %></td>
+        <th><%= t('view.tag') %></th>
+        <th colspan="2"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<%= paginate @tags %>
+    <tbody>
+      <% @tags.each do |tag| %>
+        <tr>
+          <td><%= tag.name %></td>
+          <td><%= link_to '編集', edit_admin_tag_path(tag) %></td>
+          <td><%= link_to '削除', admin_tag_path(tag), method: :delete, data: { confirm: '本当に削除しますか?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<div align="center">
-<span class="d-inline-block">
-  <%= link_to 'タグ新規作成', new_admin_tag_path, class: "btn indigo accent-1 mr-3"  %>
-  <%= link_to '戻る', admin_index_path, class: "btn purple lighten-4" %>
-</span>
-</div>
+  <%= paginate @tags %>
+
+  <p class="m-5"></p>
+
+  <div align="center">
+    <%= link_to 'タグ新規作成', new_admin_tag_path, class: "btn indigo accent-1 mr-3"  %>
+    <%= link_to '戻る', admin_index_path, class: "btn purple lighten-4" %>
+  </div>
 </div>

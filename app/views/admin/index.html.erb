@@ -1,139 +1,115 @@
 <div class="container">
-
   <h5 class="h5-responsive"><%= t('view.request_body') %><%= t('view.index') %></h5>
 
   <table class="table table-hover table-sm">
     <tbody>
       <% @requests.each do |request| %>
         <tr>
-          <td><%= request.body %></td>
-          <td><%= request.status %></td>
-          <td><%= link_to '詳細', admin_request_path(request) %></td>
-          <td><%= link_to '編集', edit_admin_request_path(request) %></td>
+          <td><%= link_to request.body, admin_request_path(request) %></td>
+          <td><%= link_to request.user.name, admin_request_path(request) %></td>
+          <td><%= link_to request.status, admin_request_path(request) %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
 
   <div align="center">
-  <%= link_to '要望一覧へ', admin_requests_path, class: "btn indigo accent-1 btn-sm" %>
+    <%= link_to '要望一覧へ', admin_requests_path, class: "btn indigo accent-1 btn-sm" %>
   </div>
 
   <p style="margin: 20px">&nbsp;</p>
 
   <div class="row">
     <div class="w-50">
-      <h5 class="h5-responsive"><%= t('view.pose') %>編集</h5>
+      <h5 class="h5-responsive"><%= t('view.pose') %></h5>
       <table class="table table-hover table-sm">
         <thead>
           <tr>
             <th><%= t('view.pose_name') %></th>
             <th><%= t('view.pose_name_sans') %></th>
-            <th colspan="3"></th>
           </tr>
         </thead>
 
         <tbody>
           <% @poses.each do |pose| %>
             <tr>
-              <td><%= pose.name %></td>
-              <td><%= pose.sans_name %></td>
-              <td><%= link_to '詳細', admin_pose_path(pose) %></td>
-              <td><%= link_to '編集', edit_admin_pose_path(pose) %></td>
-              <td><%= link_to '削除', admin_pose_path(pose), method: :delete, data: { confirm: '本当に削除しますか?' } %></td>
+              <td><%= link_to pose.name, admin_pose_path(pose) %></td>
+              <td><%= link_to pose.sans_name, admin_pose_path(pose) %></td>
             </tr>
           <% end %>
         </tbody>
       </table>
 
-    <div align="right">
-    <%= link_to 'ポーズ一覧へ', admin_poses_path, class: "btn indigo accent-1 btn-sm" %>
-    </div>
+      <div align="right">
+        <%= link_to 'ポーズ一覧へ', admin_poses_path, class: "btn indigo accent-1 btn-sm" %>
+      </div>
     </div>
 
     <div class="w-50">
-      <h5 class="h5-responsive"><%= t('view.user') %>編集</h5>
+      <h5 class="h5-responsive"><%= t('view.user') %></h5>
       <table class="table table-hover table-sm">
         <thead>
           <tr>
             <th><%= t('view.user') %></th>
             <th><%= t('view.email') %></th>
             <th><%= t('view.admin') %></th>
-            <th colspan="3"></th>
           </tr>
         </thead>
 
         <tbody>
           <% @users.each do |user| %>
             <tr>
-              <td><%= user.name %></td>
-              <td><%= user.email %></td>
-              <td><%= human_boolean(user.admin) %></td>
-              <td><%= link_to '詳細', admin_user_path(user) %></td>
-              <td><%= link_to '編集', edit_admin_user_path(user) %></td>
-              <td><%= link_to '削除', admin_user_path(user), method: :delete, data: { confirm: '本当に削除しますか?' } %></td>
+              <td><%= link_to user.name, admin_user_path(user) %></td>
+              <td><%= link_to user.email, admin_user_path(user) %></td>
+              <td><%= link_to human_boolean(user.admin), admin_user_path(user) %></td>
             </tr>
           <% end %>
         </tbody>
       </table>
+
       <div align="right">
-    <%= link_to 'ユーザ一覧へ', admin_users_path, class: "btn indigo accent-1 btn-sm" %>
+        <%= link_to 'ユーザ一覧へ', admin_users_path, class: "btn indigo accent-1 btn-sm" %>
       </div>
+
     </div>
   </div>
 
-<p style="margin: 20px">&nbsp;</p>
+  <p style="margin: 20px">&nbsp;</p>
 
   <div class="row">
     <div class="w-50">
-      <h5 class="h5-responsive"><%= t('view.effect') %>編集</h5>
+      <h5 class="h5-responsive"><%= t('view.effect') %></h5>
       <table class="table table-hover table-sm">
-        <thead>
-          <tr>
-            <th><%= t('view.effect') %></th>
-            <th colspan="2"></th>
-          </tr>
-        </thead>
-
         <tbody>
           <% @effects.each do |effect| %>
             <tr>
-              <td><%= effect.name %></td>
-              <td><%= link_to '編集', edit_admin_effect_path(effect) %></td>
-              <td><%= link_to '削除', admin_effect_path(effect), method: :delete, data: { confirm: '本当に削除しますか?' } %></td>
+              <td><%= link_to effect.name, edit_admin_effect_path(effect) %></td>
             </tr>
           <% end %>
         </tbody>
       </table>
+
       <div align="right">
-    <%= link_to '効果一覧へ', admin_effects_path, class: "btn indigo accent-1 btn-sm" %>
-    </div>
+        <%= link_to '効果一覧へ', admin_effects_path, class: "btn indigo accent-1 btn-sm" %>
+      </div>
     </div>
 
     <div class="w-50">
-      <h5 class="h5-responsive"><%= t('view.tag') %>編集</h5>
+      <h5 class="h5-responsive"><%= t('view.tag') %></h5>
       <table class="table table-hover table-sm">
-        <thead>
-          <tr>
-            <th><%= t('view.tag') %></th>
-            <th colspan="2"></th>
-          </tr>
-        </thead>
 
         <tbody>
           <% @tags.each do |tag| %>
             <tr>
-              <td><%= tag.name %></td>
-              <td><%= link_to '編集', edit_admin_tag_path(tag) %></td>
-              <td><%= link_to '削除', admin_tag_path(tag), method: :delete, data: { confirm: '本当に削除しますか?' } %></td>
+              <td><%= link_to tag.name, edit_admin_tag_path(tag) %></td>
             </tr>
           <% end %>
         </tbody>
       </table>
-      <div align="right">
-      <%= link_to 'タグ一覧へ', admin_tags_path, class: "btn indigo accent-1 btn-sm" %>
-      </div>
 
+      <div align="right">
+        <%= link_to 'タグ一覧へ', admin_tags_path, class: "btn indigo accent-1 btn-sm" %>
+      </div>
     </div>
   </div>
 </div>

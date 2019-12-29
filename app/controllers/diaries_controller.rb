@@ -12,7 +12,7 @@ class DiariesController < ApplicationController
 
   def search
     @q = Diary.ransack(params[:q])
-    @diaries = @q.result.order(created_at: :desc)
+    @diaries = @q.result.order(worked_date: :desc)
     if params[:all_user]
       @diaries = @diaries.page(params[:page]).per(10)
     else

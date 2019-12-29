@@ -1,59 +1,62 @@
 <div class="container">
 
-<%= form_with(model: @diary, local: true) do |form| %>
-  <%= form.hidden_field :user_id %>
-  <%= form.hidden_field :worked_date %>
-  <%= form.hidden_field :title %>
-  <%= form.hidden_field :pose_id %>
-  <%= form.hidden_field :rank %>
-  <%= form.hidden_field :body %>
-  <%= form.hidden_field :image_cache %>
-  <%= form.hidden_field :tag_ids %>
+  <%= form_with(model: @diary, local: true) do |form| %>
+    <%= form.hidden_field :user_id %>
+    <%= form.hidden_field :worked_date %>
+    <%= form.hidden_field :title %>
+    <%= form.hidden_field :pose_id %>
+    <%= form.hidden_field :rank %>
+    <%= form.hidden_field :body %>
+    <%= form.hidden_field :image_cache %>
+    <%= form.hidden_field :tag_ids %>
 
-  <div class="col-12">
-    <table class="table" width="100%">
-      <tr>
-        <td><%= t('view.worked_date') %></td>
-        <td><%= @diary.worked_date %></td>
-      </tr>
-      <tr>
-        <td><%= t('view.title') %></td>
-        <td><%= @diary.title %></td>
-      </tr>
-      <tr>
-        <td><%= t('view.pose') %></td>
-        <td><%= @diary.pose.name %></td>
-      </tr>
-      <tr>
-        <td><%= t('view.rank') %></td>
-        <td><%= @diary.rank %></td>
-      </tr>
-      <tr>
-        <td><%= t('view.body') %></td>
-        <td><%= @diary.body %></td>
-      </tr>
-      <tr>
-        <td><%= t('view.image') %></td>
-        <td><%= image_tag(@diary.image.url) if @diary.image && @diary.image.url %></td>
-      </tr>
-      <tr>
-        <td><%= t('view.tag') %></td>
-        <td>
-          <% @diary.tag_ids.each do |tag| %>
-            <label style="background-color: #B2E2EC"><%= Tag.find(tag).name %></label>
-          <% end %>
-        </td>
-      </tr>
-      <tr>
-          <td colspan="2" align="center"><%= form.submit "投稿する", class: "btn indigo accent-1" %>
+    <div class="col-12">
+      <table class="table" width="100%">
+        <tr>
+          <td><%= t('view.worked_date') %></td>
+          <td><%= @diary.worked_date %></td>
+        </tr>
+
+        <tr>
+          <td><%= t('view.title') %></td>
+          <td><%= @diary.title %></td>
+        </tr>
+
+        <tr>
+          <td><%= t('view.pose') %></td>
+          <td><%= @diary.pose.name %></td>
+        </tr>
+
+        <tr>
+          <td><%= t('view.rank') %></td>
+          <td><%= @diary.rank %></td>
+        </tr>
+
+        <tr>
+          <td><%= t('view.body') %></td>
+          <td><%= @diary.body %></td>
+        </tr>
+
+        <tr>
+          <td><%= t('view.image') %></td>
+          <td><%= image_tag(@diary.image.url) if @diary.image && @diary.image.url %></td>
+        </tr>
+
+        <tr>
+          <td><%= t('view.tag') %></td>
+          <td>
+            <% @diary.tag_ids.each do |tag| %>
+              <label style="background-color: #B2E2EC"><%= Tag.find(tag).name %></label>
+            <% end %>
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan="2" align="center"><%= form.submit "投稿する", class: "btn indigo accent-1 mr-3" %>
           <%= form.submit "戻る", name: "back", class: "btn purple lighten-4" %>
-        <% end %>
-      </td>
-      </tr>
-      </table>
-
-
-
-</div>
-
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
 </div>

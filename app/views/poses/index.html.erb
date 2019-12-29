@@ -1,51 +1,54 @@
 <div class="container">
-<h5 class="h5-responsive"><%= t('view.pose')%><%= t('view.index') %></h5>
+  <h5 class="h5-responsive"><%= t('view.pose')%><%= t('view.index') %></h5>
 
-<%= search_form_for @q do |f| %>
-<div class="form-inline">
-  <div class="form-group mr-5">
-    <%= f.label :name_cont, "ポーズ名" %>
-    <%= f.search_field :name_cont, class: "form-control ml-2" %>
-  </div>
+  <%= search_form_for @q do |f| %>
+    <div class="form-inline">
+      <div class="form-group mr-5">
+        <%= f.label :name_cont, "ポーズ名" %>
+        <%= f.search_field :name_cont, class: "form-control ml-2" %>
+      </div>
 
-  <div class="form-group mr-5">
-    <%= f.label :sans_name_cont, "ポーズ名(サンスクリット語)" %>
-    <%= f.search_field :sans_name_cont, class: "form-control ml-2" %>
-  </div>
+      <div class="form-group mr-5">
+        <%= f.label :sans_name_cont, "ポーズ名(サンスクリット語)" %>
+        <%= f.search_field :sans_name_cont, class: "form-control ml-2" %>
+      </div>
 
-  <div class="form-group pr-5">
-    <%= f.label :effects_id_eq, "効果" %>
-    <%= f.collection_select :effects_id_eq, Effect.all,:id, :name, {include_blank: true}, {class: "form-control ml-2"} %>  </div>
-</div>
-<br><br>
-  <div align="center">
-  <%= f.submit "検索", class: "btn indigo accent-1 mr-2" %>
-  <%= link_to '検索条件のクリア', request.path, class: "btn purple lighten-4" %>
-  </div>
-<% end %>
+      <div class="form-group pr-5">
+        <%= f.label :effects_id_eq, "効果" %>
+        <%= f.collection_select :effects_id_eq, Effect.all,:id, :name, {include_blank: true}, {class: "form-control ml-2"} %>
+      </div>
+    </div>
+    <br><br>
 
-<p class="p-2"></p>
+    <div align="center">
+      <%= f.submit "検索", class: "btn indigo accent-1 mr-2" %>
+      <%= link_to '検索条件のクリア', request.path, class: "btn purple lighten-4" %>
+    </div>
+  <% end %>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= t('view.pose_name') %></th>
-      <th><%= t('view.pose_name_sans') %></th>
-      <th><%= t('view.pose_detail') %></th>
-      <th></th>
-    </tr>
-  </thead>
+  <p class="p-2"></p>
 
-  <tbody>
-    <% @poses.each do |pose| %>
+  <table class="table table-striped">
+    <thead>
       <tr>
-        <td><%= pose.name %></td>
-        <td><%= pose.sans_name %></td>
-        <td><%= pose.detail %></td>
-        <td><%= link_to '詳細', pose_path(pose) %></td>
+        <th><%= t('view.pose_name') %></th>
+        <th><%= t('view.pose_name_sans') %></th>
+        <th><%= t('view.pose_detail') %></th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-<%= paginate @poses %>
+    </thead>
+
+    <tbody>
+      <% @poses.each do |pose| %>
+        <tr>
+          <td><%= pose.name %></td>
+          <td><%= pose.sans_name %></td>
+          <td><%= pose.detail %></td>
+          <td><%= link_to '詳細', pose_path(pose) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= paginate @poses %>
 </div>

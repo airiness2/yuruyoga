@@ -1,5 +1,6 @@
 class Pose < ApplicationRecord
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: true
+  validates :sans_name, uniqueness: true
 
   has_many :diaries, dependent: :destroy
   has_many :effectings, dependent: :destroy, foreign_key: 'pose_id'

@@ -5,22 +5,27 @@
         <th><%= t('view.event_hold_date') %></th>
         <td><%= @event.hold_date.to_s(:event_date) %></td>
       </tr>
+
       <tr>
         <th><%= t('view.event_name') %></th>
         <td><%= @event.name %></td>
       </tr>
+
       <tr>
         <th><%= t('view.event_detail') %></th>
         <td><%= @event.detail %></td>
       </tr>
+
       <tr>
         <th><%= t('view.event_place') %></th>
         <td><%= @event.place %></td>
       </tr>
+
       <tr>
         <th><%= t('view.event_url') %></th>
         <td><%= @event.url %></td>
       </tr>
+
       <tr>
         <td colspan="2" align="center">
           <% if @event.user == current_user %>

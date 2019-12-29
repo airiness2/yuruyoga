@@ -1,18 +1,18 @@
 <div class="container">
-<table class="table">
-  <thead>
-    <h5 class="h5-responsive"><%= t('view.message') %><%= t('view.index') %></h5>
-  </thead>
-  <tbody>
-    <% @conversations.each do |conversation| %>
-    <tr>
+  <table class="table">
+    <thead>
+      <h5 class="h5-responsive"><%= t('view.message') %><%= t('view.index') %></h5>
+    </thead>
+    <tbody>
+      <% @conversations.each do |conversation| %>
+      <tr>
         <% if conversation.target_user(current_user).present? %>
-        <td>
-          <%= link_to conversation.target_user(current_user).name, conversation_messages_path(conversation)%>
-        </td>
+          <td>
+            <%= link_to conversation.target_user(current_user).name, conversation_messages_path(conversation)%>
+          </td>
         <% end %>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
