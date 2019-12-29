@@ -74,4 +74,4 @@ gem 'timeliness-i18n'
 
 gem 'friendly_id'
 
-gem 'cloudinary', require: false
+gem 'cloudinary'
