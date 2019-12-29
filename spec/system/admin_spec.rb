@@ -43,6 +43,28 @@ RSpec.feature "管理画面機能", type: :system do
     expect(page).to have_content 'ポーズサンプル'
   end
 
+  scenario "ポーズ編集のテスト" do
+    visit admin_poses_path
+    expect(page).to have_content 'ポーズ1'
+
+    all('td')[-2].click_link "編集"
+
+    fill_in 'pose_name', with: 'ポーズ編集テスト'
+    click_on '更新する'
+
+    expect(page).to have_content 'ポーズ編集テスト'
+  end
+
+  scenario "ポーズ削除のテスト" do
+    visit admin_poses_path
+    expect(page).to have_content 'ポーズ1'
+
+    all('td')[-1].click_link "削除"
+    page.accept_alert
+
+    expect(page).not_to have_content 'ポーズ1'
+  end
+
   scenario "効果作成のテスト" do
     visit new_admin_effect_path
     fill_in 'effect_name', with: '効果サンプル'
@@ -50,11 +72,55 @@ RSpec.feature "管理画面機能", type: :system do
     expect(page).to have_content '効果サンプル'
   end
 
+  scenario "効果編集のテスト" do
+    visit admin_effects_path
+    expect(page).to have_content '効果1'
+
+    all('td')[-2].click_link "編集"
+
+    fill_in 'effect_name', with: '効果編集テスト'
+    click_on '更新する'
+
+    expect(page).to have_content '効果編集テスト'
+  end
+
+  scenario "効果削除のテスト" do
+    visit admin_effects_path
+    expect(page).to have_content '効果1'
+
+    all('td')[-1].click_link "削除"
+    page.accept_alert
+
+    expect(page).not_to have_content '効果1'
+  end
+
   scenario "タグ作成のテスト" do
     visit new_admin_tag_path
     fill_in 'tag_name', with: 'タグサンプル'
     click_on '登録する'
     expect(page).to have_content 'タグサンプル'
+  end
+
+  scenario "タグ編集のテスト" do
+    visit admin_tags_path
+    expect(page).to have_content 'タグ1'
+
+    all('td')[-2].click_link "編集"
+
+    fill_in 'tag_name', with: 'タグ編集テスト'
+    click_on '更新する'
+
+    expect(page).to have_content 'タグ編集テスト'
+  end
+
+  scenario "タグ削除のテスト" do
+    visit admin_tags_path
+    expect(page).to have_content 'タグ1'
+
+    all('td')[-1].click_link "削除"
+    page.accept_alert
+
+    expect(page).not_to have_content 'タグ1'
   end
 
   scenario "ユーザ作成のテスト" do
@@ -66,9 +132,44 @@ RSpec.feature "管理画面機能", type: :system do
     expect(page).to have_content 'テストユーザ'
   end
 
+  scenario "ユーザ編集のテスト" do
+    FactoryBot.create(:user, email: "other@example.com")
+
+    visit admin_users_path
+    expect(page).to have_content 'other@example.com'
+
+    all('td')[-2].click_link "編集"
+
+    fill_in 'user_name', with: 'other_user'
+    click_on '更新する'
+
+    expect(page).to have_content 'other_user'
+  end
+
+  scenario "ユーザ削除のテスト" do
+    FactoryBot.create(:user, email: "other2@example.com")
+
+    visit admin_users_path
+    expect(page).to have_content 'other2@example.com'
+
+    all('td')[-1].click_link "削除"
+    page.accept_alert
+
+    expect(page).not_to have_content 'other2@example.com'
+  end
+
   scenario "要望ページのテスト" do
     visit admin_requests_path
     expect(page).to have_content '要望のテストです'
+
+    click_on '編集'
+    select '完了', from: 'request_status'
+    click_on '更新する'
+
+    expect(page).to have_content '完了'
+    click_on '戻る'
+
+    expect(page).not_to have_content '要望のテストです'
   end
 
 end
