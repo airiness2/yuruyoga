@@ -71,3 +71,5 @@ gem 'jquery-ui-rails'
 
 gem 'validates_timeliness', '~> 5.0.0.alpha3'
 gem 'timeliness-i18n'
+
+gem 'friendly_id'
