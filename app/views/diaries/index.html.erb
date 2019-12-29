@@ -35,7 +35,9 @@
         <%= date.to_formatted_s(:only_day) %>
         <br>
         <% diaries.each do |diary| %>
-          <%= link_to '●', diary %>
+          <%= link_to  diary do %>
+            <i class="fa fa-moon-o"></i>
+          <% end %>
         <% end %>
       <% end %>
     </div>

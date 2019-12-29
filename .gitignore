@@ -29,6 +29,4 @@
 .env
 .DS_Store
 
-/public/uploads/diary
-/public/uploads/user
-public/uploads/tmp
+/public/uploads/

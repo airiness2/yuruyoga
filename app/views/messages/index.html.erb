@@ -1,41 +1,42 @@
 <div class="container">
-<% if @over_ten %>
-  <%= link_to '以前のメッセージ', '?m=all', class: "btn purple lighten-4 btn-sm" %>
-<% end %>
-<p style="margin: 5px">&nbsp;</p>
-
-<div class="ui segment">
-  <% @messages.each do |message| %>
-    <% if message.body.present? %>
-      <div class="item">
-        <div class="content">
-          <div class="header"><strong><%= message.user.name %></strong> <%= message.message_time %></div>
-          <div class="list">
-            <div class="item ml-3">
-              <i class="fa fa-play"></i>
-              <%= message.body %> /
-              <% if message.user == current_user %>
-                <%= message.read ? '既読' : '未読' %>
-              <% end %>
-            </div>
-          </div>
-        </div>
-        <br>
-      </div>
-    <% end %>
+  <% if @over_ten %>
+    <%= link_to '以前のメッセージ', '?m=all', class: "btn purple lighten-4 btn-sm" %>
   <% end %>
-</div>
 
-<p class="p-3"></p>
-<%= form_with(model: [@conversation, @message]) do |f| %>
-<div class="form-group">
-    <%= f.text_area :body, class: "form-control", rows: "5" %>
+  <p class="m-5"></p>
+
+  <div class="ui segment">
+    <% @messages.each do |message| %>
+      <% if message.body.present? %>
+        <div class="item">
+          <div class="content">
+            <div class="header"><strong><%= message.user.name %></strong> <%= message.message_time %></div>
+              <div class="list">
+                <div class="item ml-3">
+                  <i class="fa fa-play"></i>
+                  <%= message.body %> /
+                  <% if message.user == current_user %>
+                    <%= message.read ? '既読' : '未読' %>
+                  <% end %>
+              </div>
+            </div>
+          </div><br>
+        </div>
+      <% end %>
+    <% end %>
   </div>
+
+  <p class="p-3"></p>
+
+  <%= form_with(model: [@conversation, @message]) do |f| %>
+    <div class="form-group">
+      <%= f.text_area :body, class: "form-control", rows: "5" %>
+    </div>
     <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
-  <div class="action" align="center">
-    <%= f.submit "メッセージを送る", class: "btn indigo accent-1 mr-3" %>
-    <%= link_to '戻る', root_path, class: "btn purple lighten-4" %>
-  </div>
-<% end %>
-<br>
+
+    <div class="action" align="center">
+      <%= f.submit "メッセージを送る", class: "btn indigo accent-1 mr-3" %>
+      <%= link_to '戻る', root_path, class: "btn purple lighten-4" %>
+    </div>
+  <% end %><br>
 </div>

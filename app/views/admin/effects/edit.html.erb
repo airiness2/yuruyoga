@@ -1,28 +1,25 @@
 <div class="container">
-<h5 class="h5-responsive"><%= t('view.effect') %>を編集</h5>
-<%= form_with(model: @effect, url: admin_effect_path, local: true ) do |form| %>
-  <% if @effect.errors.any? %>
-    <div id="error_explanation">
-      <h5 class="h5-responsive"><%= pluralize(@effect.errors.count, "error") %> が存在しているため、保存出来ません:</h5>
+  <h5 class="h5-responsive"><%= t('view.effect') %>を編集</h5>
 
-      <ul>
-      <% @effect.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <%= form_with(model: @effect, url: admin_effect_path, local: true ) do |form| %>
+    <% if @effect.errors.any? %>
+      <div id="error_explanation">
+        <h5 class="h5-responsive"><%= pluralize(@effect.errors.count, "error") %> が存在しているため、保存出来ません:</h5>
+        <ul>
+          <% @effect.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= form.text_field :name, id: :effect_name, class: "form-control" %>
+    </div><br>
+
+    <div class="actions" align="center">
+      <%= form.submit class: "btn indigo accent-1 mr-3" %>
+      <%= link_to '戻る', admin_effects_path, class: "btn purple lighten-4" %>
     </div>
   <% end %>
-
-  <div class="form-group">
-    <%= form.text_field :name, id: :effect_name, class: "form-control" %>
-  </div>
-
-  <br>
-
-  <div class="actions" align="center">
-    <%= form.submit class: "btn indigo accent-1" %>
-    <%= link_to '戻る', admin_effects_path, class: "btn purple lighten-4" %>
-  </div>
-  <% end %>
-
 </div>

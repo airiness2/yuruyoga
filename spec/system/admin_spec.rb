@@ -28,10 +28,10 @@ RSpec.feature "管理画面機能", type: :system do
 
   scenario "管理画面のテスト" do
     visit admin_index_path
-    expect(page).to have_content 'ポーズ編集'
-    expect(page).to have_content 'ユーザ編集'
-    expect(page).to have_content '効果編集'
-    expect(page).to have_content 'タグ編集'
+    expect(page).to have_content 'ポーズ'
+    expect(page).to have_content 'ユーザ'
+    expect(page).to have_content '効果'
+    expect(page).to have_content 'タグ'
   end
 
   scenario "ポーズ作成のテスト" do
