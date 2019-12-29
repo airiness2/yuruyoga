@@ -32,7 +32,7 @@ class Admin::UsersController < ApplicationController
       params[:user].delete("password")
     end
     if @user.update(user_params)
-      redirect_to admin_user_path, notice: "ユーザを編集しました！"
+      redirect_to admin_user_path(@user), notice: "ユーザを編集しました！"
     else
       render 'edit'
     end
@@ -51,7 +51,8 @@ class Admin::UsersController < ApplicationController
   end
 
   def set_user
-    @user = User.find(params[:id])
+    @user = User.friendly.find(params[:id])
+    #@user = User.find(params[:id])
   end
 
   def destroy_self
