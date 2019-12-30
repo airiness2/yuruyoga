@@ -31,5 +31,5 @@
 
 /public/uploads/
 
-.rubocop.yml
-.rubocop_todo.yml
+/.rubocop.yml
+/.rubocop_todo.yml
