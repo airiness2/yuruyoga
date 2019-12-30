@@ -15,7 +15,7 @@ module Yuruyoga
     config.assets.paths << Rails.root.join("app", "assets", "font", "roboto")
     config.assets.paths << Rails.root.join("vendor", "assets", "img")
     config.assets.paths << Rails.root.join("vendor", "assets", "mdb-addons")
-    
+
     config.autoload_paths << Rails.root.join('lib')
 
     config.generators do |g|
