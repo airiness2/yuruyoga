@@ -8,7 +8,7 @@ class Admin::RequestsController < ApplicationController
     if params[:all_status]
       @requests = @requests.page(params[:page]).per(10)
     else
-      @requests = @requests.page(params[:page]).per(10).where.not(status: "完了")
+      @requests = @requests.page(params[:page]).per(10).where.not(status: '完了')
     end
   end
 
@@ -18,7 +18,7 @@ class Admin::RequestsController < ApplicationController
 
   def update
     if @request.update(request_params)
-      redirect_to admin_request_path, notice: "要望を編集しました！"
+      redirect_to admin_request_path, notice: '要望を編集しました！'
     else
       render 'edit'
     end
@@ -26,7 +26,7 @@ class Admin::RequestsController < ApplicationController
 
   def destroy
     @request.destroy
-    redirect_to admin_requests_path, notice: "要望を削除しました！"
+    redirect_to admin_requests_path, notice: '要望を削除しました！'
   end
 
   private

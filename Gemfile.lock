@@ -45,6 +45,7 @@ GEM
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
     arel (9.0.0)
+    ast (2.4.0)
     autoprefixer-rails (9.7.3)
       execjs
     aws_cf_signer (0.1.3)
@@ -124,6 +125,7 @@ GEM
       domain_name (~> 0.5)
     i18n (1.7.0)
       concurrent-ruby (~> 1.0)
+    jaro_winkler (1.5.4)
     jbuilder (2.9.1)
       activesupport (>= 4.2.0)
     jquery-rails (4.3.5)
@@ -185,6 +187,9 @@ GEM
     nokogiri (1.10.7)
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
+    parallel (1.19.1)
+    parser (2.7.0.1)
+      ast (~> 2.4.0)
     pg (1.2.0)
     polyamorous (2.3.0)
       activerecord (>= 5.0)
@@ -226,6 +231,7 @@ GEM
       method_source
       rake (>= 0.8.7)
       thor (>= 0.19.0, < 2.0)
+    rainbow (3.0.0)
     rake (13.0.1)
     rakuten_web_service (1.12.0)
     ransack (2.3.0)
@@ -263,6 +269,14 @@ GEM
       rspec-mocks (~> 3.9.0)
       rspec-support (~> 3.9.0)
     rspec-support (3.9.1)
+    rubocop (0.78.0)
+      jaro_winkler (~> 1.5.1)
+      parallel (~> 1.10)
+      parser (>= 2.6)
+      rainbow (>= 2.2.2, < 4.0)
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (>= 1.4.0, < 1.7)
+    ruby-progressbar (1.10.1)
     ruby_dep (1.5.0)
     rubyzip (2.0.0)
     sass (3.7.4)
@@ -319,6 +333,7 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.6)
+    unicode-display_width (1.6.0)
     validates_timeliness (5.0.0.alpha5)
       timeliness (>= 0.3.10, < 1)
     warden (1.2.8)
@@ -376,6 +391,7 @@ DEPENDENCIES
   rakuten_web_service
   ransack
   rspec-rails
+  rubocop
   sass-rails (~> 5.0)
   selenium-webdriver
   simple_calendar (~> 2.0)

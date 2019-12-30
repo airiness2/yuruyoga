@@ -20,7 +20,7 @@ class Admin::PosesController < ApplicationController
   def create
     @pose = Pose.new(pose_params)
     if @pose.save
-      redirect_to admin_poses_path, notice: "ポーズを作成しました!"
+      redirect_to admin_poses_path, notice: 'ポーズを作成しました!'
     else
       render 'new'
     end
@@ -35,7 +35,7 @@ class Admin::PosesController < ApplicationController
       params[:pose].delete(:effect_ids)
     end
     if @pose.update(pose_params)
-      redirect_to admin_pose_path, notice: "ポーズを編集しました！"
+      redirect_to admin_pose_path, notice: 'ポーズを編集しました！'
     else
       render 'edit'
     end
@@ -43,7 +43,7 @@ class Admin::PosesController < ApplicationController
 
   def destroy
     @pose.destroy
-    redirect_to admin_poses_path, notice: "ポーズを削除しました！"
+    redirect_to admin_poses_path, notice: 'ポーズを削除しました！'
   end
 
   private
