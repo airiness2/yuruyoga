@@ -12,7 +12,7 @@ RSpec.describe Message, type: :model do
       conversation_id: "1",
       read: true,
       body: "メッセージ"
-      )
+    )
     expect(message).to be_valid
   end
 end

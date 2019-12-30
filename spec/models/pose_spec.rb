@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Pose, type: :model do
-
   it "is valid with a name" do
     pose = Pose.new(
       name: 'ポーズ2',

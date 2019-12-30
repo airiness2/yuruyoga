@@ -8,7 +8,7 @@ RSpec.describe Comment, type: :model do
       diary_id: "1",
       content: "コメント",
       user_id: user.id
-      )
+    )
     expect(comment).to be_valid
   end
 end

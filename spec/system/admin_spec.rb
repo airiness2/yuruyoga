@@ -7,7 +7,6 @@ RSpec.feature "管理画面機能", type: :system do
     FactoryBot.create(:effect)
     FactoryBot.create(:tag)
     FactoryBot.create(:request)
-
     visit user_session_path
     fill_in 'user_email', with: 'test@example.com'
     fill_in 'user_password', with: 'password'
@@ -16,12 +15,10 @@ RSpec.feature "管理画面機能", type: :system do
 
   scenario "管理画面のアクセスのテスト" do
     visit destroy_user_session_path
-
     visit user_session_path
     fill_in 'user_email', with: 'unknown@example.com'
     fill_in 'user_password', with: 'password'
     click_on 'app_login'
-
     visit admin_index_path
     expect(page).to have_content '権限がありません'
   end
@@ -46,22 +43,17 @@ RSpec.feature "管理画面機能", type: :system do
   scenario "ポーズ編集のテスト" do
     visit admin_poses_path
     expect(page).to have_content 'ポーズ1'
-
     all('td')[-2].click_link "編集"
-
     fill_in 'pose_name', with: 'ポーズ編集テスト'
     click_on '更新する'
-
     expect(page).to have_content 'ポーズ編集テスト'
   end
 
   scenario "ポーズ削除のテスト" do
     visit admin_poses_path
     expect(page).to have_content 'ポーズ1'
-
     all('td')[-1].click_link "削除"
     page.accept_alert
-
     expect(page).not_to have_content 'ポーズ1'
   end
 
@@ -75,22 +67,17 @@ RSpec.feature "管理画面機能", type: :system do
   scenario "効果編集のテスト" do
     visit admin_effects_path
     expect(page).to have_content '効果1'
-
     all('td')[-2].click_link "編集"
-
     fill_in 'effect_name', with: '効果編集テスト'
     click_on '更新する'
-
     expect(page).to have_content '効果編集テスト'
   end
 
   scenario "効果削除のテスト" do
     visit admin_effects_path
     expect(page).to have_content '効果1'
-
     all('td')[-1].click_link "削除"
     page.accept_alert
-
     expect(page).not_to have_content '効果1'
   end
 
@@ -104,22 +91,17 @@ RSpec.feature "管理画面機能", type: :system do
   scenario "タグ編集のテスト" do
     visit admin_tags_path
     expect(page).to have_content 'タグ1'
-
     all('td')[-2].click_link "編集"
-
     fill_in 'tag_name', with: 'タグ編集テスト'
     click_on '更新する'
-
     expect(page).to have_content 'タグ編集テスト'
   end
 
   scenario "タグ削除のテスト" do
     visit admin_tags_path
     expect(page).to have_content 'タグ1'
-
     all('td')[-1].click_link "削除"
     page.accept_alert
-
     expect(page).not_to have_content 'タグ1'
   end
 
@@ -134,42 +116,31 @@ RSpec.feature "管理画面機能", type: :system do
 
   scenario "ユーザ編集のテスト" do
     FactoryBot.create(:user, email: "other@example.com")
-
     visit admin_users_path
     expect(page).to have_content 'other@example.com'
-
     all('td')[-2].click_link "編集"
-
     fill_in 'user_name', with: 'other_user'
     click_on '更新する'
-
     expect(page).to have_content 'other_user'
   end
 
   scenario "ユーザ削除のテスト" do
     FactoryBot.create(:user, email: "other2@example.com")
-
     visit admin_users_path
     expect(page).to have_content 'other2@example.com'
-
     all('td')[-1].click_link "削除"
     page.accept_alert
-
     expect(page).not_to have_content 'other2@example.com'
   end
 
   scenario "要望ページのテスト" do
     visit admin_requests_path
     expect(page).to have_content '要望のテストです'
-
     click_on '編集'
     select '完了', from: 'request_status'
     click_on '更新する'
-
     expect(page).to have_content '完了'
     click_on '戻る'
-
     expect(page).not_to have_content '要望のテストです'
   end
-
 end

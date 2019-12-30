@@ -20,7 +20,6 @@ class ContinuedAnnounceMailer < ApplicationMailer
     @user = user
     if File.open("uncontinued_user_list.txt", "r").grep(/@user/)
       File.open("uncontinued_user_list.txt", "w") do |file|
-#        file.delete(/^#{@user.id}$/)
         file.puts(@user.name)
       end
     end

@@ -52,7 +52,6 @@ class Admin::UsersController < ApplicationController
 
   def set_user
     @user = User.friendly.find(params[:id])
-    #@user = User.find(params[:id])
   end
 
   def destroy_self
