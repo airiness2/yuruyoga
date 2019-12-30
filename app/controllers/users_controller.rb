@@ -2,16 +2,16 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
   before_action :authenticate_user!
 
-  def show;end
+  def show; end
 
   def edit; end
 
   def update
     if params[:user][:password].blank?
-      params[:user].delete("password")
+      params[:user].delete('password')
     end
     if @user.update(user_params)
-      redirect_to user_path(@user), notice: "プロフィールを更新しました！"
+      redirect_to user_path(@user), notice: 'プロフィールを更新しました！'
     else
       render 'edit'
     end

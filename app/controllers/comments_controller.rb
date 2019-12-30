@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     if @comment.user_id == current_user.id
       @comment.destroy
-      redirect_to diary_path(@diary), notice: "日記を削除しました！"
+      redirect_to diary_path(@diary), notice: '日記を削除しました！'
     end
   end
 

@@ -18,7 +18,7 @@ class Admin::EffectsController < ApplicationController
   def create
     @effect = Effect.new(effect_params)
     if @effect.save
-      redirect_to admin_effects_path, notice: "効果を作成しました!"
+      redirect_to admin_effects_path, notice: '効果を作成しました!'
     else
       render 'new'
     end
@@ -30,7 +30,7 @@ class Admin::EffectsController < ApplicationController
 
   def update
     if @effect.update(effect_params)
-      redirect_to admin_effects_path, notice: "効果を編集しました！"
+      redirect_to admin_effects_path, notice: '効果を編集しました！'
     else
       render 'edit'
     end
@@ -38,7 +38,7 @@ class Admin::EffectsController < ApplicationController
 
   def destroy
     @effect.destroy
-    redirect_to admin_effects_path, notice: "効果を削除しました！"
+    redirect_to admin_effects_path, notice: '効果を削除しました！'
   end
 
   private

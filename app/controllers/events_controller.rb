@@ -26,19 +26,19 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     @event.user_id = current_user.id
     if @event.save
-      redirect_to events_path, notice: "イベントを作成しました!"
+      redirect_to events_path, notice: 'イベントを作成しました!'
     else
       render 'new'
     end
   end
 
-  def show;end
+  def show; end
 
   def edit; end
 
   def update
     if @event.update(event_params)
-      redirect_to events_path, notice: "イベントを編集しました！"
+      redirect_to events_path, notice: 'イベントを編集しました！'
     else
       render 'edit'
     end
@@ -46,7 +46,7 @@ class EventsController < ApplicationController
 
   def destroy
     @event.destroy
-    redirect_to events_path, notice: "イベントを削除しました！"
+    redirect_to events_path, notice: 'イベントを削除しました！'
   end
 
   def confirm

@@ -14,7 +14,7 @@ class PosesController < ApplicationController
     @poses = if params[:term] =~ /\s*/
                pose_input = params[:term]
                poses = Pose.select('id, name').where("name LIKE '%#{pose_input}%'")
-               poses.map {|pose| {id: "#{pose.id}", name: "#{pose.name}"} }
+               poses.map { |pose| { id: "#{pose.id}", name: "#{pose.name}" } }
              end
     render json: @poses.to_json
   end

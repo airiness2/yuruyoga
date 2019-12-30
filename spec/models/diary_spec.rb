@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Diary, type: :model do
-  it "is valid with a worked_date, rank" do
+  it 'is valid with a worked_date, rank' do
     diary = Diary.new(
       title: 'テスト',
-      worked_date: "2019-12-01",
+      worked_date: '2019-12-01',
       body: '本文',
       rank: 5,
       image: nil

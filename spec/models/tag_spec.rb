@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Tag, type: :model do
-  it "is valid with a name" do
+  it 'is valid with a name' do
     tag = Tag.new(
       name: 'タグ1'
     )
