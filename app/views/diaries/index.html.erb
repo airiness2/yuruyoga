@@ -83,15 +83,12 @@
     </div>
   </div>
 
-
-
-
 <% if Rails.env.production? %>
   <div class="row">
     <div align="center">
       <div class="card-deck">
         <% @items.first(5).each do |item| %>
-          <div class="card" style="width:15rem;">
+          <div class="card pt-3" style="width:15rem;">
           <% if item["imageFlag"] == 1 %>
             <%= link_to (image_tag(item["mediumImageUrls"][0])), item["affiliateUrl"], class: "card-img-top" %>
           <% end %>

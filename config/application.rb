@@ -15,7 +15,7 @@ module Yuruyoga
     config.assets.paths << Rails.root.join("app", "assets", "font", "roboto")
     config.assets.paths << Rails.root.join("vendor", "assets", "img")
     config.assets.paths << Rails.root.join("vendor", "assets", "mdb-addons")
-    
+
     config.autoload_paths << Rails.root.join('lib')
 
     config.generators do |g|
@@ -32,5 +32,8 @@ module Yuruyoga
       g.fixture_replacement :factory_bot, dir: "spec/factories"
     end
 
+    config.action_view.field_error_proc = Proc.new do |html_tag, instance|
+      %Q(#{html_tag}).html_safe
+    end
   end
 end
