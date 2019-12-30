@@ -1,4 +1,4 @@
-<p><%= @name %><%= t(".greeting") %></p>
+<p><%= @resource.name %> <%= t(".greeting") %></p>
 
 <% if @resource.try(:unconfirmed_email?) %>
   <p><%= t(".message") %><%= @resource.unconfirmed_email %></p>
