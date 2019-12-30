@@ -1,7 +1,7 @@
 <div class="container">
   <h5 class="h5-responsive"><%= t('view.pose') %><%= t('view.index') %></h5>
 
-  <%= search_form_for @q do |f| %>
+  <%= search_form_for @q, url: admin_poses_path do |f| %>
     <div class="form-inline">
       <div class="form-group mr-5">
         <%= f.label :name_cont, "ポーズ名" %>
