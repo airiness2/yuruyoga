@@ -51,7 +51,7 @@ gem 'dotenv-rails'
 
 gem 'devise'
 
-gem 'carrierwave'
+gem 'carrierwave', "~> 1.3.1"
 gem 'mini_magick'
 
 gem 'kaminari'
