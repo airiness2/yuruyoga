@@ -32,3 +32,4 @@
 /public/uploads/
 
 .rubocop.yml
+.rubocop_todo.yml

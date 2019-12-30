@@ -6,7 +6,8 @@ RSpec.describe Pose, type: :model do
       name: 'ポーズ2',
       detail: 'ポーズ詳細2',
       sans_name: 'ポーズ2-1',
-      image: nil)
+      image: nil
+    )
     expect(pose).to be_valid
   end
 end

@@ -6,7 +6,7 @@ class DiariesController < ApplicationController
   def index
     @diaries = Diary.all.where(user: current_user)
     @user = current_user
-    @rankings =  Diary.joins(:pose).group("poses.name").select("pose_id, rank").limit(10).sum(:rank)
+    @rankings = Diary.joins(:pose).group("poses.name").select("pose_id, rank").limit(10).sum(:rank)
     @items = RakutenWebService::Ichiba::Genre[501880].ranking
   end
 
@@ -73,16 +73,16 @@ class DiariesController < ApplicationController
   end
 
   def ranking
-    @graphs =  Diary.joins(:pose).group("poses.name").select("pose_id, rank").sum(:rank)
-    @like_poses =  Diary.joins(:pose).group("poses.name").select("sum(rank) as pose_rank, poses.name").order("pose_rank").limit(10)
-    @unlike_poses =  Diary.joins(:pose).group("poses.name").select("sum(rank) as pose_rank, poses.name").order("pose_rank DESC").limit(10)
+    @graphs = Diary.joins(:pose).group("poses.name").select("pose_id, rank").sum(:rank)
+    @like_poses = Diary.joins(:pose).group("poses.name").select("sum(rank) as pose_rank, poses.name").order("pose_rank").limit(10)
+    @unlike_poses = Diary.joins(:pose).group("poses.name").select("sum(rank) as pose_rank, poses.name").order("pose_rank DESC").limit(10)
   end
 
   private
 
   def diary_params
     params.require(:diary).permit(:title, :worked_date, :body, :rank, :image, :pose_id,
-                                   :image_cache, :user_id, :remove_image, tag_ids: [])
+                                  :image_cache, :user_id, :remove_image, tag_ids: [])
   end
 
   def set_diary

@@ -8,7 +8,8 @@ RSpec.describe User, type: :model do
       admin: false,
       password: 'password',
       password_confirmation: 'password',
-      avatar: nil)
+      avatar: nil
+    )
     expect(user).to be_valid
   end
 end

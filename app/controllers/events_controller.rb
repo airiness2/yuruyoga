@@ -12,7 +12,6 @@ class EventsController < ApplicationController
     else
       @events = @events.page(params[:page]).per(10).where('hold_date >= ?', Time.now)
     end
-
   end
 
   def new

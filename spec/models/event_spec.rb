@@ -9,7 +9,8 @@ RSpec.describe Event, type: :model do
       hold_date: '2019/11/30 15:00',
       place: "東京",
       user_id: user.id,
-      url: nil)
+      url: nil
+    )
     expect(event).to be_valid
   end
 end

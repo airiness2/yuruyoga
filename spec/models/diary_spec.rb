@@ -7,7 +7,8 @@ RSpec.describe Diary, type: :model do
       worked_date: "2019-12-01",
       body: '本文',
       rank: 5,
-      image: nil)
+      image: nil
+    )
     expect(diary).not_to be_valid
   end
 end

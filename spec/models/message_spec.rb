@@ -6,7 +6,8 @@ RSpec.describe Message, type: :model do
     user2 = FactoryBot.create(:user, email: "test101@example.com")
     conversation = Conversation.create(
       sender_id: user.id,
-      recipient_id: user2.id)
+      recipient_id: user2.id
+    )
     message = conversation.messages.build(
       user_id: user2.id,
       conversation_id: "1",
