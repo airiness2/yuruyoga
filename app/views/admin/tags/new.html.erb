@@ -1,5 +1,5 @@
 <div class="container">
-  <h5 class="h5-responsive"><%= t('view.tag') %>を追加</h5>
+  <h5 class="h5-responsive" align="center"><%= t('view.tag') %>を追加する</h5>
 
   <%= form_with(model: @tag, url: admin_tags_path, local: true ) do |form| %>
     <% if @tag.errors.any? %>

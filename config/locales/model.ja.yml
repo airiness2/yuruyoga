@@ -7,14 +7,14 @@ ja:
     attributes:
       diary:
         title: "タイトル"
-        worked_date: "実施日時"
+        worked_date: "実施日"
         body: "本文"
         rank: "ランク"
         image: "投稿画像"
         pose: "ポーズ"
         remove_image: "ポーズ画像削除"
       user:
-        name: "名前"
+        name: "お名前"
         email: "メールアドレス"
         admin: "管理者"
         avatar: "プロフィール画像"

@@ -11,6 +11,7 @@
   <% end %>
 
   <div class="form-group">
+    <%= form.label :hold_date %>
     <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
       <%= form.text_field :hold_date, id: :event_hold_date, class: "form-control datepicker", data: { target: '#event_hold_date'} %>
       <div class="input-group-append" data-target="#event_hold_date" data-toggle="datetimepicker">
