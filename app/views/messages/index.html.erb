@@ -3,14 +3,14 @@
     <%= link_to '以前のメッセージ', '?m=all', class: "btn purple lighten-4 btn-sm" %>
   <% end %>
 
-  <p class="m-5"></p>
+  <p class="m-4"></p>
 
   <div class="ui segment">
     <% @messages.each do |message| %>
       <% if message.body.present? %>
         <div class="item">
           <div class="content">
-            <div class="header"><strong><%= message.user.name %></strong> <%= message.message_time %></div>
+            <div class="header"><strong><%= message.user.name %></strong><span class="m-2"></span><%= message.message_time %></div>
               <div class="list">
                 <div class="item ml-3">
                   <i class="fa fa-play"></i>

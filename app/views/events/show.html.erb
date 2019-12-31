@@ -25,15 +25,17 @@
         <th><%= t('view.event_url') %></th>
         <td><%= @event.url %></td>
       </tr>
-
+      <% if @event.user == current_user %>
       <tr>
         <td colspan="2" align="center">
-          <% if @event.user == current_user %>
+            <%= link_to '編集', event_path(@event), class: "btn indigo accent-1 mr-3" %>
             <%= link_to '削除', event_path(@event), method: :delete, data: { confirm: '本当に削除しますか?' }, class: "btn btn-outline-danger mr-3" %>
-          <% end %>
-          <%= link_to '戻る', events_path, class: "btn purple lighten-4" %>
         </td>
       </tr>
+      <% end %>
     </table>
+    <div align="center">
+      <%= link_to '戻る', events_path, class: "btn purple lighten-4" %>
+    </div>
   </div>
 </div>

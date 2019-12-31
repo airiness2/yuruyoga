@@ -1,5 +1,5 @@
 <div class="container">
-  <h5 class="h5-responsive"><%= t('view.pose') %>を編集</h5>
+  <h5 class="h5-responsive" align="center"><%= t('view.pose') %>を編集</h5>
 
   <%= form_with(model: @pose, url: admin_pose_path, local: true ) do |form| %>
     <% if @pose.errors.any? %>

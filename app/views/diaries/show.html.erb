@@ -35,7 +35,7 @@
     <% if @diary.user == current_user %>
     <tr>
       <td colspan="2" align="center">
-        <%= link_to '編集', edit_diary_path(@diary), class: "btn indigo accent-1" %>
+        <%= link_to '編集', edit_diary_path(@diary), class: "btn indigo accent-1 mr-3" %>
         <%= link_to '削除', diary_path(@diary), method: :delete, data: { confirm: '本当に削除しますか?' }, class: "btn btn-outline-danger" %>
       </td>
     </tr>

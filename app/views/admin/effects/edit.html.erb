@@ -1,5 +1,5 @@
 <div class="container">
-  <h5 class="h5-responsive"><%= t('view.effect') %>を編集</h5>
+  <h5 class="h5-responsive" align="center"><%= t('view.effect') %>を編集</h5>
 
   <%= form_with(model: @effect, url: admin_effect_path, local: true ) do |form| %>
     <% if @effect.errors.any? %>

@@ -1,5 +1,7 @@
 <div class="container">
-  <h5 class="h5-responsive"><%= t('view.event') %><%= t('view.index') %></h5>
+  <h5 class="h5-responsive" align="center"><%= t('view.event') %><%= t('view.index') %></h5>
+
+  <p class="m-4"></p>
 
   <%= search_form_for @q, url: events_path do |f| %>
     <div class="form-inline">
@@ -8,6 +10,8 @@
       <span class="pr-5"></span><%= f.submit "表示", class: "btn purple lighten-4 btn-sm" %>
     </div>
   <% end %>
+  
+  <p class="m-4"></p>
 
   <table class="table table-striped">
     <thead>
