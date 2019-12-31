@@ -7,10 +7,10 @@ class UsersController < ApplicationController
   def edit; end
 
   def update
-    if params[:user][:password].blank?
-      params[:user].delete('password')
-    end
     if @user.update(user_params)
+      bypass_sign_in(@user)
+      redirect_to user_path(@user), notice: 'プロフィールを更新しました！'
+    elsif @user.update_without_current_password(user_params)
       redirect_to user_path(@user), notice: 'プロフィールを更新しました！'
     else
       render 'edit'
@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :avatar, :remove_avatar)
+    params.require(:user).permit(:name, :email, :avatar, :remove_avatar, :password, :avatar_cache)
   end
 
   def set_user
