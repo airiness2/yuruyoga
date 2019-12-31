@@ -28,10 +28,7 @@ class Admin::UsersController < ApplicationController
   def edit; end
 
   def update
-    if params[:user][:password].blank?
-      params[:user].delete('password')
-    end
-    if @user.update(user_params)
+    if @user.update_without_current_password(user_params)
       redirect_to admin_user_path(@user), notice: 'ユーザを編集しました！'
     else
       render 'edit'
