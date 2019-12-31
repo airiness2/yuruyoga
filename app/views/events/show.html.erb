@@ -25,6 +25,12 @@
         <th><%= t('view.event_url') %></th>
         <td><%= @event.url %></td>
       </tr>
+
+      <tr>
+        <th><%= t('view.event_user') %></th>
+        <td><%= link_to @event.user.name, user_path(@event.user) %></td>
+      </tr>
+
       <% if @event.user == current_user %>
       <tr>
         <td colspan="2" align="center">
