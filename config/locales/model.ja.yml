@@ -46,6 +46,6 @@ ja:
         url: "URL"
         detail: "イベント詳細"
       request:
-        body: "感想や要望はこちらからお願いします！！"
+        body: "感想または要望"
         status: "ステータス"
         user_id: "ユーザ"
