@@ -4,11 +4,11 @@ ja:
       invalid_date: "無効な日付です"
       invalid_time: "無効な時間です"
       invalid_datetime: "無効な日時です"
-      is_at: "must be at %{restriction}"
-      before: "must be before %{restriction}"
-      on_or_before: "must be on or before %{restriction}"
-      after: "must be after %{restriction}"
-      on_or_after: "must be on or after %{restriction}"
+      is_at: "は %{restriction} である必要があります。"
+      before: "は %{restriction} より前を指定してください。"
+      on_or_before: "は %{restriction} 以前を指定してください。"
+      after: "は %{restriction} より後を指定してください。"
+      on_or_after: "は %{restriction} 以降を指定してください。"
   validates_timeliness:
     error_value_formats:
       date: '%Y-%m-%d'

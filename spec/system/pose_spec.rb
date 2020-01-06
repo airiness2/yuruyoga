@@ -41,7 +41,6 @@ RSpec.feature 'ポーズ機能', type: :system do
     expect(page).to have_content 'ポーズ1'
 
     click_on 'このポーズで日記を書く'
-    expect(page).to have_content 'ポーズ1'
 
     fill_in 'diary_worked_date', with: '2019/12/25'
     fill_in 'diary_title', with: 'ポーズから日記を書く'
