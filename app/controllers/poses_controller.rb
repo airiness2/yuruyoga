@@ -6,10 +6,6 @@ class PosesController < ApplicationController
     @q = Pose.ransack(params[:q])
     @poses = @q.result.order(created_at: :desc)
     @poses = @poses.page(params[:page]).per(10)
-    if params[:para] = "to_pose"
-      @diary = Diary.find(@to_pose.id)
-      binding.pry
-    end
   end
 
   def show; end

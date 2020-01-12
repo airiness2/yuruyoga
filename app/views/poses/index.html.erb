@@ -52,5 +52,9 @@
 
   <%= paginate @poses %>
 
-   <%= link_to '日記作成画面に戻る', new_diary_path(@diary, :para => "from_pose"), class: "btn purple lighten-4" %>
+  <% if pre_referrer %>
+  <div align="center">
+     <%= link_to '日記作成画面に戻る', new_diary_path, class: "btn purple lighten-4" %>
+   </div>
+    <% end %>
 </div>
