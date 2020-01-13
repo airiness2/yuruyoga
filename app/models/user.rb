@@ -20,6 +20,10 @@ class User < ApplicationRecord
 
   has_many :requests, dependent: :destroy
 
+  validates :name, presence: true, length: { maximum: 64 },
+                    format: { with: /\A[a-zA-Z0-9]+\z/ },
+                    uniqueness: true
+
   mount_uploader :avatar, AvatarUploader
 
   def follow!(other_user)
