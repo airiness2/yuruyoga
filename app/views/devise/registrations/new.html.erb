@@ -3,7 +3,7 @@
     <%= render "devise/shared/error_messages", resource: resource %>
 
     <div class="form-group">
-      <%= f.label :name %><br />
+      <%= f.label :name %><em><font size="-1">(英数字のみ)</font></em><br />
       <%= f.text_field :name, class: "form-control" %>
     </div>
 
@@ -20,7 +20,7 @@
     <div class="form-group">
       <%= f.label :password %>
       <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> 文字以上)</em>
+        <em><font size="-1">(<%= @minimum_password_length %> 文字以上)</font></em>
       <% end %><br />
       <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
     </div>

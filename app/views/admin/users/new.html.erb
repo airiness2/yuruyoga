@@ -4,7 +4,7 @@
   <%= form_with(model: @user, url: admin_users_path, local: true ) do |form| %>
     <% if @user.errors.any? %>
       <div id="error_explanation">
-        <h5 class="h5-responsive"><%= pluralize(@user.errors.count, "error") %> が存在しているため、保存出来ません:</h5>
+        <h5 class="h5-responsive"><%= pluralize(@user.errors.count, "つのエラー") %> が存在しているため、保存出来ません:</h5>
         <ul>
           <% @user.errors.full_messages.each do |message| %>
             <li><%= message %></li>
@@ -14,7 +14,7 @@
     <% end %>
 
     <div class="form-group">
-      <%= form.label :name %>
+      <%= form.label :name %><em><font size="-1">(英数字のみ利用可能です)</font></em>
       <%= form.text_field :name, id: :user_name, class: "form-control" %>
     </div>
 
