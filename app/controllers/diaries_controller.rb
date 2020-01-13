@@ -30,7 +30,12 @@ class DiariesController < ApplicationController
     if params[:pose_id]
       @diary.pose_id = params[:pose_id]
     end
-    @to_pose = Diary.new(session[:diary])
+    if params[:p] == 'fp'
+      @diary.worked_date = session[:diary_worked_date]
+      @diary.title = session[:diary_title]
+      @diary.rank = session[:diary_rank]
+      @diary.body = session[:diary_body]
+    end
   end
 
   def create
