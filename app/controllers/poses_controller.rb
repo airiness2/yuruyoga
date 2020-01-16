@@ -6,12 +6,6 @@ class PosesController < ApplicationController
     @q = Pose.ransack(params[:q])
     @poses = @q.result.order(created_at: :desc)
     @poses = @poses.page(params[:page]).per(10)
-    if params[:p] == 'tp'
-      session[:diary_worked_date] = '2020/01/13'
-      session[:diary_title] = 'ポーズから戻るタイトル'
-      session[:diary_rank] = 5
-      session[:diary_body] = 'ポーズから戻る本文'
-    end
   end
 
   def show; end
