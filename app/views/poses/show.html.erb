@@ -26,7 +26,7 @@
       </tr>
       <tr>
         <td colspan="2" align="center">
-          <%= link_to 'このポーズで日記を書く', new_diary_path(:pose_id => params[:id]), target: "parent_window", class: "btn indigo accent-1 mr-3" %>
+          <%= link_to 'このポーズで日記を書く', new_diary_path(:pose_id => params[:id]), target: "parent_window", onClick: "window.close();", class: "btn indigo accent-1 mr-3" %>
           <%= link_to '戻る', poses_path, class: "btn purple lighten-4" %>
         </td>
       </tr>
