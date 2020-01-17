@@ -29,6 +29,7 @@ class DiariesController < ApplicationController
     end
     if params[:pose_id]
       @diary.pose_id = params[:pose_id]
+      #render :closed_and_reloaded, layout: false
     end
   end
 
