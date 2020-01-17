@@ -17,6 +17,12 @@
           return $("<li>").attr("data-value", item.name).data("ui-autocomplete-item", item).append("<a>" + item.name + "</a>").appendTo(ul);
           }
         });
+
+    function disp(url){
+      this.window.name="parent_window";
+   	  window.open(url, "window_name", "scrollbars=yes,resizable=yes,status=yes");
+    }
+
 </script>
 
 <%= form_with(model: diary, local: true, url: choose_new_or_edit_diary ) do |form| %>
@@ -56,7 +62,7 @@
       <% end %>
       <%= form.hidden_field :pose_id, id: :pose_id %>
     <span class="pr-5"></span>
-      <%= link_to 'ポーズ検索はこちら', poses_path, class: "btn  purple lighten-4 btn-sm" %>
+      <%= link_to "ポーズ検索はこちら", poses_path, target: "window_name", onClick: "disp('poses_path')", class: "btn purple lighten-4" %>
     </div>
   </div>
 
