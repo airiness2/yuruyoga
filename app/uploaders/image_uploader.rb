@@ -47,4 +47,8 @@ class ImageUploader < CarrierWave::Uploader::Base
   #   "something.jpg" if original_filename
   # end
   process resize_to_limit: [300, 300]
+
+  def public_id
+    model.id
+  end
 end
