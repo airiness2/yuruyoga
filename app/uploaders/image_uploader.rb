@@ -6,7 +6,7 @@ class ImageUploader < CarrierWave::Uploader::Base
     include Cloudinary::CarrierWave
     CarrierWave.configure do |config|
       config.cache_storage = :file
-      config.user_filename = true
+      config.use_filename = true
     end
   else
     include CarrierWave::MiniMagick
