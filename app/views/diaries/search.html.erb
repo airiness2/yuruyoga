@@ -23,7 +23,11 @@
 
     <p class="m-3"></p>
 
-    <%= check_box_tag :all_user, class: "form-check-input" %>
+    <% if params[:all_user]  %>
+      <%= check_box_tag :all_user, checked = true, class: "form-check-input" %>
+    <% else %>
+      <%= check_box_tag :all_user, class: "form-check-input" %>
+    <% end %>
     <%= f.label :all_user, "自分以外の日記も含める", class: "form-check-label" %>
 
     <p class="m-3"></p>
