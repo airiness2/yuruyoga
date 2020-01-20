@@ -1,5 +1,8 @@
 <div class="container">
-  <h5 class="h5-responsive"><%= t('view.user') %><%= t('view.index') %></h5>
+  <h5 class="h5-responsive" align="center"><%= t('view.user') %><%= t('view.index') %></h5>
+  <div align="right">
+    <%= link_to 'ユーザ新規作成', new_admin_user_path, class: "btn indigo accent-1" %>
+  </div>
 
   <table class="table table-striped">
     <thead>
@@ -30,7 +33,6 @@
   <p class="m-5"></p>
 
   <div align="center">
-    <%= link_to 'ユーザ新規作成', new_admin_user_path, class: "btn indigo accent-1" %>
     <%= link_to '戻る', admin_index_path, class: "btn purple lighten-4" %>
   </div>
 </div>
