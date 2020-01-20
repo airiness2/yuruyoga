@@ -107,25 +107,25 @@ RSpec.feature '管理画面機能', type: :system do
 
   scenario 'ユーザ作成のテスト' do
     visit new_admin_user_path
-    fill_in '名前', with: 'テストユーザ'
-    fill_in 'メールアドレス', with: 'test5@example.com'
+    fill_in '名前', with: 'createtestuser'
+    fill_in 'メールアドレス', with: 'createtestuser@example.com'
     fill_in 'user_password', with: 'password'
     click_on '登録する'
-    expect(page).to have_content 'テストユーザ'
+    expect(page).to have_content 'createtestuser'
   end
 
   scenario 'ユーザ編集のテスト' do
-    FactoryBot.create(:user, email: 'other@example.com')
+    FactoryBot.create(:user, name: 'beforeother', email: 'other@example.com')
     visit admin_users_path
     expect(page).to have_content 'other@example.com'
     all('td')[-2].click_link '編集'
-    fill_in 'user_name', with: 'other_user'
+    fill_in 'user_name', with: 'otheruser'
     click_on '更新する'
-    expect(page).to have_content 'other_user'
+    expect(page).to have_content 'otheruser'
   end
 
   scenario 'ユーザ削除のテスト' do
-    FactoryBot.create(:user, email: 'other2@example.com')
+    FactoryBot.create(:user, name: 'other2', email: 'other2@example.com')
     visit admin_users_path
     expect(page).to have_content 'other2@example.com'
     all('td')[-1].click_link '削除'

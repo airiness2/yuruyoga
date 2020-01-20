@@ -18,7 +18,7 @@ RSpec.feature '要望作成機能', type: :system do
   end
 
   scenario '管理者は要望作成出来ないのテスト' do
-    FactoryBot.create(:user, :admin_user, email: 'admin@example.com')
+    FactoryBot.create(:user, :admin_user, name: 'admin', email: 'admin@example.com')
     visit destroy_user_session_path
     visit user_session_path
     fill_in 'user_email', with: 'admin@example.com'

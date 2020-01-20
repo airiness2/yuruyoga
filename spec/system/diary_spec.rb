@@ -58,7 +58,7 @@ RSpec.feature '日記作成機能', type: :system do
   end
 
   scenario '他の人の日記を削除出来ないのテスト' do
-    FactoryBot.create(:user, email: 'other@example.com')
+    FactoryBot.create(:user, name: 'other', email: 'other@example.com')
 
     visit destroy_user_session_path
     visit user_session_path
