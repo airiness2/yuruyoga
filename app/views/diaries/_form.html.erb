@@ -2,8 +2,8 @@
     $(function() {
     $('#pose_auto_complete').autocomplete({
       source: "/poses/auto_complete.json",
-      delay: 500,
-      minLength: 2,
+      delay: 300,
+      minLength: 0,
       focus: function(event, ui) {
         $("#pose_auto_complete").val(ui.item.name);
         return false;
@@ -49,7 +49,7 @@
   </div>
 
   <div class="form-group">
-    <%= form.label :pose %>
+    <%= form.label :pose %>&nbsp;&nbsp;<em>(ポーズ名の一部を入力し、リストからポーズ名を選択してください。)</em>
     <div class="form-inline">
       <% if params[:pose_id] %>
         <%= form.text_field :pose_name, id: :pose_auto_complete, class: "form-control w-75", value: @diary.pose.name %>
