@@ -31,7 +31,7 @@
     <div class="form-inline">
       <div class="form-group">
         <%= form.label :avatar %>
-        <%= image_tag(@user.avatar.url) if @user.avatar && @user.avatar.url %>
+        <%= image_tag(@user.avatar_url) if @user.avatar && @user.avatar.url %>
         <%= form.file_field :avatar, class: "form-control-file" %>
         <%= form.hidden_field :avatar_cache %>
       </div>
