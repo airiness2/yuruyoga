@@ -6,6 +6,11 @@ class AvatarUploader < CarrierWave::Uploader::Base
 
   if Rails.env.production?
     include Cloudinary::CarrierWave
+
+      def public_id
+        return model.short_name
+      end
+
   else
 
     # Choose what kind of storage to use for this uploader:
