@@ -3,7 +3,10 @@ class ImageUploader < CarrierWave::Uploader::Base
   # include CarrierWave::RMagick
 
   if Rails.env.production?
-    include Cloudinary::CarrierWave if Rails.env.production?
+    include Cloudinary::CarrierWave
+    CarrierWave.configure do |config|
+      config.cache_storage = :file
+    end
   else
     include CarrierWave::MiniMagick
 
