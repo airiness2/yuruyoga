@@ -18,11 +18,17 @@
           }
         });
 
-    function disp(url){
-      this.window.name="parent_window";
-   	  window.open(url, "window_name", "scrollbars=yes,resizable=yes,status=yes");
-    }
 
+    function toPose(url){
+      const date = document.getElementById("diary_worked_date").value
+      const title = document.getElementById("diary_title").value
+      const body = document.getElementById("diary_body").value
+      const rank = document.getElementById("diary_rank").value
+
+      this.window.name="parent_window";
+
+   	  window.open(url + `?d=${date}&t=${title}&b=${body}&r=${rank}`, "window_name", "scrollbars=yes,resizable=yes,status=yes");
+    }
 </script>
 
 <%= form_with(model: diary, local: true, url: choose_new_or_edit_diary ) do |form| %>
@@ -62,13 +68,15 @@
       <% end %>
       <%= form.hidden_field :pose_id, id: :pose_id %>
     <span class="pr-5"></span>
-      <%= link_to "ポーズ検索はこちら", poses_path, target: "window_name", onClick: "disp('poses_path')", class: "btn purple lighten-4" %>
+      <%= button_tag type: 'button', target: "window_name", onClick: "toPose('#{poses_path}')", class: "btn purple lighten-4" do %>
+        <%= 'ポーズ検索はこちら' %>
+      <% end %>
     </div>
   </div>
 
   <div class="form-group">
     <%= form.label :rank %><em><font size="-1">(10が最大)</font></em>
-    <%= form.select :rank, [[1,1],[2,2],[3,3],[4,4],[5,5],[6,6],[7,7],[8,8],[9,9],[10,10]], {}, class: "form-control" %>
+    <%= form.select :rank, [[1,1],[2,2],[3,3],[4,4],[5,5],[6,6],[7,7],[8,8],[9,9],[10,10]], {}, id: :diary_rank, class: "form-control" %>
   </div>
 
   <div class="form-group">
@@ -84,7 +92,7 @@
       <% else %>
         <%= image_tag(@diary.image.url) if @diary.image && @diary.image.url %>
       <% end %>
-      <%= form.file_field :image, class: "form-control-file" %>
+      <%= form.file_field :image, id: :diary_image, class: "form-control-file" %>
       <%= form.hidden_field :image_cache %>
     </div>
     <% if @diary.image && @diary.image.url %>
@@ -101,10 +109,10 @@
   <br>
   <% Tag.all.each do |tag| %>
     <% if action_name == "new" || action_name == "create" %>
-      <%= form.check_box :tag_ids, { multiple: true, checked: tag[:checked], disabled: tag[:disabled], include_hidden: false}, tag[:id], class: "form-check-input" %>
+      <%= form.check_box :tag_ids, { multiple: true, checked: tag[:checked], disabled: tag[:disabled], include_hidden: false}, tag[:id], id: :diary_tags, class: "form-check-input" %>
       <label style="background-color: #B2E2EC"><%= tag.name %></label>
     <% elsif action_name == "edit" || action_name == "update" || action_name == "confirm" %>
-      <%= form.check_box :tag_ids, { multiple: true, checked: @diary.tag_ids.include?(tag.id), disabled: tag[:disabled], include_hidden: false}, tag[:id], class: "form-check-input" %>
+      <%= form.check_box :tag_ids, { multiple: true, checked: @diary.tag_ids.include?(tag.id), disabled: tag[:disabled], include_hidden: false}, tag[:id], id: :diary_tags, class: "form-check-input" %>
       <label style="background-color: #B2E2EC"><%= tag.name %></label>
     <% end %>
   <% end %>

@@ -6,6 +6,11 @@ class PosesController < ApplicationController
     @q = Pose.ransack(params[:q])
     @poses = @q.result.order(created_at: :desc)
     @poses = @poses.page(params[:page]).per(10)
+
+    session[:title] = params[:t]
+    session[:date] = params[:d]
+    session[:body] = params[:b]
+    session[:rank] = params[:r]
   end
 
   def show; end

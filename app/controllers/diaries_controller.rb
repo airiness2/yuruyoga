@@ -29,6 +29,10 @@ class DiariesController < ApplicationController
     end
     if params[:pose_id]
       @diary.pose_id = params[:pose_id]
+      @diary.title = session[:title]
+      @diary.worked_date = session[:date]
+      @diary.body = session[:body]
+      @diary.rank = session[:rank]
     end
   end
 
