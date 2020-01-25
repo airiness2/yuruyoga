@@ -37,8 +37,9 @@ RSpec.feature 'ポーズ機能', type: :system do
   xscenario 'ポーズから日記を書くテスト' do
     visit poses_path
 
-    find('a', text: '日記作成').click
-    click_on '日記作成'
+#    find('a', text: '日記を書く').click
+#    click_on '日記を書く'
+    all('a')[-1].click('日記を書く')
 
     fill_in 'diary_worked_date', with: '2019/12/25'
     fill_in 'diary_title', with: 'ポーズから日記を書く'
