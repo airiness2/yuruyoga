@@ -34,12 +34,12 @@ RSpec.feature 'ポーズ機能', type: :system do
     expect(page).to have_content 'ポーズ1-1'
   end
 
-  xscenario 'ポーズから日記を書くテスト' do
+  scenario 'ポーズから日記を書くテスト' do
     visit poses_path
 
-#    find('a', text: '日記を書く').click
-#    click_on '日記を書く'
-    all('a')[-1].click('日記を書く')
+    all('a', text: '日記を書く')[1].click
+
+    switch_to_window(windows.last)
 
     fill_in 'diary_worked_date', with: '2019/12/25'
     fill_in 'diary_title', with: 'ポーズから日記を書く'
