@@ -12,7 +12,7 @@
       <table class="table" width="100%">
         <tr>
           <td><%= t('view.event_hold_date') %></td>
-          <td><%= @event.hold_date %></td>
+          <td><%= @event.hold_date.to_s(:event_date) %></td>
         </tr>
 
         <tr>
