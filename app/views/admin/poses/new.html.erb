@@ -47,7 +47,11 @@
 
     <div class="form-group">
       <%= form.label :image %>
-      <%= image_tag(@pose.image.url) if @pose.image && @pose.image.url %>
+      <% if Rails.env.production? %>
+        <%= @pose.image if @pose.image && @pose.image.url %>
+      <% else %>
+        <%= image_tag(@pose.image_url) if @pose.image && @pose.image.url %>
+      <% end %>
       <%= form.file_field :image, class: "form-control-file" %>
       <%= form.hidden_field :image_cache %>
     </div><br>

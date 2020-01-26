@@ -1,7 +1,7 @@
 class Diary < ApplicationRecord
   validates :worked_date, presence: true
   validates :rank, presence: true
-  validates_date :worked_date, :before => lambda { Date.today }
+  validates_date :worked_date, :on_or_before => lambda { Date.today }
 
   belongs_to :pose
   belongs_to :user

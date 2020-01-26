@@ -1,5 +1,10 @@
 <div class="container">
-  <h5 class="h5-responsive"><%= t('view.pose') %><%= t('view.index') %></h5>
+  <h5 class="h5-responsive" align="center"><%= t('view.pose') %><%= t('view.index') %></h5>
+  <div align="right">
+    <%= link_to 'ポーズ新規作成', new_admin_pose_path, class: "btn indigo accent-1 mr-3" %>
+  </div>
+
+  <p class="p-2"></p>
 
   <%= search_form_for @q, url: admin_poses_path do |f| %>
     <div class="form-inline">
@@ -54,7 +59,6 @@
   <p class="m-5"></p>
 
   <div align="center">
-    <%= link_to 'ポーズ新規作成', new_admin_pose_path, class: "btn indigo accent-1 mr-3" %>
     <%= link_to '戻る', admin_index_path, class: "btn purple lighten-4"  %>
   </div>
 </div>

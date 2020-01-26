@@ -34,7 +34,7 @@
         <th><%= t('view.pose_name') %></th>
         <th><%= t('view.pose_name_sans') %></th>
         <th><%= t('view.pose_detail') %></th>
-        <th></th>
+        <th colspan="2"></th>
       </tr>
     </thead>
 
@@ -45,6 +45,7 @@
           <td><%= pose.sans_name %></td>
           <td><%= pose.detail %></td>
           <td><%= link_to '詳細', pose_path(pose) %></td>
+          <td><%= link_to '日記を書く', new_diary_path(:pose_id => pose.id), target: "parent_window", onClick: "window.close();" %></td>
         </tr>
       <% end %>
     </tbody>

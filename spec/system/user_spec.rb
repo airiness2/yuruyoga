@@ -19,13 +19,13 @@ RSpec.feature 'ユーザ機能', type: :system do
     visit root_path
     click_on 'プロフィール'
     click_on 'プロフィールを更新する'
-    fill_in 'user_name', with: 'change_name_to_test2'
+    fill_in 'user_name', with: 'changenametest2'
     click_on '更新する'
-    expect(page).to have_content 'change_name_to_test2'
+    expect(page).to have_content 'changenametest2'
   end
 
   scenario '他のユーザのフォローボタンのテスト' do
-    user = FactoryBot.create(:user, email: 'other@example.com')
+    user = FactoryBot.create(:user, name: 'other', email: 'other@example.com')
     visit user_path(user.id)
     expect(page).to have_selector(:link_or_button, 'フォロー')
     click_on 'フォロー'

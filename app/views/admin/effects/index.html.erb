@@ -1,7 +1,10 @@
 <div class="container">
 
   <h5 class="h5-responsive" align="center"><%= t('view.effect') %><%= t('view.index') %></h5>
-
+  <div align="right">
+    <%= link_to '効果新規作成', new_admin_effect_path, class: "btn indigo accent-1 mr-3" %>
+  </div>
+  
   <table class="table table-striped">
     <thead>
       <tr>
@@ -26,7 +29,6 @@
   <p class="m-5"></p>
 
   <div align="center">
-    <%= link_to '効果新規作成', new_admin_effect_path, class: "btn indigo accent-1 mr-3" %>
     <%= link_to '戻る', admin_index_path, class: "btn purple lighten-4" %>
   </div>
 </div>
