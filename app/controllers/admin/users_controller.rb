@@ -28,6 +28,7 @@ class Admin::UsersController < ApplicationController
   def edit; end
 
   def update
+    @user.skip_confirmation!
     if @user.update_without_current_password(user_params)
       redirect_to admin_user_path(@user), notice: 'ユーザを編集しました！'
     else

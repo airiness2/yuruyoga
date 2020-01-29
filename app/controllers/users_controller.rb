@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     elsif @user.update_without_current_password(user_params)
       redirect_to user_path(@user), notice: 'プロフィールを更新しました！'
     else
-      render 'edit'
+      redirect_to edit_user_path(@user.id), notice: 'お名前には英数字のみ利用可能です'
     end
   end
 

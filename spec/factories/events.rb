@@ -6,6 +6,9 @@ FactoryBot.define do
     url { 'http://localhost' }
     detail { 'イベント詳細1' }
     user_id { 1 }
-    user
+
+    to_create do |instance|
+      instance.save validate: false
+    end
   end
 end

@@ -6,7 +6,7 @@ RSpec.describe Event, type: :model do
     event = Event.create(
       name: 'イベント1',
       detail: 'イベント詳細1',
-      hold_date: '2019/11/30 15:00',
+      hold_date:  Time.now.tomorrow.to_date,
       place: '東京',
       user_id: user.id,
       url: nil

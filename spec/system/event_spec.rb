@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.feature 'イベント作成機能', type: :system do
   background do
-    FactoryBot.create(:event)
+    @user = FactoryBot.create(:user)
+    FactoryBot.create(:event, user_id: @user.id)
     visit user_session_path
     fill_in 'user_email', with: 'test@example.com'
     fill_in 'user_password', with: 'password'
@@ -55,14 +56,9 @@ RSpec.feature 'イベント作成機能', type: :system do
   end
 
   scenario '過去のイベントが表示されないのテスト' do
-    visit new_event_path
-    fill_in 'event_hold_date', with: '2019/01/01 15:00'
-    fill_in 'event_name', with: '過去イベント'
-    fill_in 'event_detail', with: '過去イベント詳細'
-    fill_in 'event_place', with: '渋谷'
-    fill_in 'event_url', with: 'http://localhost/'
-    click_on '登録する'
-    click_on '投稿する'
+    FactoryBot.create(:event, hold_date: '2019/01/01 15:00', name: '過去イベント', user_id: @user.id)
+
+    visit events_path
     expect(page).not_to have_content '過去イベント'
     check 'all_events'
     click_on '表示'
