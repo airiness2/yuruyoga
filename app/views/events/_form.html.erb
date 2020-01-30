@@ -13,7 +13,7 @@
   <div class="form-group">
     <%= form.label :hold_date %>
     <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
-      <%= form.text_field :hold_date, id: :event_hold_date, class: "form-control datepicker", data: { target: '#event_hold_date'}, placeholder: "年/月/日 時:分"%>
+      <%= form.text_field :hold_date, id: :event_hold_date, class: "form-control datetimepicker-input", data: { target: '#event_hold_date'}, placeholder: "年/月/日 時:分"%>
       <div class="input-group-append" data-target="#event_hold_date" data-toggle="datetimepicker">
         <div class="input-group-text"><i class="fa fa-calendar"></i></div>
       </div>
@@ -21,7 +21,10 @@
    </div>
    <script type="text/javascript">
      $(function () {
-          $('#event_hold_date').datetimepicker();
+          $('#event_hold_date').datetimepicker({
+            autoclose: true,
+            sideBySide: true,
+                });
      });
    </script>
 
