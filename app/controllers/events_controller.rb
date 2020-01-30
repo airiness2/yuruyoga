@@ -6,7 +6,7 @@ class EventsController < ApplicationController
   def index
     @events = Event.all.page(params[:page]).per(10)
     @q = Event.ransack(params[:q])
-    @events = @q.result.order(hold_date: :asc)
+    @events = @q.result.order(hold_date: :desc)
     if params[:all_events]
       @events = @events.page(params[:page]).per(10)
     else
