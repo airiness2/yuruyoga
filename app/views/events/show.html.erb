@@ -23,7 +23,9 @@
 
       <tr>
         <th><%= t('view.event_url') %></th>
-        <td><%= @event.url %></td>
+        <td>
+          <%= link_to @event.url, @event.url, target: "_blank" %>
+        </td>
       </tr>
 
       <tr>
