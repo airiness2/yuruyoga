@@ -40,11 +40,7 @@
 
         <tr>
           <td><%= t('view.image') %></td>
-          <% if Rails.env.production? %>
-            <td><%= @diary.image if @diary.image && @diary.image.url %></td>
-          <% else %>
-            <td><%= image_tag(@diary.image.url) if @diary.image && @diary.image.url %></td>
-          <% end %>
+          <td><%= image_tag(@diary.image.url) if @diary.image && @diary.image.url %></td>
         </tr>
 
         <tr>
