@@ -87,11 +87,7 @@
   <div class="form-inline">
     <div class="form-group">
       <%= form.label :image %>
-      <% if Rails.env.production? %>
-        <%= @diary.image if @diary.image && @diary.image.url %>
-      <% else %>
-        <%= image_tag(@diary.image.url) if @diary.image && @diary.image.url %>
-      <% end %>
+      <%= image_tag(@diary.image.url) if @diary.image && @diary.image.url %>
       <%= form.file_field :image, id: :diary_image, class: "form-control-file" %>
       <%= form.hidden_field :image_cache %>
     </div>
