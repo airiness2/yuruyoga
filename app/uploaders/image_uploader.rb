@@ -8,8 +8,7 @@ class ImageUploader < CarrierWave::Uploader::Base
     CarrierWave.configure do |config|
 #      config.cache_storage = :file
 #      config.cache_dir = "tmp/uploads"
-       config.root = Rails.root.join('tmp') # adding these...
-       config.cache_dir = 'carrierwave' # ...two lines
+      config.cache_dir = "#{Rails.root}/tmp/uploads"
     end
   else
 
@@ -24,7 +23,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   def cache_dir
-    "tmp/uploads"
+    "#{Rails.root}/tmp/uploads"
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
