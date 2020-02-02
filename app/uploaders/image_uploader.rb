@@ -5,10 +5,12 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   if Rails.env.production?
     include Cloudinary::CarrierWave
-#    CarrierWave.configure do |config|
+    CarrierWave.configure do |config|
 #      config.cache_storage = :file
 #      config.cache_dir = "tmp/uploads"
-#    end
+       config.root = Rails.root.join('tmp') # adding these...
+       config.cache_dir = 'carrierwave' # ...two lines
+    end
   else
 
     # Choose what kind of storage to use for this uploader:
