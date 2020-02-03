@@ -3,18 +3,13 @@ class ImageUploader < CarrierWave::Uploader::Base
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
 
-#  if Rails.env.production?
-#    include Cloudinary::CarrierWave
-#    CarrierWave.configure do |config|
-#      config.cache_storage = :file
-#      config.cache_dir = "#{Rails.root}/tmp/cache"
-#    end
-#  else
-
+  if Rails.env.production?
+    include Cloudinary::CarrierWave
+  else
     # Choose what kind of storage to use for this uploader:
     storage :file
     # storage :fog
-#  end
+  end
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
@@ -57,4 +52,13 @@ class ImageUploader < CarrierWave::Uploader::Base
   #   "something.jpg" if original_filename
   # end
   process resize_to_limit: [300, 300]
+
+  def cloudinary_or_cache_url
+    if cached?
+      "/tmp/cache/" + cache_name
+    else
+      url
+    end
+  end
+
 end

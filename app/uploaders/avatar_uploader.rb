@@ -6,9 +6,6 @@ class AvatarUploader < CarrierWave::Uploader::Base
 
   if Rails.env.production?
     include Cloudinary::CarrierWave
-    CarrierWave.configure do |config|
-      config.cache_storage = :file
-    end
   else
 
     # Choose what kind of storage to use for this uploader:
@@ -23,7 +20,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   end
 
   def cache_dir
-    "uploads/cache/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+    "tmp/uploads/#{model.id}"
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:

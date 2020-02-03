@@ -86,9 +86,8 @@
 
   <div class="form-inline">
     <div class="form-group">
-      <%= form.label :image %>
+      <%= form.label :image %><span style="margin: 5px">&nbsp;</span>
       <%= image_tag(@diary.image.url) if @diary.image && @diary.image.url %>
-      <%= @diary.image.url %>
       <%= form.file_field :image, id: :diary_image, class: "form-control-file" %>
       <%= form.hidden_field :image_cache %>
     </div>

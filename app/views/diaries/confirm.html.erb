@@ -40,8 +40,9 @@
 
         <tr>
           <td><%= t('view.image') %></td>
-          <td><%= image_tag(@diary.image.url) if @diary.image && @diary.image.url %></td>
-          <td><%= @diary.image.url %></td>
+          <td>
+            <%= image_tag(@diary.image.cloudinary_or_cache_url) if @diary.image && @diary.image.url %>
+          </td>
         </tr>
 
         <tr>
