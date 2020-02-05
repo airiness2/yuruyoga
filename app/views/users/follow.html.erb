@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="col-12">
+    <div style="float: left;" class="col-5">
+      <h6 class="h6-responsive" align="center">フォロワーの人</h6>
+      <hr width="100%" style="height: 6px; border: 0; box-shadow: inset 0 12px 12px -12px rgba(0,0,0,0.5)">
+        <% if @followers %>
+          <% @followers.each do |follower| %>
+            <font size="-2"><i class="fa fa-circle-o mr-3"></i></font><%= link_to follower.name, user_path(follower) %><br>
+          <% end %>
+        <% end %>
+    </div>
+    <div class="col-2"></div>
+    <div style="float: right;" class="col-5">
+      <h6 class="h6-responsive" align="center">フォローしている人</h6>
+      <hr width="100%" style="height: 6px; border: 0; box-shadow: inset 0 12px 12px -12px rgba(0,0,0,0.5)">
+        <% if @following %>
+          <% @following.each do |follow| %>
+            <font size="-2"><i class="fa fa-circle-o mr-3"></i></font><%= link_to follow.name, user_path(follow) %><br>
+          <% end %>
+        <% end %>
+    </div>
+  </div>
+  <p style="margin: 80px">&nbsp;</p>
+  <div align="center">
+    <%= link_to '戻る', user_path(@user), class: "btn purple lighten-4" %>
+  </div>
+</div>
