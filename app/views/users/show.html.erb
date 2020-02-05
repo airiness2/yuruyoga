@@ -14,13 +14,13 @@
         <td><%= @user.name %></td>
       </tr>
       <tr>
-        <td>フォロワー数
-          <%= @user.followers.count %>
+        <td><%= link_to 'フォロワー数', follow_user_path(@user) %>&nbsp;&nbsp;
+          <%= link_to @user.followers.count, follow_user_path(@user) %>
         </td>
       </tr>
       <tr>
-        <td>フォローしている数
-          <%= @user.following.count %>
+        <td><%= link_to 'フォローしている数', follow_user_path(@user) %>&nbsp;&nbsp;
+          <%= link_to @user.following.count, follow_user_path(@user) %>
         </td>
       </tr>
       <tr>

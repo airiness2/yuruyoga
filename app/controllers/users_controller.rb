@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update]
+  before_action :set_user, only: [:show, :edit, :update, :follow]
   before_action :authenticate_user!
 
   def show; end
@@ -15,6 +15,12 @@ class UsersController < ApplicationController
     else
       redirect_to edit_user_path(@user.id), notice: 'お名前には英数字のみ利用可能です'
     end
+  end
+
+  def follow
+    @following = User.find(@user.following_ids)
+    @followers = User.find(@user.follower_ids)
+    render 'follow'
   end
 
   private
