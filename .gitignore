@@ -30,6 +30,7 @@
 .DS_Store
 
 /public/uploads/
+/public/tmp/
 
 /.rubocop.yml
 /.rubocop_todo.yml

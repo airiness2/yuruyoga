@@ -31,11 +31,7 @@
     <div class="form-inline">
       <div class="form-group">
         <%= form.label :avatar %>
-        <% if Rails.env.production? %>
-          <%= @user.avatar if @user.avatar && @user.avatar.url %>
-        <% else %>
-          <%= image_tag(@user.avatar_url) if @user.avatar && @user.avatar.url %>
-        <% end %>
+        <%= image_tag(@user.avatar_url) if @user.avatar && @user.avatar.url %>
         <%= form.file_field :avatar, class: "form-control-file" %>
         <%= form.hidden_field :avatar_cache %>
       </div>
