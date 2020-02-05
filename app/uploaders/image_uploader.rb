@@ -2,9 +2,13 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
-#  include Cloudinary::CarrierWave
-
-#  storage :file
+  if Rails.env.production?
+    include Cloudinary::CarrierWave
+    CarrierWave.configure do |config|
+      config.cache_storage = :file
+    end
+  else
+  storage :file
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
@@ -38,6 +42,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
+end
   def extension_whitelist
     %w(jpg jpeg gif png)
   end
@@ -48,13 +53,4 @@ class ImageUploader < CarrierWave::Uploader::Base
   #   "something.jpg" if original_filename
   # end
   process resize_to_limit: [300, 300]
-
-  def cloudinary_or_cache_url
-    if cached?
-      "/tmp/cache/" + cache_name
-    else
-      url
-    end
-  end
-
 end

@@ -5,6 +5,9 @@ class PoseImageUploader < CarrierWave::Uploader::Base
 
   if Rails.env.production?
     include Cloudinary::CarrierWave
+    CarrierWave.configure do |config|
+      config.cache_storage = :file
+    end
   else
     # Choose what kind of storage to use for this uploader:
     storage :file
