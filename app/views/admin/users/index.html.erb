@@ -1,3 +1,4 @@
+<%= javascript_include_tag 'link.js' %>
 <div class="container">
   <h5 class="h5-responsive" align="center"><%= t('view.user') %><%= t('view.index') %></h5>
   <div align="right">
@@ -10,17 +11,16 @@
         <th><%= t('view.user_name') %></th>
         <th><%= t('view.email') %></th>
         <th><%= t('view.admin') %></th>
-        <th colspan="3"></th>
+        <th colspan="2"></th>
       </tr>
     </thead>
 
     <tbody>
       <% @users.each do |user| %>
-        <tr>
+        <tr data-link="<%= admin_user_path(user) %>" style="cursor: pointer;">
           <td><%= user.name %></td>
           <td><%= user.email %></td>
           <td><%= human_boolean(user.admin) %></td>
-          <td><%= link_to '詳細', admin_user_path(user) %></td>
           <td><%= link_to '編集', edit_admin_user_path(user) %></td>
           <td><%= link_to '削除', admin_user_path(user), method: :delete, data: { confirm: '本当に削除しますか?' } %></td>
         </tr>

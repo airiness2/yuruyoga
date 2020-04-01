@@ -1,3 +1,4 @@
+<%= javascript_include_tag 'link.js' %>
 <div class="container">
   <h5 class="h5-responsive" align="center"><%= t('view.pose') %><%= t('view.index') %></h5>
   <div align="right">
@@ -38,15 +39,14 @@
       <tr>
         <th><%= t('view.pose_name') %></th>
         <th><%= t('view.pose_name_sans') %></th>
-        <th colspan="3"></th>
+        <th colspan="2"></th>
       </tr>
     </thead>
     <tbody>
       <% @poses.each do |pose| %>
-        <tr>
+        <tr data-link="<%= admin_pose_path(pose) %>" style="cursor: pointer;">
           <td><%= pose.name %></td>
           <td><%= pose.sans_name %></td>
-          <td><%= link_to '詳細', admin_pose_path(pose) %></td>
           <td><%= link_to '編集', edit_admin_pose_path(pose) %></td>
           <td><%= link_to '削除', admin_pose_path(pose), method: :delete, data: { confirm: '本当に削除しますか?' } %></td>
         </tr>

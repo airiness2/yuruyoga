@@ -1,3 +1,4 @@
+<%= javascript_include_tag 'link.js' %>
 <div class="container">
   <h5 class="h5-responsive" align="center"><%= t('view.event') %><%= t('view.index') %></h5>
 
@@ -20,18 +21,17 @@
         <th><%= t('view.event_name') %></th>
         <th><%= t('view.event_place') %></th>
         <th><%= t('view.event_user') %></th>
-        <th colspan="3"></th>
+        <th colspan="2"></th>
       </tr>
     </thead>
 
     <tbody>
       <% @events.each do |event| %>
-        <tr>
+        <tr data-link="<%= event_path(event) %>" style="cursor: pointer;">
           <td><%= event.hold_date.to_s(:event_date) %></td>
           <td><%= event.name %></td>
           <td><%= event.place %></td>
           <td><%= event.user.name %></td>
-          <td><%= link_to '詳細', event_path(event) %></td>
           <% if event.user == current_user %>
             <td><%= link_to '編集', edit_event_path(event) %></td>
             <td><%= link_to '削除', event_path(event), method: :delete, data: { confirm: '本当に削除しますか?' } %></td>
