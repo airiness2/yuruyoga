@@ -1,5 +1,5 @@
+<%= javascript_include_tag 'link.js' %>
 <div class="container">
-
   <h5 class="h5-responsive"><%= t('view.request_body') %><%= t('view.index') %></h5>
     <%= search_form_for @q, url: admin_requests_path do |f| %>
       <div class="form-inline">
@@ -17,17 +17,16 @@
         <th><%= t('view.request_body') %></th>
         <th><%= t('view.user_name') %></th>
         <th><%= t('view.request_status') %></th>
-        <th colspan="2"></th>
+        <th colspan="1"></th>
       </tr>
     </thead>
 
     <tbody>
       <% @requests.each do |request| %>
-        <tr>
+        <tr data-link="<%= admin_request_path(request) %>" style="cursor: pointer;">
           <td><%= request.body %></td>
           <td><%= request.user.name %></td>
           <td><%= request.status %></td>
-          <td><%= link_to '詳細', admin_request_path(request) %></td>
           <td><%= link_to '編集', edit_admin_request_path(request) %></td>
         </tr>
       <% end %>

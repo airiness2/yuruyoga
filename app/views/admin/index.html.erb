@@ -1,13 +1,14 @@
+<%= javascript_include_tag 'link.js' %>
 <div class="container">
   <h5 class="h5-responsive" align="center"><%= t('view.request_body') %></h5>
 
   <table class="table table-hover table-sm">
     <tbody>
       <% @requests.each do |request| %>
-        <tr>
-          <td><%= link_to request.body, admin_request_path(request) %></td>
-          <td><%= link_to request.user.name, admin_request_path(request) %></td>
-          <td><%= link_to request.status, admin_request_path(request) %></td>
+        <tr data-link="<%= admin_request_path(request) %>" style="cursor: pointer;">
+          <td><%= request.body %></td>
+          <td><%= request.user.name %></td>
+          <td><%= request.status %></td>
         </tr>
       <% end %>
     </tbody>
@@ -32,9 +33,9 @@
 
         <tbody>
           <% @poses.each do |pose| %>
-            <tr>
-              <td><%= link_to pose.name, admin_pose_path(pose) %></td>
-              <td><%= link_to pose.sans_name, admin_pose_path(pose) %></td>
+            <tr data-link="<%= admin_pose_path(pose) %>" style="cursor: pointer;">
+              <td><%= pose.name %></td>
+              <td><%= pose.sans_name %></td>
             </tr>
           <% end %>
         </tbody>
@@ -58,10 +59,10 @@
 
         <tbody>
           <% @users.each do |user| %>
-            <tr>
-              <td><%= link_to user.name, admin_user_path(user) %></td>
-              <td><%= link_to user.email, admin_user_path(user) %></td>
-              <td><%= link_to human_boolean(user.admin), admin_user_path(user) %></td>
+            <tr data-link="<%= admin_user_path(user) %>" style="cursor: pointer;">
+              <td><%= user.name %></td>
+              <td><%= user.email %></td>
+              <td><%= human_boolean(user.admin) %></td>
             </tr>
           <% end %>
         </tbody>
@@ -82,8 +83,8 @@
       <table class="table table-hover table-sm">
         <tbody>
           <% @effects.each do |effect| %>
-            <tr>
-              <td><%= link_to effect.name, edit_admin_effect_path(effect) %></td>
+            <tr data-link="<%= edit_admin_effect_path(effect) %>" style="cursor: pointer;">
+              <td><%= effect.name %></td>
             </tr>
           <% end %>
         </tbody>
@@ -100,8 +101,8 @@
 
         <tbody>
           <% @tags.each do |tag| %>
-            <tr>
-              <td><%= link_to tag.name, edit_admin_tag_path(tag) %></td>
+            <tr data-link="<%= edit_admin_tag_path(tag) %>" style="cursor: pointer;">
+              <td><%= tag.name %></td>
             </tr>
           <% end %>
         </tbody>

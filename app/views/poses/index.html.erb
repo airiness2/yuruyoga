@@ -1,3 +1,4 @@
+<%= javascript_include_tag 'link.js' %>
 <div class="container">
   <h5 class="h5-responsive"><%= t('view.pose')%><%= t('view.index') %></h5>
 
@@ -34,17 +35,16 @@
         <th><%= t('view.pose_name') %></th>
         <th><%= t('view.pose_name_sans') %></th>
         <th><%= t('view.pose_detail') %></th>
-        <th colspan="2"></th>
+        <th colspan="1"></th>
       </tr>
     </thead>
 
     <tbody>
       <% @poses.each do |pose| %>
-        <tr>
+        <tr data-link="<%= pose_path(pose) %>" style="cursor: pointer;">
           <td><%= pose.name %></td>
           <td><%= pose.sans_name %></td>
           <td><%= pose.detail %></td>
-          <td><%= link_to '詳細', pose_path(pose) %></td>
           <td><%= link_to '日記を書く', new_diary_path(:pose_id => pose.id), target: "parent_window", onClick: "window.close();" %></td>
         </tr>
       <% end %>
